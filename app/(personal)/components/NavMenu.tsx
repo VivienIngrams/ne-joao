@@ -28,23 +28,43 @@ const NavMenu = () => {
                 Oeuvres
               </Link>
               <Link
-                href="/livres"
+                href="/posts"
                 className="hover:bg-white/10 px-3 py-2  text-md  "
               >
-                Livres
+                Oeuvres
               </Link>
+              <Link
+                href="/posts"
+                className="hover:bg-white/10 px-3 py-2  text-md  "
+              >
+                Oeuvres
+              </Link>
+              <Link
+                href="/posts"
+                className="hover:bg-white/10 px-3 py-2  text-md  "
+              >
+                Oeuvres
+              </Link>
+              <Link
+                href="/posts"
+                className="hover:bg-white/10 px-3 py-2  text-md  "
+              >
+                Oeuvres
+              </Link>
+              <Link
+                href="/posts"
+                className="hover:bg-white/10 px-3 py-2  text-md  "
+              >
+                Oeuvres
+              </Link>
+              
               <Link
                 href="/expositions"
                 className="hover:bg-white/10 px-3 py-2  text-md  "
               >
                 Expositions
               </Link>
-              <Link
-                href="/biography"
-                className="hover:bg-white/10 px-3 py-2  text-md  "
-              >
-                Biography
-              </Link>
+              
               <Link
                 href="/info"
                 className="hover:bg-white/10 px-3 py-2  text-md  "

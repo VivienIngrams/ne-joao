@@ -9,8 +9,8 @@ const arsenal = Arsenal({  variable: '--font-family-arsenal',  weight: [   "400"
 const barlow = Barlow({  variable: '--font-family-barlow',  weight: [ "100", "200",  "400",  "700" ], style: ["normal", "italic"], subsets: ["latin"],  });
 
 export const metadata: Metadata = {
-  title: "Joël Bardeau",
-  description: "Artiste Photographe Plasticien",
+  title: "Né Barros and João Martinho Moura",
+  description: "Artistic Collaborations",
 };
 
 export default function RootLayout({
