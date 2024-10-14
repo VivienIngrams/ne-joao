@@ -32,7 +32,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
             {isOpen ? (
               // Close Icon (X)
               <svg
-                className="block h-4 w-4 ml-4 my-5"
+                className="block h-4 w-4 ml-[25px] my-[25px]"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,12 +50,12 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               <svg
                 viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
-                className="block h-5 w-5 ml-4 mt-4"
+                className="block h-5 w-5 ml-4 mt-[23px] "
                 fill="none"
               >
                 <path
                   d="M12 8h15M5 16h22M5 24h22M5 11l3-3-3-3"
-                  stroke="#fff"
+                  stroke="#eee"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
