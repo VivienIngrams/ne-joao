@@ -91,12 +91,12 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {description && (
           <CustomPortableText
-            paragraphClasses="font-serif max-w-3xl text-xl text-gray-600"
+            paragraphClasses="font-barlow max-w-3xl text-xl text-gray-600"
             value={description}
           />
         )}
       </div>
-      <div className="absolute left-0 w-screen border-t" />
+      {/* <div className="absolute left-0 w-screen border-t" /> */}
     </div>
   )
 }
