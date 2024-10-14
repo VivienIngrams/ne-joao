@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
-import NavMenu from './NavMenu'
-
 export default function Container({ children }: { children: React.ReactNode }) {
   const path = usePathname()
   const isHomePage = path === '/'
@@ -37,7 +35,7 @@ export default function Container({ children }: { children: React.ReactNode }) {
             Website by Vivien Ingrams
           </p>
         </div>
-        <NavMenu />
+        
         <div className="flex flex-col items-end gap-y-2">
           <div className="flex gap-x-2 ">
             <Socials />
