@@ -2,36 +2,13 @@ import '@/styles/index.css'
 
 import type { Metadata, Viewport } from 'next'
 import dynamic from 'next/dynamic'
-import { Arsenal, Barlow } from 'next/font/google'
 import { draftMode } from 'next/headers'
 import { toPlainText } from 'next-sanity'
 import { Suspense } from 'react'
 
-import { Footer } from '@/components/global/Footer'
 import { Navbar } from '@/components/global/Navbar'
-import IntroTemplate from '@/intro-template'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
-
-import Container from './components/Container'
-
-const arsenal = Arsenal({
-  variable: '--font-family-arsenal',
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-})
-const barlow = Barlow({
-  variable: '--font-family-barlow',
-  weight: ['100', '200', '400', '700'],
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-})
-
-export const metadata: Metadata = {
-  title: 'Né Barros and João Martinho Moura',
-  description: 'Artistic Collaborations',
-}
 
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing'),
@@ -73,22 +50,14 @@ export default async function IndexRoute({
     <>
       <div
         lang="en"
-        className={`${barlow.variable} ${arsenal.variable} flex min-h-screen flex-col bg-white text-black`}
+        className={` flex min-h-screen flex-col bg-black text-white`}
       >
         <Suspense>
           <Navbar />
         </Suspense>
-        <div className="mt-20 flex-grow px-4 md:px-16 lg:px-32">
-          <Container>
-            <Suspense>{children}</Suspense>
-          </Container>
+        <div className="ml-[100px] mt-20 flex-grow px-4 md:px-16 lg:px-32">
+          <Suspense>{children}</Suspense>
         </div>
-        <Suspense>
-          <Footer />
-        </Suspense>
-        <Suspense>
-          <IntroTemplate />
-        </Suspense>
       </div>
       {draftMode().isEnabled && <LiveVisualEditing />}
     </>
