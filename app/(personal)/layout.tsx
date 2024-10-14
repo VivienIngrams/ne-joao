@@ -9,6 +9,7 @@ import { Suspense } from 'react'
 import { Navbar } from '@/components/global/Navbar'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
+import { Footer } from '@/components/global/Footer'
 
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing'),
@@ -58,6 +59,9 @@ export default async function IndexRoute({
         <div className="ml-[100px] mt-20 flex-grow px-4 md:px-16 lg:px-32">
           <Suspense>{children}</Suspense>
         </div>
+        <Suspense>
+          <Footer />
+        </Suspense>
       </div>
       {draftMode().isEnabled && <LiveVisualEditing />}
     </>

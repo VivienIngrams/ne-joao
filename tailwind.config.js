@@ -11,9 +11,9 @@ module.exports = {
     ...theme,
     // Overriding fontFamily to use @next/font loaded families
     fontFamily: {
-      mono: 'var(--font-mono)',
-      sans: 'var(--font-sans)',
-      serif: 'var(--font-serif)',
+     
+      barlow: 'var(--font-family-barlow)',
+      arsenal: 'var(--font-family-arsenal)',
     },
   },
   plugins: [require('@tailwindcss/typography')],
