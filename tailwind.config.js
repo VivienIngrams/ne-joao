@@ -13,6 +13,7 @@ module.exports = {
     fontFamily: {
      
       barlow: 'var(--font-family-barlow)',
+      barlowC: 'var(--font-family-barlowC)',
       arsenal: 'var(--font-family-arsenal)',
     },
   },
