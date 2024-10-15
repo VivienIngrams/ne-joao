@@ -16,7 +16,7 @@ export function ProjectListItem(props: ProjectProps) {
     <div className={`flex flex-col p-2 py-16 -ml-20 md:p-6 transition hover:bg-green-100/30 text-green-50 md:ml-16`}>
        
        {odd ? (
-        <div className="flex mt-[35vh] md:my-[3vh]">
+        <div className="flex mt-[35vh] md:mt-[10vh]">
           <TextBox project={project} />
         </div>
       ): null}
@@ -24,7 +24,7 @@ export function ProjectListItem(props: ProjectProps) {
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-[16/9]  border-[1px] border-green-100"
+          classesWrapper="relative aspect-[16/9]  shadow-md shadow-green-100/80"
         />
       </div>
       {!odd ? (
@@ -38,7 +38,7 @@ export function ProjectListItem(props: ProjectProps) {
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
-    <div className="relative flex w-full flex-col justify-between py-2 md:py-10 ">
+    <div className="relative flex w-full flex-col justify-between py-2 md:py-4 ">
       <div>
         {/* Title */}
         <div className=" text-xl font-arsenal tracking-tight md:text-3xl">

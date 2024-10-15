@@ -61,7 +61,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               }
               return (
                 <Link
-                  className="h-[90vh] w-[70vw] md:w-[60vw] my-[10vh]"
+                  className="h-[90vh] w-[70vw] md:w-[60vw] my-[10vh] md:my-0"
                   key={key}
                   href={href}
                   data-sanity={encodeDataAttribute?.([

@@ -41,7 +41,7 @@ export function CustomPortableText({
         value: Image & { alt?: string; caption?: string }
       }) => {
         return (
-          <div className="my-6 space-y-2 z-5">
+          <div className="my-4 space-y-2 z-5">
             <ImageBox
               image={value}
               alt={value.alt}
