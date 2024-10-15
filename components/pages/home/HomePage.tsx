@@ -36,7 +36,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           trigger: triggerRef.current,
           start: 'top top',
           end: '2000 top',
-          scrub: false,
+          scrub: true,
           pin: true,
         },
       },

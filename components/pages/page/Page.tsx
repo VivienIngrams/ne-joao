@@ -12,7 +12,7 @@ export function Page({ data }: PageProps) {
 
   return (
     <div>
-      <div className="mb-14">
+      <div className="m-20">
         {/* Header */}
         <Header title={title} description={overview} />
 
