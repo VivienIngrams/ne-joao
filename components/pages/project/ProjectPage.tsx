@@ -29,7 +29,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="m-20 space-y-6">
+      <div className="mt-6 py-6 md:m-20 space-y-5">
         {/* Header */}
         <Header title={title} description={overview} />
 
@@ -91,7 +91,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {description && (
           <CustomPortableText
-            paragraphClasses="font-barlow max-w-3xl text-xl text-gray-300"
+            paragraphClasses="font-barlow leading-[1.2] text-justify max-w-3xl text-lg md:text-xl font-light text-gray-200"
             value={description}
           />
         )}

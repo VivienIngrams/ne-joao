@@ -49,11 +49,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     }
   }, [])
   return (
-    <section className="overflow-hidden">
+    <section className="overflow-hidden ">
       <div ref={triggerRef}>
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
-          <div ref={sectionRef} className="w-[200vw] h-screen relative flex z-5">
+          <div ref={sectionRef} className="w-[200vw] h-screen relative flex z-5 ">
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
               if (!href) {
@@ -61,7 +61,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               }
               return (
                 <Link
-                  className="h-screen w-screen"
+                  className="h-screen w-[90vw] md:w-[60vw] my-[5vh]"
                   key={key}
                   href={href}
                   data-sanity={encodeDataAttribute?.([

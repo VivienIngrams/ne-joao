@@ -15,8 +15,8 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <div className="fixed top-0  z-50 md:min-h-screen font-barlowC md:bg-gradient-to-1 from-black/80 via-black/70 to-transparent backdrop-blur md:px-6">
-      <div className=" w-screen md:w-full pt-4 flex justify-center md:justify-start bg-black/80 md:bg-transparent  ">
-        <Link href="/" className="z-20 font-barlowC font-thin text-3xl md:text-5xl">
+      <div className="hidden md:flex w-screen md:w-full py-4 justify-center md:justify-start bg-black/80 md:bg-transparent  ">
+        <Link href="/" className="z-20 font-barlowC font-thin text-3xl md:text-5xl text-green-100">
           LabIO
         </Link>
       </div>
@@ -31,11 +31,7 @@ export default function Navbar(props: NavbarProps) {
             return (
               <Link
                 key={key}
-                className={`hidden md:block font-light text-lg hover:text-blue-200 md:text-xl ${
-                  menuItem?._type === 'home'
-                    ? 'font-extrabold text-gray-500'
-                    : 'text-white'
-                }`}
+                className={`hidden md:block font-light text-lg hover:text-green-100 md:text-xl `}
                 href={href}
               >
                 {menuItem.title}

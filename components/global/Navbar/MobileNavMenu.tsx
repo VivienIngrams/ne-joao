@@ -18,13 +18,25 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   }
 
   return (
-    <nav className="absolute top-0 z-15 mx-auto font-arsenal uppercase  backdrop-blurred bg-black/90 ">
-      <div className="flex items-start justify-start text-lg md:text-xl">
+    <nav
+      
+      className="fixed top-0 z-20"
+    >
+      <div className="absolute z-10 flex w-screen px-16 mw-auto py-4 justify-center  bg-black/90 bg-gradient-to-b from-black/80 via-black/70 to-transparent backdrop-blur">
+        <Link
+       
+          href="/"
+          className="font-barlowC font-thin text-3xl text-green-100"
+        >
+          LabIO
+        </Link>
+      </div>
+      <div className="z-20 flex items-start justify-start text-lg md:text-xl">
         <div className="flex md:hidden">
           <button
             onClick={toggleMenu}
             type="button"
-            className="inline-flex items-start justify-start"
+            className="inline-flex items-start justify-start z-20"
             aria-controls="mobile-menu"
             aria-expanded={isOpen}
           >
@@ -66,8 +78,11 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
         </div>
       </div>
 
-      <div className={`${isOpen ? 'block' : 'hidden'} md:hidden `} id="mobile-menu">
-        <div className="min-h-screen w-screen pt-4 pl-4 font-arsenal text-lg hover:text-blue-200 md:text-xl text-white">
+      <div
+        className={`${isOpen ? 'block' : 'hidden'} font-arsenal uppercase  bg-black/90 bg-gradient-to-b from-black/80 via-black/70 to-transparent backdrop-blur`}
+        id="mobile-menu"
+      >
+        <div className="min-h-screen w-screen pt-4 pl-4 font-arsenal text-lg hover:text-green-200 md:text-xl text-white">
           {menuItems &&
             menuItems.map((menuItem, key) => {
               const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -78,7 +93,8 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
                 <Link
                   key={key}
                   href={href}
-                  className="hover:bg-white/10 block p-2 text-base"
+                  className="hover:bg-green-100/20  block p-2 text-base"
+                  onClick={toggleMenu}
                 >
                   {menuItem.title}
                 </Link>
