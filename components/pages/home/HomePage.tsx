@@ -29,7 +29,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         translateX: 0,
       },
       {
-        translateX: '-100vw', //depends on number of projectlistitems!!
+        translateX: '-300vw', //depends on number of projectlistitems!!
         ease: 'none',
         duration: 1,
         scrollTrigger: {
@@ -53,7 +53,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <div ref={triggerRef}>
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
-          <div ref={sectionRef} className="w-[200vw] h-screen relative flex z-5 ">
+          <div ref={sectionRef} className="w-[500vw] ml-[94px] h-screen relative flex z-5 md:ml-32">
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
               if (!href) {
@@ -61,7 +61,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               }
               return (
                 <Link
-                  className="h-screen w-[90vw] md:w-[60vw] my-[5vh]"
+                  className="h-[90vh] w-[70vw] md:w-[60vw] my-[10vh]"
                   key={key}
                   href={href}
                   data-sanity={encodeDataAttribute?.([

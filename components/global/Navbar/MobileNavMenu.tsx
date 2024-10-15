@@ -20,13 +20,13 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   return (
     <nav
       
-      className="fixed top-0 z-20"
+      className="fixed top-0 z-20 md:hidden"
     >
       <div className="absolute z-10 flex w-screen px-16 mw-auto py-4 justify-center  bg-black/90 bg-gradient-to-b from-black/80 via-black/70 to-transparent backdrop-blur">
         <Link
        
           href="/"
-          className="font-barlowC font-thin text-3xl text-green-100"
+          className="font-barlowC font-thin text-4xl text-green-100"
         >
           LabIO
         </Link>

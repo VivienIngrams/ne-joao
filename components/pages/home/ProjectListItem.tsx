@@ -13,10 +13,10 @@ export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
 
   return (
-    <div className={`flex flex-col p-2 py-24 md:p-6 transition hover:bg-green-100/30 text-green-50 md:ml-48`}>
+    <div className={`flex flex-col p-2 py-16 -ml-20 md:p-6 transition hover:bg-green-100/30 text-green-50 md:ml-16`}>
        
        {odd ? (
-        <div className="flex mt-[25vh]">
+        <div className="flex mt-[35vh] md:my-[3vh]">
           <TextBox project={project} />
         </div>
       ): null}
@@ -27,25 +27,25 @@ export function ProjectListItem(props: ProjectProps) {
           classesWrapper="relative aspect-[16/9]  border-[1px] border-green-100"
         />
       </div>
-      {!odd && (
+      {!odd ? (
         <div className="flex">
           <TextBox project={project} />
         </div>
-      )}
+      ) : null}
     </div>
   )
 }
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
-    <div className="relative flex w-full flex-col justify-between py-3 md:py-12 ">
+    <div className="relative flex w-full flex-col justify-between py-2 md:py-10 ">
       <div>
         {/* Title */}
-        <div className="mb-2 text-xl font-arsenal tracking-tight md:text-3xl">
+        <div className=" text-xl font-arsenal tracking-tight md:text-3xl">
           {project.title}
         </div>
         {/* Overview  */}
-        <div className="font-serif text-gray-200 ">
+        <div className="hidden md:block text-gray-200 ">
           <CustomPortableText value={project.overview as PortableTextBlock[]} />
         </div>
       </div>
