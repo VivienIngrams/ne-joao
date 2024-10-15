@@ -10,10 +10,10 @@ export default function Footer(props: FooterProps) {
   const { data } = props
   const footer = data?.footer || ([] as PortableTextBlock[])
   return (
-    <footer className="hidden md:block fixed bottom-0 left-2 z-50 w-[200px] h-[30px] py-2 text-left ">
+    <footer className="md:fixed bottom-0 md:left-2 z-50 md:w-[200px] md:h-[30px] p-2 text-right md:text-left ">
       {footer && (
         <CustomPortableText
-          paragraphClasses="text-gray-400 text-2xs md:text-xs"
+          paragraphClasses="text-gray-400 text-[8px] md:text-xs"
           value={footer}
         />
       )}

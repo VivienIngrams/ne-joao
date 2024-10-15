@@ -79,7 +79,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       </div>
 
       <div
-        className={`${isOpen ? 'block' : 'hidden'} font-arsenal uppercase  bg-black/90 bg-gradient-to-b from-black/80 via-black/70 to-transparent backdrop-blur`}
+        className={`${isOpen ? 'block' : 'hidden'} font-arsenal  bg-black/90 bg-gradient-to-b from-black/80 via-black/70 to-transparent backdrop-blur`}
         id="mobile-menu"
       >
         <div className="min-h-screen w-screen pt-4 pl-4 font-arsenal text-lg hover:text-green-200 md:text-xl text-white">
