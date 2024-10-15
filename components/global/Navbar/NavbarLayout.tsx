@@ -14,8 +14,8 @@ export default function Navbar(props: NavbarProps) {
   const menuItems = data?.menuItems || ([] as MenuItem[])
 
   return (
-    <div className="fixed top-0  z-15 md:min-h-screen font-barlowC md:px-5">
-      <div className=" w-screen md:w-full pt-4 flex justify-center md:justify-start backdrop-blurred bg-black/80 ">
+    <div className="fixed top-0  z-50 md:min-h-screen font-barlowC md:bg-gradient-to-1 from-black/80 via-black/70 to-transparent backdrop-blur md:px-6">
+      <div className=" w-screen md:w-full pt-4 flex justify-center md:justify-start bg-black/80 md:bg-transparent  ">
         <Link href="/" className="z-20 font-barlowC font-thin text-3xl md:text-5xl">
           LabIO
         </Link>

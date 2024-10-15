@@ -29,14 +29,14 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         translateX: 0,
       },
       {
-        translateX: '-100vw',
+        translateX: '-100vw', //depends on number of projectlistitems!!
         ease: 'none',
         duration: 1,
         scrollTrigger: {
           trigger: triggerRef.current,
           start: 'top top',
           end: '2000 top',
-          scrub: 0.6,
+          scrub: false,
           pin: true,
         },
       },
@@ -49,11 +49,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
     }
   }, [])
   return (
-    <section className="scroll-section-outer space-y-20">
+    <section className="overflow-hidden">
       <div ref={triggerRef}>
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
-          <div ref={sectionRef} className="scroll-section-inner">
+          <div ref={sectionRef} className="w-[200vw] h-screen relative flex z-5">
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
               if (!href) {
@@ -61,7 +61,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               }
               return (
                 <Link
-                  className="scroll-section"
+                  className="h-screen w-screen"
                   key={key}
                   href={href}
                   data-sanity={encodeDataAttribute?.([

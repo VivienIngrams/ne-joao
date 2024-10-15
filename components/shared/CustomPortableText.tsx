@@ -25,7 +25,7 @@ export function CustomPortableText({
       link: ({ children, value }) => {
         return (
           <a
-            className="underline transition hover:opacity-50"
+            className="underline transition hover:opacity-50 z-5"
             href={value?.href}
             rel="noreferrer noopener"
           >
@@ -41,7 +41,7 @@ export function CustomPortableText({
         value: Image & { alt?: string; caption?: string }
       }) => {
         return (
-          <div className="my-6 space-y-2">
+          <div className="my-6 space-y-2 z-5">
             <ImageBox
               image={value}
               alt={value.alt}

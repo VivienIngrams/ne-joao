@@ -34,7 +34,7 @@ export function ProjectListItem(props: ProjectProps) {
 
 function TextBox({ project }: { project: ShowcaseProject }) {
   return (
-    <div className="relative mt-2 flex w-full flex-col justify-between p-3 xl:mt-0">
+    <div className="relative flex w-full flex-col justify-between p-3 xl:mt-0">
       <div>
         {/* Title */}
         <div className="mb-2 text-xl font-extrabold tracking-tight md:text-2xl">
