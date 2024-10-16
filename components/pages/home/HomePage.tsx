@@ -14,7 +14,6 @@ export interface HomePageProps {
   data: HomePagePayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
-
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
@@ -23,33 +22,35 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   gsap.registerPlugin(ScrollTrigger)
   useEffect(() => {
-    const pin = gsap.fromTo(
-      sectionRef.current,
-      {
-        translateX: 0,
-      },
-      {
-        translateX: '-300vw', //depends on number of projectlistitems!!
-        ease: 'none',
-        duration: 1,
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          start: 'top top',
-          end: '2000 top',
-          scrub: true,
-          pin: true,
+    // Only apply the animation if the window width is above 768 pixels (non-mobile screens)
+    if (window.innerWidth > 768) {
+      const pin = gsap.fromTo(
+        sectionRef.current,
+        {
+          translateX: 0,
         },
-      },
-    )
-    return () => {
-      {
-        /* A return function for killing the animation on component unmount */
+        {
+          translateX: '-300vw', // depends on the number of ProjectListItems
+          ease: 'none',
+          duration: 1,
+          scrollTrigger: {
+            trigger: triggerRef.current,
+            start: 'top top',
+            end: '2000 top',
+            scrub: true,
+            pin: true,
+          },
+        },
+      )
+      return () => {
+        // A return function for killing the animation on component unmount
+        pin.kill()
       }
-      pin.kill()
     }
-  }, [])
+  }, []) // Empty dependency array means this effect runs only on mount
+
   return (
-    <section className="overflow-hidden ">
+    <section className="overflow-x-scroll md:overflow-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
       <div ref={triggerRef}>
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
@@ -90,20 +91,20 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
           <g
             id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           ></g>
           <g id="SVGRepo_iconCarrier">
             {' '}
             <path
               d="M13 3H12C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H13M17 8L21 12M21 12L17 16M21 12H9"
               stroke="#eee"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             ></path>{' '}
           </g>
         </svg>

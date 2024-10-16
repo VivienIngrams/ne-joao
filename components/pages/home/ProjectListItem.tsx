@@ -13,22 +13,22 @@ export function ProjectListItem(props: ProjectProps) {
   const { project, odd } = props
 
   return (
-    <div className={`flex flex-col p-2 py-16 -ml-20 md:p-6 transition hover:bg-green-100/30 text-green-50 md:ml-16`}>
+    <div className={`flex flex-col p-2 py-16 -ml-20 md:p-6 transition text-green-50 md:ml-16`}>
        
        {odd ? (
-        <div className="flex mt-[35vh] md:mt-[10vh]">
+        <div className="flex mt-[35vh] md:mt-[10vh] p-1 hover:bg-green-100/30">
           <TextBox project={project} />
         </div>
       ): null}
-      <div className="w-full h-full">
+      <div className="w-full h-full  hover:bg-green-100/30">
         <ImageBox
           image={project.coverImage}
           alt={`Cover image from ${project.title}`}
-          classesWrapper="relative aspect-[16/9]  shadow-md shadow-green-100/80"
+          classesWrapper="relative aspect-[16/9] p-1  shadow-md shadow-green-200"
         />
       </div>
       {!odd ? (
-        <div className="flex">
+        <div className="flex p-1 hover:bg-green-100/30">
           <TextBox project={project} />
         </div>
       ) : null}

@@ -1,3 +1,4 @@
+import { Footer } from '@/components/global/Footer'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
 import type { PagePayload } from '@/types'
@@ -23,6 +24,9 @@ export function Page({ data }: PageProps) {
             value={body}
           />
         )}
+
+        {/* Footer */}
+        {/* <Footer/> */}
       </div>
     </div>
   )
