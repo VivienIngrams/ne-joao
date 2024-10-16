@@ -22,6 +22,7 @@ export default function Navbar(props: NavbarProps) {
       </div>
       <MobileNavMenu menuItems={menuItems} />
       <div className="md:h-[75vh] flex flex-col items-start justify-center gap-y-4">
+        {/* Make the Home and Info items bolder than project items - conditional css */}
         {menuItems &&
           menuItems.map((menuItem, key) => {
             const href = resolveHref(menuItem?._type, menuItem?.slug)

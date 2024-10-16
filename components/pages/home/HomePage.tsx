@@ -4,7 +4,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Link from 'next/link'
-import React, { useEffect,useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { resolveHref } from '@/sanity/lib/utils'
@@ -53,7 +53,10 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <div ref={triggerRef}>
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
-          <div ref={sectionRef} className="w-[500vw] ml-[94px] h-screen relative flex z-5 md:ml-32">
+          <div
+            ref={sectionRef}
+            className="w-[500vw] ml-20 h-screen relative flex z-5 md:ml-32"
+          >
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
               if (!href) {
@@ -76,6 +79,34 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
             })}
           </div>
         )}
+      </div>
+      {/* Right arrow in corner */}
+      <div className="absolute top-0 right-0 h-16 w-24 flex items-center justify-center z-30">
+        <div className="pr-3 font-light">scroll</div>
+        <svg
+          width="24px"
+          height="24px"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            {' '}
+            <path
+              d="M13 3H12C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21H13M17 8L21 12M21 12L17 16M21 12H9"
+              stroke="#eee"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></path>{' '}
+          </g>
+        </svg>
       </div>
     </section>
   )
