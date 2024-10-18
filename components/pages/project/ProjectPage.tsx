@@ -29,7 +29,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-6 md:mt-0 py-6 md:mx-20 space-y-5">
+      <div className="mt-6 md:mt-0 py-6 md:mx-28 space-y-5">
         {/* Header */}
         <Header title={title} description={overview} />
 
