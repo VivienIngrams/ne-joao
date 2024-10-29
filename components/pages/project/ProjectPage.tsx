@@ -29,9 +29,9 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-6 md:mt-0 py-6 md:mx-28 space-y-5">
+      <div className="mt-6 md:mt-0 py-4 md:mx-28 space-y-5">
         {/* Header */}
-        <Header title={title} description={overview} />
+        <Header title={title} description={undefined} />
 
         <div className="">
           {/* Image  */}
@@ -42,6 +42,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
             alt=""
             classesWrapper="relative aspect-[16/9]"
           />
+             <Header title={undefined} description={overview} />
 
           <div className="divide-inherit grid grid-cols-1 divide-y lg:grid-cols-4 lg:divide-x lg:divide-y-0">
             {/* Duration */}
