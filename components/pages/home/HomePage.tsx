@@ -30,13 +30,13 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           translateX: 0,
         },
         {
-          translateX: '-220vw', // depends on the number of ProjectListItems
+          translateX: '-240vw', // depends on the number of ProjectListItems
           ease: 'none',
           duration: 1,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: 'top top',
-            end: '1700 top',
+            end: '1800 top',
             scrub: true,
             pin: true,
           },
