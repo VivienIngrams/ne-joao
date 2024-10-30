@@ -34,9 +34,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         showcaseProjects.length * (window.innerWidth > 768 ? 100 : 70)
 
       setWidth(width)
-      console.log(showcaseProjects.length)
-      console.log(window.innerWidth)
-      console.log(width)
+
 
       // Only apply the animation if the window width is above 768 pixels (non-mobile screens)
       if (window.innerWidth > 768) {
@@ -55,7 +53,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
               end: `${calculatedWidth} top`,
               scrub: true,
               pin: true,
-              markers: true,
+              // markers: true,
             },
           },
         )
@@ -69,7 +67,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
   return (
     <section
-      className="overflow-x-scroll md:overflow-hidden"
+      className="overflow-x-scroll md:overflow-hidden -mx-4"
       style={{ WebkitOverflowScrolling: 'touch' }}
     >
       <div ref={triggerRef}>

@@ -26,7 +26,11 @@ export function Page({ data }: PageProps) {
         )}
 
         {/* Footer */}
-        {/* <Footer/> */}
+        <footer className=" md:fixed bottom-0 right-0 md:left-0 z-50 md:w-[200px] md:h-[30px] p-2 text-right md:text-left ">
+          <p className="text-gray-600  md:text-sm">
+            Website by Vivien Ingrams
+          </p>
+        </footer>
       </div>
     </div>
   )
