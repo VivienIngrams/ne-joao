@@ -4,7 +4,7 @@ import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Link from 'next/link'
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { ProjectListItem } from '@/components/pages/home/ProjectListItem'
 import { resolveHref } from '@/sanity/lib/utils'
@@ -14,14 +14,25 @@ export interface HomePageProps {
   data: HomePagePayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
 }
+
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
+
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
   const sectionRef = useRef(null)
   const triggerRef = useRef(null)
 
+
   gsap.registerPlugin(ScrollTrigger)
-  useEffect(() => {
+ 
+    
+
+    useEffect(() => {
+      if (typeof window !== 'undefined' && showcaseProjects.length > 1) {
+        const calculatedWidth =
+          (showcaseProjects.length - 1) * (window.innerWidth * 0.8) - window.innerWidth
+     console.log(calculatedWidth)
+  
     // Only apply the animation if the window width is above 768 pixels (non-mobile screens)
     if (window.innerWidth > 768) {
       const pin = gsap.fromTo(
@@ -29,16 +40,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         {
           translateX: 0,
         },
-        {
-          translateX: '-240vw', // depends on the number of ProjectListItems
+        {translateX: `-${calculatedWidth}px`,
           ease: 'none',
           duration: 1,
           scrollTrigger: {
             trigger: triggerRef.current,
             start: 'top top',
-            end: '1800 top',
+            end: `${calculatedWidth} top`,
             scrub: true,
             pin: true,
+            markers: true,
           },
         },
       )
@@ -47,7 +58,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         pin.kill()
       }
     }
-  }, []) // Empty dependency array means this effect runs only on mount
+    }
+  }, [showcaseProjects.length]) // Recalculate only when showcaseProjects length changes
+
 
   return (
     <section className="overflow-x-scroll md:overflow-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
