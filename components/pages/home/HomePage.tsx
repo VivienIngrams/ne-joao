@@ -16,60 +16,69 @@ export interface HomePageProps {
 }
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
-
   // Default to an empty object to allow previews on non-existent documents
   const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
   const sectionRef = useRef(null)
   const triggerRef = useRef(null)
-
+  const [width, setWidth] = useState(400)
 
   gsap.registerPlugin(ScrollTrigger)
- 
-    
 
-    useEffect(() => {
-      if (typeof window !== 'undefined' && showcaseProjects.length > 1) {
-        const calculatedWidth =
-          (showcaseProjects.length - 1) * (window.innerWidth * 0.8) - window.innerWidth
-     console.log(calculatedWidth)
-  
-    // Only apply the animation if the window width is above 768 pixels (non-mobile screens)
-    if (window.innerWidth > 768) {
-      const pin = gsap.fromTo(
-        sectionRef.current,
-        {
-          translateX: 0,
-        },
-        {translateX: `-${calculatedWidth}px`,
-          ease: 'none',
-          duration: 1,
-          scrollTrigger: {
-            trigger: triggerRef.current,
-            start: 'top top',
-            end: `${calculatedWidth} top`,
-            scrub: true,
-            pin: true,
-            markers: true,
+  useEffect(() => {
+    if (typeof window !== 'undefined' && showcaseProjects.length > 1) {
+      const calculatedWidth =
+        (showcaseProjects.length - 1) * (window.innerWidth * 0.8) -
+        window.innerWidth
+
+      const width =
+        showcaseProjects.length * (window.innerWidth > 768 ? 100 : 70)
+
+      setWidth(width)
+      console.log(showcaseProjects.length)
+      console.log(window.innerWidth)
+      console.log(width)
+
+      // Only apply the animation if the window width is above 768 pixels (non-mobile screens)
+      if (window.innerWidth > 768) {
+        const pin = gsap.fromTo(
+          sectionRef.current,
+          {
+            translateX: 0,
           },
-        },
-      )
-      return () => {
-        // A return function for killing the animation on component unmount
-        pin.kill()
+          {
+            translateX: `-${calculatedWidth}px`,
+            ease: 'none',
+            duration: 1,
+            scrollTrigger: {
+              trigger: triggerRef.current,
+              start: 'top top',
+              end: `${calculatedWidth} top`,
+              scrub: true,
+              pin: true,
+              markers: true,
+            },
+          },
+        )
+        return () => {
+          // A return function for killing the animation on component unmount
+          pin.kill()
+        }
       }
-    }
     }
   }, [showcaseProjects.length]) // Recalculate only when showcaseProjects length changes
 
-
   return (
-    <section className="overflow-x-scroll md:overflow-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
+    <section
+      className="overflow-x-scroll md:overflow-hidden"
+      style={{ WebkitOverflowScrolling: 'touch' }}
+    >
       <div ref={triggerRef}>
         {/* Showcase projects */}
         {showcaseProjects && showcaseProjects.length > 0 && (
           <div
             ref={sectionRef}
-            className="w-[500vw] ml-20 h-screen relative flex z-5 md:ml-32"
+            className="ml-20 h-screen relative flex z-5 md:ml-32"
+            style={{ width: `${width}vw` }}
           >
             {showcaseProjects.map((project, key) => {
               const href = resolveHref(project?._type, project?.slug)
