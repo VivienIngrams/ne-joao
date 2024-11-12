@@ -1,12 +1,9 @@
 'use client'
 
-import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
 import React from 'react'
-
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import { resolveHref } from '@/sanity/lib/utils'
+import ImageBox from '@/components/shared/ImageBox' // Adjust the path if necessary
 import type { HomePagePayload } from '@/types'
+import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
 export interface HomePageProps {
   data: HomePagePayload | null
@@ -14,18 +11,21 @@ export interface HomePageProps {
 }
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
-  // Default to an empty object to allow previews on non-existent documents
-
   return (
-    <section className="container mx-auto py-2 pl-28">
-    
-     <h1>{data?.title}</h1>
-    {data?.overview && (
-          <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2] text-justify text-lg md:text-xl text-gray-200"
-            value={data?.overview}
-          />
+    <section className=" h-screen w-screen mx-auto flex justify-center items-center ml-[200px]">
+      {/* Background Image using ImageBox */}
+      <ImageBox
+        image={data?.coverImage}
+        alt="Background Image"
+        classesWrapper="absolute top-0 left-0 w-full h-full -z-10"
+      />
+
+      {/* Content over the background */}
+      <div className="bg-black/20 p-6 rounded-lg text-white w-1/3">
+        {data?.overview && (
+          <h3>{data?.overview}</h3>
         )}
+      </div>
     </section>
   )
 }

@@ -35,7 +35,8 @@ export interface ShowcaseProject {
 
 export interface HomePagePayload {
   footer?: PortableTextBlock[]
-  overview?: PortableTextBlock[]
+  overview?: string
+  coverImage: Image
   title?: string
 }
 export interface ProjectsPagePayload {

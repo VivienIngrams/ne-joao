@@ -1,7 +1,10 @@
+'use client'
+
 import Link from 'next/link'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
 import MobileNavMenu from './MobileNavMenu'
+import { usePathname } from 'next/navigation'
 
 interface NavbarProps {
   data: SettingsPayload
@@ -10,10 +13,15 @@ interface NavbarProps {
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
+  const path = usePathname()
+  const isHomePage = path === '/'
 
   return (
-    <nav className="fixed top-0 z-50 md:min-h-screen font-barlowC md:px-6">
-      <div className="hidden md:flex md:w-full py-4 justify-start">
+    <nav
+    className={`fixed top-0 z-50 md:min-h-screen font-barlowC md:px-6 ${
+      isHomePage ? 'ml-[100px]' : '' // Add a margin-left of 100px on the homepage
+    }`}
+  >      <div className="hidden md:flex md:w-full py-4 justify-start">
         <Link href="/" className="font-barlowC font-thin text-5xl text-green-900">
           LabIO
         </Link>
@@ -21,7 +29,7 @@ export default function Navbar(props: NavbarProps) {
 
       <MobileNavMenu menuItems={menuItems} />
 
-      <div className="md:h-[85vh] flex flex-col items-start justify-center gap-y-2">
+      <div className="md:h-[85vh] flex flex-col items-start justify-center gap-y-2 ">
         {/* Make the Home and Info items bolder than project items - conditional css */}
         {menuItems &&
           menuItems.map((menuItem, key) => {
