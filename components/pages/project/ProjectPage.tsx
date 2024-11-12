@@ -53,10 +53,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
                   <span data-sanity={encodeDataAttribute?.('duration.start')}>
                     {startYear}
                   </span>
-                  {' - '}
-                  <span data-sanity={encodeDataAttribute?.('duration.end')}>
-                    {endYear}
-                  </span>
+                 
                 </div>
               </div>
             )}

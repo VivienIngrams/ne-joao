@@ -11,6 +11,7 @@ export const homePageQuery = groq`
       "slug": slug.current,
       tags,
       title,
+      duration,
     },
     title,
   }
@@ -47,8 +48,11 @@ export const settingsQuery = groq`
     menuItems[]->{
       _type,
       "slug": slug.current,
-      title
+      title,
+      "duration": duration,
     },
     ogImage,
   }
 `
+
+

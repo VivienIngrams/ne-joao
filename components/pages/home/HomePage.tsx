@@ -15,18 +15,17 @@ export interface HomePageProps {
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { overview = [], showcaseProjects = [], title = '' } = data ?? {}
+  const { showcaseProjects = [] } = data ?? {}
 
   return (
-    <section className="container mx-auto px-4 py-8">
+    <section className="container mx-auto py-2 pl-28">
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="flex flex-col space-y-8">
+        <div className="project-grid grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project?._type, project?.slug)
-            if (!href) {
-              return null
-            }
+            if (!href) return null
+            
             return (
               <Link
                 className="w-full"
@@ -38,13 +37,12 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
                   'slug',
                 ])}
               >
-                <ProjectListItem project={project} odd={key % 2} />
+                <ProjectListItem project={project} />
               </Link>
             )
           })}
         </div>
       )}
-     
     </section>
   )
 }

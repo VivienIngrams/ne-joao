@@ -5,6 +5,7 @@ export interface MenuItem {
   _type: string
   slug?: string
   title?: string
+  duration?: {start?: string}
 }
 
 export interface MilestoneItem {
@@ -25,6 +26,9 @@ export interface ShowcaseProject {
   slug?: string
   tags?: string[]
   title?: string
+  duration?: {
+    start?: string
+     }
 }
 
 // Page payloads
