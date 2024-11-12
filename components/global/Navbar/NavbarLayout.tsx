@@ -18,18 +18,27 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <nav
-    className={`fixed backdrop-blur top-0 z-50 md:min-h-screen bg-gradient-to-r from-white via-white/50 to-transparent font-barlowC ${
-      isHomePage ? 'ml-[15vw] md:px-24' : 'md:px-6 ' // Add a margin-left of 100px on the homepage
-    }`}
-  >      <div className="hidden md:flex md:w-full py-12 justify-start">
-        <Link href="/" className="font-barlowC font-thin text-5xl text-green-900">
+      className={`fixed  top-0 z-50 md:min-h-screen  font-barlowC ${
+        isHomePage
+          ? ' md:px-48 bg-gradient-to-r from-white  via-white  to-black'
+          : 'md:px-6 ' // Add a margin-left of 100px on the homepage
+      }`}
+    >
+      {' '}
+      <div className="hidden md:flex md:w-full py-12 justify-start">
+        <Link
+          href="/"
+          className={` ${
+            isHomePage
+              ? 'hidden'
+              : 'font-barlowC font-thin text-5xl text-red-700'
+          }`}
+        >
           LabIO
         </Link>
       </div>
-
       <MobileNavMenu menuItems={menuItems} />
-
-      <div className="md:h-[85vh] flex flex-col items-start justify-center gap-y-2 ">
+      <div className="md:h-[75vh] flex flex-col items-start justify-center gap-y-2 ">
         {/* Make the Home and Info items bolder than project items - conditional css */}
         {menuItems &&
           menuItems.map((menuItem, key) => {
@@ -48,20 +57,22 @@ export default function Navbar(props: NavbarProps) {
             const startDate = menuItem?.duration?.start
 
             // Extract the year from the start date, if available
-            const startYear = startDate ? new Date(startDate).getFullYear() : null
+            const startYear = startDate
+              ? new Date(startDate).getFullYear()
+              : null
 
             return (
               <Link
                 key={key}
                 className={`hidden md:block ${
                   isBold ? 'font-bold' : 'font-light'
-                } text-lg hover:text-green-100 md:text-xl`}
+                } text-lg hover:text-red-700 md:text-xl`}
                 href={href}
               >
                 {menuItem.title}
                 {/* Display the year if available */}
                 {startYear && (
-                  <span className="text-xs text-gray-400">  {startYear}</span>
+                  <span className="text-xs text-gray-400"> {startYear}</span>
                 )}
               </Link>
             )

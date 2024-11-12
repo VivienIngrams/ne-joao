@@ -45,7 +45,7 @@ export function Header(props: HeaderProps) {
 
       {/* Description with Custom Portable Text Rendering */}
       {description && (
-        <div className="mt-2 text-xl text-green-100 leading-[1.3rem] md:text-xl">
+        <div className="mt-2 text-xl text-red-700 leading-[1.3rem] md:text-xl">
           <CustomPortableText
             value={description}
             paragraphClasses="mt-4"

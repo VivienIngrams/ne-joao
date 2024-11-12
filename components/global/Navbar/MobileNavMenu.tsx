@@ -26,7 +26,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
         <Link
        
           href="/"
-          className="font-barlowC font-thin text-4xl text-green-100"
+          className="font-barlowC font-thin text-4xl text-red-700"
         >
           LabIO
         </Link>
@@ -93,7 +93,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
                 <Link
                   key={key}
                   href={href}
-                  className="hover:bg-green-100/20  block p-2 text-base"
+                  className="hover:bg-red-700/20  block p-2 text-base"
                   onClick={toggleMenu}
                 >
                   {menuItem.title}
