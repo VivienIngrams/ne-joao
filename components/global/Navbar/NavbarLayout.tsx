@@ -18,10 +18,10 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <nav
-    className={`fixed top-0 z-50 md:min-h-screen font-barlowC md:px-6 ${
-      isHomePage ? 'ml-[100px]' : '' // Add a margin-left of 100px on the homepage
+    className={`fixed backdrop-blur top-0 z-50 md:min-h-screen bg-gradient-to-r from-white via-white/50 to-transparent font-barlowC ${
+      isHomePage ? 'ml-[15vw] md:px-24' : 'md:px-6 ' // Add a margin-left of 100px on the homepage
     }`}
-  >      <div className="hidden md:flex md:w-full py-4 justify-start">
+  >      <div className="hidden md:flex md:w-full py-12 justify-start">
         <Link href="/" className="font-barlowC font-thin text-5xl text-green-900">
           LabIO
         </Link>

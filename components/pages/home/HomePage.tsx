@@ -21,7 +21,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       />
 
       {/* Content over the background */}
-      <div className="bg-black/20 p-6 rounded-lg text-white w-1/3">
+      <div className="backdrop-blur p-12  text-white text-xl w-1/3">
         {data?.overview && (
           <h3>{data?.overview}</h3>
         )}
