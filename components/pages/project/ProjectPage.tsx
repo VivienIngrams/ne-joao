@@ -1,7 +1,7 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
+// import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
 import ImageBox from '@/components/shared/ImageBox'
 import type { ProjectPayload } from '@/types'
@@ -42,14 +42,14 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
             alt=""
             classesWrapper="relative aspect-[16/9]"
           />
-             <Header title={undefined} description={overview} />
+          {/* Description */}
+          <Header title={undefined} description={overview} />
 
           <div className="divide-inherit grid grid-cols-1 divide-y lg:grid-cols-4 lg:divide-x lg:divide-y-0">
             {/* Duration */}
             {!!(startYear && endYear) && (
-              <div className="p-3 lg:p-4">
-                <div className="text-xs md:text-sm">Duration</div>
-                <div className="text-md md:text-lg">
+              <div className="">
+                <div className="pt-2 text-md md:text-lg">
                   <span data-sanity={encodeDataAttribute?.('duration.start')}>
                     {startYear}
                   </span>
@@ -60,42 +60,16 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
                 </div>
               </div>
             )}
-
-            {/* Client */}
-            {client && (
-              <div className="p-3 lg:p-4">
-                <div className="text-xs md:text-sm">Client</div>
-                <div className="text-md md:text-lg">{client}</div>
-              </div>
-            )}
-
-            {/* Site */}
-            {site && (
-              <div className="p-3 lg:p-4">
-                <div className="text-xs md:text-sm">Site</div>
-                {site && (
-                  <Link
-                    target="_blank"
-                    className="text-md break-words md:text-lg"
-                    href={site}
-                  >
-                    {site}
-                  </Link>
-                )}
-              </div>
-            )}
-
-            
           </div>
         </div>
 
         {/* Description */}
-        {description && (
+        {/* {description && (
           <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2] text-justify text-lg md:text-xl font-light text-gray-200"
+            paragraphClasses="font-barlow leading-[1.2] text-justify text-lg md:text-xl text-gray-200"
             value={description}
           />
-        )}
+        )} */}
       </div>
       {/* <div className="absolute left-0 w-screen border-t" /> */}
     </div>

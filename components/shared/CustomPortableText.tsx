@@ -1,21 +1,24 @@
-import {
-  PortableText,
-  type PortableTextBlock,
-  type PortableTextComponents,
-} from 'next-sanity'
-import type { Image } from 'sanity'
-
+import { PortableText, PortableTextBlock, PortableTextComponents } from 'next-sanity'
 import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
+import Image from 'next/image'
 
 export function CustomPortableText({
   paragraphClasses,
   value,
+  components,
 }: {
   paragraphClasses?: string
   value: PortableTextBlock[]
+  components?: PortableTextComponents // Accept custom components
 }) {
-  const components: PortableTextComponents = {
+  // Split content into two columns
+  const halfwayPoint = Math.ceil(value.length / 2)
+  const firstColumn = value.slice(0, halfwayPoint)
+  const secondColumn = value.slice(halfwayPoint)
+
+  // Default components if none are provided
+  const defaultComponents: PortableTextComponents = {
     block: {
       normal: ({ children }) => {
         return <p className={paragraphClasses}>{children}</p>
@@ -62,5 +65,17 @@ export function CustomPortableText({
     },
   }
 
-  return <PortableText components={components} value={value} />
+  return (
+    <div className="flex flex-col md:flex-row gap-8">
+      {/* First Column */}
+      <div className="w-full md:w-1/2">
+        <PortableText components={components || defaultComponents} value={firstColumn} />
+      </div>
+
+      {/* Second Column */}
+      <div className="w-full md:w-1/2">
+        <PortableText components={components || defaultComponents} value={secondColumn} />
+      </div>
+    </div>
+  )
 }
