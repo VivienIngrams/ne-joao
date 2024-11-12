@@ -26,6 +26,9 @@ export default defineType({
               type: 'page',
             },
             {
+              type: 'projects',
+            },
+            {
               type: 'project',
             },
           ],

@@ -13,6 +13,10 @@ export const mainDocuments = defineDocuments([
     filter: `_type == "project" && slug.current == $slug`,
   },
   {
+    route: '/projects',
+    filter: `_type == "projects"`,
+  },
+  {
     route: '/:slug',
     filter: `_type == "page" && slug.current == $slug`,
   },
@@ -22,6 +26,11 @@ export const locations = {
   settings: defineLocations({
     message: 'This document is used on all pages',
     tone: 'caution',
+  }),
+  projects: defineLocations({
+    message: 'This document is used to render the All Projects page',
+    tone: 'positive',
+    locations: [{ title: 'All Projects', href: resolveHref('projects')! }],
   }),
   home: defineLocations({
     message: 'This document is used to render the front page',

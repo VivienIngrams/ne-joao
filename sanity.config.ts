@@ -20,6 +20,8 @@ import timeline from '@/sanity/schemas/objects/timeline'
 import home from '@/sanity/schemas/singletons/home'
 import settings from '@/sanity/schemas/singletons/settings'
 
+import projects from './sanity/schemas/singletons/projects'
+
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE ||
   'LabIO'
@@ -35,6 +37,7 @@ export default defineConfig({
     types: [
       // Singletons
       home,
+      projects,
       settings,
       // Documents
       duration,
@@ -47,7 +50,7 @@ export default defineConfig({
   },
   plugins: [
     structureTool({
-      structure: pageStructure([home, settings]),
+      structure: pageStructure([home, projects, settings]),
     }),
     presentationTool({
       resolve,
@@ -58,7 +61,7 @@ export default defineConfig({
       },
     }),
     // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    singletonPlugin([home.name, settings.name]),
+    singletonPlugin([home.name, projects.name, settings.name]),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
     // Vision lets you query your content with GROQ in the studio
