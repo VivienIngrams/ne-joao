@@ -24,7 +24,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <div className="absolute top-0 left-0  w-full h-full flex justify-center items-end  ">
       <div className=" flex flex-col py-8 pl-6 w-1/3">
      
-      <h1 className="font-barlowC font-thin text-5xl text-red-700 align-left">
+      <h1 className="font-barlowC font-thin text-6xl text-red-700 align-left ">
           LabIO
         </h1> {data?.overview && (
           <h3 className='  text-2xl py-4  text-white '> {data?.overview}</h3>
