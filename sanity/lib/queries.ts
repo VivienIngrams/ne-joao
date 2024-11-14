@@ -9,7 +9,7 @@ export const homePageQuery = groq`
   }
 `
 export const projectsPageQuery = groq`
-  *[_type == "home"][0]{
+  *[_type == "projects"][0]{
     _id,
     overview,
     showcaseProjects[]->{
