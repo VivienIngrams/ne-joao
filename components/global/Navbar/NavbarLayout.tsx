@@ -31,7 +31,7 @@ export default function Navbar(props: NavbarProps) {
           className={` ${
             isHomePage
               ? 'hidden'
-              : 'font-barlowC font-thin text-5xl text-red-700'
+              : 'font-barlowC font-thin text-5xl text-red-700 p-2 rounded-tl-md rounded-br-md border-2 border-red-700'
           }`}
         >
           LabIO
