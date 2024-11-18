@@ -1,14 +1,15 @@
-import { CustomPortableText } from '@/components/shared/CustomPortableText'
-import type { PortableTextBlock, PortableTextComponents } from 'next-sanity'
+import { PortableText, PortableTextBlock, PortableTextComponents } from 'next-sanity'
 
 interface HeaderProps {
   centered?: boolean
-  description?: PortableTextBlock[]
+  description?: PortableTextBlock[] // 'description' can now be rendered with PortableText directly
   title?: string
+  startYear?: number
+  endYear?: number | string // Use 'Now' as a string if applicable
 }
 
 export function Header(props: HeaderProps) {
-  const { title, description, centered = false } = props
+  const { title, description, centered = false, startYear, endYear } = props
 
   if (!description && !title) {
     return null
@@ -17,7 +18,7 @@ export function Header(props: HeaderProps) {
   // Define custom PortableTextComponents for rendering within the Header
   const headerPortableTextComponents: PortableTextComponents = {
     block: {
-      normal: ({ children }) => <p className="text-base text-gray-300">{children}</p>,
+      normal: ({ children }) => <p className="text-2xl text-gray-500">{children}</p>,
       h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-100">{children}</h1>,
       h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-200">{children}</h2>,
     },
@@ -35,21 +36,25 @@ export function Header(props: HeaderProps) {
   }
 
   return (
-    <div className={`font-arsenal ${centered ? 'text-center' : ''} mt-2`}>
-      {/* Title */}
+    <div className={`font-arsenal ${centered ? 'text-center' : ''} mt-4`}>
+      {/* Title with Duration */}
       {title && (
-        <div className="text-4xl text-left md:text-center font-medium tracking-tight md:text-6xl">
-          {title}
+        <div className="flex items-baseline justify-center text-4xl md:text-6xl font-medium tracking-tight">
+          <span>{title}</span>
+          {startYear && (
+            <span className="ml-2 text-lg text-gray-400">
+              {startYear}
+            </span>
+          )}
         </div>
       )}
 
-      {/* Description with Custom Portable Text Rendering */}
+      {/* Description using PortableText directly */}
       {description && (
-        <div className="mt-2 text-xl text-red-700 leading-[1.3rem] md:text-xl">
-          <CustomPortableText
-            value={description}
-            paragraphClasses="mt-4"
-            components={headerPortableTextComponents} // Pass custom components here
+        <div className="my-4 text-xl leading-[1.3rem] md:text-3xl md:max-w-[50vw] md:mx-auto text-center">
+          <PortableText 
+            value={description}  // Use the description prop directly here
+            components={headerPortableTextComponents}  // Pass the custom components
           />
         </div>
       )}

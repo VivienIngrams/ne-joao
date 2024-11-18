@@ -3,6 +3,20 @@ import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
 import Image from 'next/image'
 
+// Helper function to calculate total character count in PortableText blocks
+const getCharacterCount = (blocks: PortableTextBlock[]) =>
+  blocks.reduce((total, block) => {
+    // Treat an image block as a paragraph with an estimated character count
+    if (block._type === 'image') {
+      return total + 200 // Adjust this value as needed for your layout
+    }
+
+    if (typeof block.children !== 'undefined') {
+      return total + block.children.reduce((sum, child) => sum + (child.text || '').length, 0)
+    }
+    return total
+  }, 0)
+
 export function CustomPortableText({
   paragraphClasses,
   value,
@@ -12,10 +26,19 @@ export function CustomPortableText({
   value: PortableTextBlock[]
   components?: PortableTextComponents // Accept custom components
 }) {
-  // Split content into two columns
-  const halfwayPoint = Math.ceil(value.length / 2)
-  const firstColumn = value.slice(0, halfwayPoint)
-  const secondColumn = value.slice(halfwayPoint)
+  // Calculate the total character count for all blocks
+  const totalCharacterCount = getCharacterCount(value)
+
+  // Find the splitting point
+  let currentCharacterCount = 0
+  const splitIndex = value.findIndex((block) => {
+    currentCharacterCount += getCharacterCount([block])
+    return currentCharacterCount >= totalCharacterCount / 2
+  })
+
+  // Split content at the calculated index
+  const firstColumn = value.slice(0, splitIndex + 1)
+  const secondColumn = value.slice(splitIndex + 1)
 
   // Default components if none are provided
   const defaultComponents: PortableTextComponents = {
@@ -41,7 +64,7 @@ export function CustomPortableText({
       image: ({
         value,
       }: {
-        value: Image & { alt?: string; caption?: string }
+        value: { asset: { _ref: string; _type: string }; alt?: string; caption?: string }
       }) => {
         return (
           <div className="my-4 space-y-2 z-5">
@@ -66,7 +89,7 @@ export function CustomPortableText({
   }
 
   return (
-    <div className="flex flex-col md:flex-row gap-8">
+    <div className="flex flex-col md:flex-row gap-7">
       {/* First Column */}
       <div className="w-full md:w-1/2">
         <PortableText components={components || defaultComponents} value={firstColumn} />
