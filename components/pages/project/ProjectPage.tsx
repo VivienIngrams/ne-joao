@@ -30,7 +30,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-6 md:mt-0 py-4 md:mx-20 space-y-5">
+      <div className="mt-12 md:mt-0 py-4 md:mx-20 space-y-5">
         {/* Header with duration */}
         <Header
           title={title}
@@ -42,7 +42,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {description && (
           <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2] text-justify text-lg md:text-xl text-gray-700"
+            paragraphClasses="font-barlow leading-[1.2] text-justify text-lg  text-gray-700"
             value={description}
           />
         )}

@@ -31,7 +31,7 @@ export default function ImageBox({
     >
       {imageUrl && (
         <Image
-          className="absolute h-full w-full"
+          className="absolute object-cover h-full w-full rounded-tl-md rounded-br-md border-2 border-red-600"
           alt={alt}
           width={width}
           height={height}

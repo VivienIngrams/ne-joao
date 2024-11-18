@@ -18,24 +18,21 @@ export function ProjectsPage({ data, encodeDataAttribute }: ProjectsPageProps) {
   const { showcaseProjects = [] } = data ?? {}
 
   return (
-    <section className="container mx-auto py-2 pl-28">
+    <section className=" mx-auto py-auto pl-28 max-h-screen">
+     
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="project-grid grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4">
+        <div className="my-6 project-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project?._type, project?.slug)
             if (!href) return null
-            
+
             return (
               <Link
                 className="w-full"
                 key={key}
                 href={href}
-                data-sanity={encodeDataAttribute?.([
-                  'showcaseProjects',
-                  key,
-                  'slug',
-                ])}
+                data-sanity={encodeDataAttribute?.([ 'showcaseProjects', key, 'slug' ])}
               >
                 <ProjectListItem project={project} />
               </Link>

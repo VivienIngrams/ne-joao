@@ -14,7 +14,7 @@ export default function Footer(props: FooterProps) {
         
       {footer && (
         <CustomPortableText
-          paragraphClasses="text-gray-700  md:text-[10px]"
+          paragraphClasses="text-red-700  md:text-[10px]"
           value={footer}
         />
       )}
