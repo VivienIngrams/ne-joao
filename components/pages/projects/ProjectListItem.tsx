@@ -12,7 +12,7 @@ export function ProjectListItem({ project }: ProjectProps) {
 
   return (
     <div className=" relative">
-      <div className="flex flex-col items-center mx-4">
+      <div className="flex flex-col items-center md:mx-4">
         {/* Image section */}
         <div className="w-full">
           <ImageBox
@@ -23,7 +23,7 @@ export function ProjectListItem({ project }: ProjectProps) {
         </div>
 
         {/* Title section (overlay) */}
-        <div className="absolute top0 left-0 w-full  ml-5 p-2">
+        <div className="absolute top0 left-0 w-full ml-2  md:ml-5 p-2">
           <h2 className="text-white text-lg font-semibold md:text-2xl">
             {project.title}
             {/* Display the start year if available */}

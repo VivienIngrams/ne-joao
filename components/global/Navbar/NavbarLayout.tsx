@@ -25,7 +25,7 @@ export default function Navbar(props: NavbarProps) {
       }`}
     >
       {' '}
-      <div className="hidden md:flex md:w-full py-12 justify-start">
+      <div className="hidden md:flex md:w-full mt-4 py-5 justify-start">
         <Link
           href="/"
           className={` ${
@@ -38,7 +38,7 @@ export default function Navbar(props: NavbarProps) {
         </Link>
       </div>
       <MobileNavMenu menuItems={menuItems} />
-      <div className="md:h-[75vh] flex flex-col items-start justify-center gap-y-2 ">
+      <div className="md:h-[70vh] flex flex-col items-start justify-center gap-y-2 ">
         {/* Make the Home and Info items bolder than project items - conditional css */}
         {menuItems &&
           menuItems.map((menuItem, key) => {

@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem } from '@/types'
 
@@ -18,16 +17,9 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   }
 
   return (
-    <nav
-      
-      className="fixed top-0 z-20 md:hidden"
-    >
-      <div className="absolute z-10 flex w-screen px-16 mw-auto py-4 justify-center  bg-black/90 bg-gradient-to-b from-black/80 via-black/70 to-transparent backdrop-blur">
-        <Link
-       
-          href="/"
-          className="font-barlowC font-thin text-4xl text-red-700"
-        >
+    <nav className="fixed top-0 left-0 w-full z-20 h-[80px] md:hidden"> {/* Add a background color */}
+      <div className="fixed top-0 left-0 z-10 flex w-full px-16 mx-auto h-[80px] py-4 justify-center bg-gradient-to-b from-white/80 to-transparent backdrop-blur">
+        <Link href="/" className="font-barlowC font-thin text-4xl text-red-700">
           LabIO
         </Link>
       </div>
@@ -51,7 +43,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               >
                 <path
                   d="M19 5L5 19M5 5L19 19"
-                  stroke="#ccc"
+                  stroke="#000000"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -62,12 +54,12 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               <svg
                 viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
-                className="block h-5 w-5 ml-4 mt-[23px] "
+                className="block h-5 w-5 ml-4 mt-[23px]"
                 fill="none"
               >
                 <path
                   d="M12 8h15M5 16h22M5 24h22M5 11l3-3-3-3"
-                  stroke="#eee"
+                  stroke="#000000"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -79,10 +71,10 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       </div>
 
       <div
-        className={`${isOpen ? 'block' : 'hidden'} font-arsenal  bg-black/90 bg-gradient-to-b from-black/80 via-black/70 to-transparent backdrop-blur`}
+        className={`${isOpen ? 'block' : 'hidden'} font-arsenal bg-gradient-to-r from-white/80 to-transparent backdrop-blur`}
         id="mobile-menu"
       >
-        <div className="min-h-screen w-screen pt-4 pl-4 font-arsenal text-lg hover:text-green-200 md:text-xl text-black">
+        <div className="min-h-screen w-screen pt-4 pl-4 font-arsenal text-lg active:text-red-700 md:text-xl text-black">
           {menuItems &&
             menuItems.map((menuItem, key) => {
               const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -93,7 +85,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
                 <Link
                   key={key}
                   href={href}
-                  className="hover:bg-red-700/20  block p-2 text-base"
+                  className="hover:bg-red-700/20 block p-2 text-base"
                   onClick={toggleMenu}
                 >
                   {menuItem.title}

@@ -30,7 +30,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-12 md:mt-0 py-4 md:mx-20 space-y-5">
+      <div className="mt-12 md:mt-0 py-4 md:mx-24 space-y-5">
         {/* Header with duration */}
         <Header
           title={title}

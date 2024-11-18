@@ -18,11 +18,11 @@ export function ProjectsPage({ data, encodeDataAttribute }: ProjectsPageProps) {
   const { showcaseProjects = [] } = data ?? {}
 
   return (
-    <section className=" mx-auto py-auto pl-28 max-h-screen">
+    <section className=" md:pl-28">
      
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="my-6 project-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className=" my-8 md:my-6 project-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project?._type, project?.slug)
             if (!href) return null
