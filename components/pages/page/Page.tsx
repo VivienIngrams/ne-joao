@@ -1,4 +1,3 @@
-
 import Image from 'next/image'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -15,23 +14,25 @@ export function Page({ data }: PageProps) {
 
   return (
     <div>
-      <div className="py-7 md:py-6 md:mx-28">
+      <div className="py-7 md:py-6  md:max-w-[65vw] md:mx-auto">
         {/* Header */}
         <Header title={title} description={undefined} />
 
         {/* Body */}
         {body && (
-          <div className="md:pt-6">
-            <CustomPortableText
-              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-lg "
-              value={body}
-            />
+          <div className="h-full w-full flex justify-center items-center">
+            <div className="md:pt-6 min-[1800px]:pt-8 min-[1800px]:mx-40">
+              <CustomPortableText
+                paragraphClasses="font-barlow max-w-3xl text-gray-800 text-lg "
+                value={body}
+              />
+            </div>
           </div>
         )}
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Infos' && (
-          <div className='w-full flex justify-center'>
+          <div className="w-full flex justify-center">
             {/* Logos */}
             <div className="flex justify-end md:justify-start items-center space-x-4 md:space-x-6 my-6">
               <Image

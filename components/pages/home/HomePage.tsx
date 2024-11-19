@@ -17,7 +17,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       <ImageBox
         image={data?.coverImage}
         alt="Background Image"
-        classesWrapper="absolute top-0 left-[25vw]  h-full z-1 "
+        classesWrapper="absolute -top-1 left-[25vw]  h-[101vh] overflow-hidden z-1 "
       />
 
       {/* Content over the background */}
