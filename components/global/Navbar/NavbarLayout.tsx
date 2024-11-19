@@ -18,27 +18,27 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <nav
-      className={`fixed  top-0 z-50 md:min-h-screen  font-barlowC ${
+      className={`fixed  top-0 bottom-0 z-50 md:min-h-screen  font-barlowC ${
         isHomePage
-          ? ' md:px-48 bg-gradient-to-r from-white  via-white  to-black'
+          ? ' md:px-[10vw] bg-gradient-to-r from-white  via-white  to-black'
           : 'md:px-6 ' // Add a margin-left of 100px on the homepage
       }`}
     >
       {' '}
-      <div className="hidden md:flex md:w-full mt-4 py-5 justify-start">
+      <div className="hidden md:flex w-full mt-4 py-5 justify-start">
         <Link
           href="/"
           className={` ${
             isHomePage
               ? 'hidden'
-              : 'font-barlowC font-thin text-5xl text-red-700 p-2 rounded-tl-md rounded-br-md border-2 border-red-700'
+              : 'font-barlowC font-thin sm:text-4xl text-5xl text-red-700 p-2 rounded-tl-md rounded-br-md border-2 border-red-700'
           }`}
         >
           LabIO
         </Link>
       </div>
       <MobileNavMenu menuItems={menuItems} />
-      <div className="md:h-[70vh] flex flex-col items-start justify-center gap-y-2 ">
+      <div className="lg:h-[70vh] flex flex-col items-start justify-center gap-y-2 ">
         {/* Make the Home and Info items bolder than project items - conditional css */}
         {menuItems &&
           menuItems.map((menuItem, key) => {
@@ -66,7 +66,7 @@ export default function Navbar(props: NavbarProps) {
                 key={key}
                 className={`hidden md:block ${
                   isBold ? 'font-bold' : 'font-light'
-                } text-lg hover:text-red-700 md:text-xl`}
+                } text-lg hover:text-red-700 lg:text-xl`}
                 href={href}
               >
                 {menuItem.title}

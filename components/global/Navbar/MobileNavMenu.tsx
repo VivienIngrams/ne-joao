@@ -1,7 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem } from '@/types'
 
@@ -12,6 +14,9 @@ interface MobileNavMenuProps {
 const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   const [isOpen, setIsOpen] = useState(false)
 
+  const path = usePathname()
+  const isHomepage = path === '/'
+
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
@@ -19,9 +24,11 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   return (
     <nav className="fixed top-0 left-0 w-full z-20 h-[80px] md:hidden"> {/* Add a background color */}
       <div className="fixed top-0 left-0 z-10 flex w-full px-16 mx-auto h-[80px] py-4 justify-center bg-gradient-to-b from-white/80 to-transparent backdrop-blur">
+      {!isHomepage && ( // Conditionally render the LabIO link
         <Link href="/" className="font-barlowC font-thin text-4xl text-red-700">
           LabIO
         </Link>
+      )}
       </div>
       <div className="z-20 flex items-start justify-start text-lg md:text-xl">
         <div className="flex md:hidden">

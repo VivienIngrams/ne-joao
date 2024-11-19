@@ -14,7 +14,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${barlow.variable} ${barlowC.variable} ${arsenal.variable}`}>
+      className={`${barlow.variable} ${barlowC.variable} ${arsenal.variable} min-h- bg-black`}>
       <body className={`h-full  `}>{children}</body>
     </html>
   )

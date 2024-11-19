@@ -1,7 +1,8 @@
 'use client'
 
 import React from 'react'
-import ImageBox from '@/components/shared/ImageBox' // Adjust the path if necessary
+import Image from 'next/image'
+import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 
@@ -11,15 +12,27 @@ export interface HomePageProps {
 }
 
 export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
-  return (
-    <section className=" h-screen w-screen mx-auto ml-[200px] bg-black">
-      {/* Background Image using ImageBox */}
-      <ImageBox
-        image={data?.coverImage}
-        alt="Background Image"
-        classesWrapper="absolute -top-1 left-[25vw]  h-[101vh] overflow-hidden z-1 "
-      />
+  const imageUrl =
+    data?.coverImage &&
+    urlForImage(data.coverImage)
+      ?.height(2000) // Adjust height as needed
+      .width(3500) // Adjust width as needed
+      .fit('crop') // Adjust fit as needed
+      .url()
 
+  return (
+    <section className="h-screen mx-auto md:ml-[200px] bg-black">
+      {/* Background Image using Next.js Image */}
+      {imageUrl && (
+        <Image
+          src={imageUrl}
+          alt="Background Image"
+          layout="fill" // Makes the image cover the entire container
+          objectFit="cover" // Ensures the image covers the area proportionally
+          className="absolute top-0 left-0 md:left-[25vw] z-1"
+          priority // Prioritize loading this image
+        />
+      )}
       {/* Content over the background */}
       <div className="absolute top-0 left-0  w-full h-full flex justify-center items-end  z-5">
       <div className=" flex flex-col py-8 pl-6 w-1/3">
