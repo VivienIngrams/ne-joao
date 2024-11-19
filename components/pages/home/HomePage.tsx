@@ -31,17 +31,19 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
           layout="fill" // Makes the image cover the entire container
           objectFit="cover" // Ensures the image covers the area proportionally
           className="md:ml-[25vw] z-1"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw" // Responsive
           priority // Prioritize loading this image
         />
       )}
       {/* Content over the background */}
+      <div className="absolute top-0 left-0 max-h-screen w-full h-full bg-black/10 z-5"/>
       <div className="absolute top-0 left-0 max-h-screen w-full h-full flex justify-center items-end  z-5">
-      <div className=" flex flex-col py-8 pl-6 w-1/3">
+      <div className=" flex flex-col md:py-8 pl-4 md:pl-6 md:w-1/3">
      
       <h1 className="font-barlowC font-thin text-6xl text-red-700 align-left ">
           LabIO
         </h1> {data?.overview && (
-          <h3 className='  text-xl py-4  text-white '> {data?.overview}</h3>
+          <h3 className='text-lg  md:text-xl py-4  text-white '> {data?.overview}</h3>
         )}</div>
       </div>
     </section>
