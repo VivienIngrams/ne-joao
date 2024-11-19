@@ -18,7 +18,7 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <nav
-      className={`fixed  top-0 bottom-0 z-50 md:min-h-screen  font-barlowC ${
+      className={`fixed  top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
           ? ' md:px-[10vw] bg-gradient-to-r from-white  via-white  to-black'
           : 'md:px-6 ' // Add a margin-left of 100px on the homepage
