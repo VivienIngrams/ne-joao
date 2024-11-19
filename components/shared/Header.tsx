@@ -39,7 +39,7 @@ export function Header(props: HeaderProps) {
     <div className={`font-arsenal ${centered ? 'md:text-center' : ''} mt-4 md:-ml-6`}>
       {/* Title with Duration */}
       {title && (
-        <div className="flex items-baseline md:justify-center text-4xl md:text-6xl font-medium tracking-tight">
+        <div className="mb-4 flex items-baseline md:justify-center text-4xl md:text-6xl font-medium tracking-tight">
           <span>{title}</span>
           {startYear && (
             <span className="ml-2 text-lg text-gray-400">
@@ -51,7 +51,7 @@ export function Header(props: HeaderProps) {
 
       {/* Description using PortableText directly */}
       {description && (
-        <div className="my-4  md:max-w-[50vw] md:mx-auto md:text-center">
+        <div className="mb-4  md:max-w-[50vw] md:mx-auto md:text-center">
           <PortableText 
             value={description}  // Use the description prop directly here
             components={headerPortableTextComponents}  // Pass the custom components
