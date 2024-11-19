@@ -1,4 +1,6 @@
-import { Footer } from '@/components/global/Footer'
+
+import Image from 'next/image'
+
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
 import type { PagePayload } from '@/types'
@@ -19,21 +21,41 @@ export function Page({ data }: PageProps) {
 
         {/* Body */}
         {body && (
-          <CustomPortableText
-            paragraphClasses="font-barlow max-w-3xl text-gray-800 text-lg pt-6"
-            value={body}
-          />
+          <div className="md:pt-6">
+            <CustomPortableText
+              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-lg "
+              value={body}
+            />
+          </div>
         )}
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Infos' && (
-          <footer className="md:fixed bottom-0 right-0 md:left-6 z-50 pb-2 text-right md:text-left">
-            {/* Images */}
+          <div className='w-full flex justify-center'>
+            {/* Logos */}
+            <div className="flex justify-end md:justify-start items-center space-x-4 md:space-x-6 my-6">
+              <Image
+                src="/dgartes.jpg"
+                alt="Logo 1"
+                width={100}
+                height={100}
+                className="h-16 md:h-24"
+              />
+              <Image
+                src="/RepPortuguesa.jpg"
+                alt="Logo 2"
+                width={150}
+                height={100}
+                className="h-16 md:h-24"
+              />
+            </div>
 
-            <p className="text-red-700 md:text-sm">
-              Website by Vivien Ingrams
-            </p>
-          </footer>
+            <footer className="md:fixed bottom-0 right-0 md:left-6 z-50 pb-2 text-right md:text-left">
+              <p className="text-red-700 md:text-sm">
+                Website by Vivien Ingrams
+              </p>
+            </footer>
+          </div>
         )}
       </div>
     </div>

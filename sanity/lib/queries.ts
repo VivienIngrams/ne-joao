@@ -12,7 +12,7 @@ export const projectsPageQuery = groq`
   *[_type == "projects"][0]{
     _id,
     overview,
-    showcaseProjects[]->{
+      showcaseProjects[]->|order(duration.start desc){
       _type,
       coverImage,
       overview,
