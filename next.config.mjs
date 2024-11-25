@@ -1,4 +1,3 @@
-
 /** @type {import('next').NextConfig} */
 const config = {
   images: {
@@ -25,3 +24,4 @@ const config = {
   },
 }
 
+export default config
