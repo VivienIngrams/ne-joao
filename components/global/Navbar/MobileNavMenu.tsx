@@ -17,18 +17,14 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   const path = usePathname()
   const isHomepage = path === '/'
 
-  const color = isHomepage ? 'white' : 'black'
-  
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
   return (
     <nav className="fixed top-0 left-0 w-full z-20 h-[80px] md:hidden"> {/* Add a background color */}
-<div
-    className={`fixed top-0 left-0 z-10 flex w-full px-16 mx-auto h-[80px] py-4 justify-center 
-      ${isHomepage ? 'bg-transparent' : 'bg-gradient-to-b from-white/80 to-transparent backdrop-blur'}`}
-  >      {!isHomepage && ( // Conditionally render the LabIO link
+      <div className="fixed top-0 left-0 z-10 flex w-full px-16 mx-auto h-[80px] py-4 justify-center bg-gradient-to-b from-white/80 to-transparent backdrop-blur">
+      {!isHomepage && ( // Conditionally render the LabIO link
         <Link href="/" className="font-barlowC font-thin text-4xl text-red-700">
           LabIO
         </Link>
@@ -70,7 +66,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               >
                 <path
                   d="M12 8h15M5 16h22M5 24h22M5 11l3-3-3-3"
-                  stroke={color}
+                  stroke="#000000"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
