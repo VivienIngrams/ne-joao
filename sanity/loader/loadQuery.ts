@@ -6,17 +6,17 @@ import { draftMode } from 'next/headers'
 import { client } from '@/sanity/lib/client'
 import {
   homePageQuery,
-  projectsPageQuery,
   pagesBySlugQuery,
   projectBySlugQuery,
+  projectsPageQuery,
   settingsQuery,
 } from '@/sanity/lib/queries'
 import { token } from '@/sanity/lib/token'
 import {
   HomePagePayload,
-  ProjectsPagePayload,
   PagePayload,
   ProjectPayload,
+  ProjectsPagePayload,
   SettingsPayload,
 } from '@/types'
 
