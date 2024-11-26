@@ -1,7 +1,8 @@
+import Image from 'next/image'
 import { PortableText, PortableTextBlock, PortableTextComponents } from 'next-sanity'
+
 import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
-import Image from 'next/image'
 
 // Helper function to calculate total character count in PortableText blocks
 const getCharacterCount = (blocks: PortableTextBlock[]) =>
@@ -89,7 +90,7 @@ export function CustomPortableText({
   }
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-7">
+    <div className="flex flex-col md:flex-row md:gap-7 text-base">
       {/* First Column */}
       <div className="w-full md:w-1/2">
         <PortableText components={components || defaultComponents} value={firstColumn} />

@@ -18,7 +18,7 @@ export function Header(props: HeaderProps) {
   // Define custom PortableTextComponents for rendering within the Header
   const headerPortableTextComponents: PortableTextComponents = {
     block: {
-      normal: ({ children }) => <p className="text-xl md:text-2xl leading-[1.2rem] text-gray-500">{children}</p>,
+      normal: ({ children }) => <p className="text-xl md:text-2xl leading-[1.3rem] md:leading-[1.5rem] text-gray-500">{children}</p>,
       h1: ({ children }) => <h1 className="text-3xl font-bold text-gray-100">{children}</h1>,
       h2: ({ children }) => <h2 className="text-2xl font-semibold text-gray-200">{children}</h2>,
     },

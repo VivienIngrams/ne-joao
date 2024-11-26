@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
-
 import type { ProjectPayload } from '@/types'
 
 export interface ProjectPageProps {
@@ -42,7 +41,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {description && (
           <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2] text-justify text-lg  text-gray-700"
+            paragraphClasses="font-barlow leading-[1.2] md:leading-[1.1] text-justify text-base md:text-lg  text-gray-700"
             value={description}
           />
         )}

@@ -6,4 +6,8 @@ html {
     font-family: var(--font-family-barlowC);
    
   }
-
+  @media (max-width: 400px) {
+    p {
+      font-size: 1rem
+    }
+  }
