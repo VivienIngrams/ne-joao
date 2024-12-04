@@ -28,7 +28,8 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         <Image
           src={imageUrl}
           alt="Background Image"
-          layout="fill" // Makes the image cover the entire container
+          fill
+          sizes="100vw"
           objectFit="cover" // Ensures the image covers the area proportionally
           className="md:ml-[25vw] z-1"
           priority // Prioritize loading this image
