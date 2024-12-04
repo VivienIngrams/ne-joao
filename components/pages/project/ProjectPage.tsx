@@ -46,9 +46,14 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         title: 'Laboratório Video 1',
       },
       {
-        src: '/2.mpg',
+        src: '/2.mp4',
         poster: '/2.png',
         title: 'Laboratório Video 2',
+      },
+      {
+        src: '/3.mp4',
+        poster: '/3.png',
+        title: 'Entrevista Laboratório',
       },
     )
   } else if (title === 'LabIO Performance') {
