@@ -26,7 +26,7 @@ export function Header(props: HeaderProps) {
       link: ({ children, value }) => (
         <a
           href={value?.href}
-          className="underline text-blue-500 hover:text-blue-400"
+          className=""
           rel="noopener noreferrer"
         >
           {children}

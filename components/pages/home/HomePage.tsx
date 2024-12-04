@@ -2,6 +2,7 @@
 
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 import { urlForImage } from '@/sanity/lib/utils'
@@ -36,15 +37,16 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         />
       )}
       {/* Content over the background */}
-      <div className="absolute top-0 left-0 max-h-screen w-full h-full flex justify-center items-end  z-5">
-      <div className=" flex flex-col py-8 pl-6 w-1/3">
-     
-      <h1 className="font-barlowC font-thin text-6xl text-red-700 align-left ">
-          LabIO
-        </h1> {data?.overview && (
-          <h3 className='  text-xl py-4  text-white '> {data?.overview}</h3>
-        )}</div>
-      </div>
+      <Link href="/projects" className="absolute top-0 left-0 max-h-screen w-full h-full flex justify-center items-end  z-5">
+        <div className=" flex flex-col py-8 pl-6 w-1/3">
+          <h1 className="font-barlowC font-thin text-6xl text-red-700 align-left ">
+            LabIO
+          </h1>{' '}
+          {data?.overview && (
+            <h3 className="  text-xl py-4  text-white "> {data?.overview}</h3>
+          )}
+        </div>
+      </Link>
     </section>
   )
 }

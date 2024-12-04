@@ -9,7 +9,7 @@ const getCharacterCount = (blocks: PortableTextBlock[]) =>
   blocks.reduce((total, block) => {
     // Treat an image block as a paragraph with an estimated character count
     if (block._type === 'image') {
-      return total + 200 // Adjust this value as needed for your layout
+      return total + 150 // Adjust this value as needed for your layout
     }
 
     if (typeof block.children !== 'undefined') {

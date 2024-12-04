@@ -46,8 +46,8 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         title: 'Laboratório Video 1',
       },
       {
-        src: '/2.mov',
-        poster: '/2.jpg',
+        src: '/2.mpg',
+        poster: '/2.png',
         title: 'Laboratório Video 2',
       },
     )
@@ -59,8 +59,8 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         title: 'LabIO Performance Video 1',
       },
       {
-        src: '/labio-performance-video-2.mov',
-        poster: '/labio-performance-poster-2.jpg',
+        src: '/LabIO2.mp4',
+        poster: '/LabIO2.png',
         title: 'LabIO Performance Video 2',
       },
     )
