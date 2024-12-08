@@ -10,7 +10,7 @@ export interface PageProps {
 
 export function Page({ data }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { body, overview, title } = data ?? {}
+  const { body, title } = data ?? {}
 
   return (
     <div>
@@ -34,20 +34,55 @@ export function Page({ data }: PageProps) {
         {title === 'Infos' && (
         
             <div className="w-full flex flex-col justify-center">
+              <h1>Apoios</h1>
               {/* Logos */}
-              <div className="flex flex-col md:flex-row justify-end md:justify-start items-center space-x-4 md:space-x-6 my-6">
+              <div className="flex flex-col md:flex-row flex-wrap justify-end md:justify-start items-center space-x-4 md:space-x-6 my-6">
                 <Image
-                  src="/dgartes.jpg"
-                  alt="Logo 1"
-                  width={100}
+                  src="/porto.jpg"
+                  alt="Câmara Municipal do Porto Logo"
+                  width={200}
+                  height={100}
+                  className="h-16 md:h-24"
+                />
+               Garantir Cultura da República Portuguesa
+                <Image
+                  src="/dgartes_vertical cmyk.png"
+                  alt="dgartes_vertical"
+                  width={350}
                   height={100}
                   className="h-16 md:h-24"
                 />
                 <Image
-                  src="/RepPortuguesa.jpg"
-                  alt="Logo 2"
+                  src="/Balleteatro_Logo_Positivo.png"
+                  alt="Balleteatro_Logo_Positivo"
+                  width={250}
+                  height={50}
+                  className="h-16 md:h-24"
+                />
+              </div>
+              <h1>Parcerias</h1>
+              {/* Logos */}
+              <div className="flex flex-col md:flex-row flex-wrap justify-end md:justify-start items-center space-x-4 md:space-x-6 my-6">
+                <Image
+                  src="/INL-Logo.jpg"
+                  alt="INL Logo"
+                  width={300}
+                  height={100}
+                  className="h-16 md:h-24"
+                />
+                <Image
+                  src="/IF_LOGO.PNG"
+                  alt="IF Logo"
                   width={150}
                   height={100}
+                  className="h-16 md:h-24"
+                />
+              
+                <Image
+                  src="/UM.jpg"
+                  alt="UNiversidade do Minho"
+                  width={200}
+                  height={300}
                   className="h-16 md:h-24"
                 />
               </div>
