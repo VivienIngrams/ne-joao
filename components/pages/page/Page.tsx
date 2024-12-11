@@ -14,7 +14,7 @@ export function Page({ data }: PageProps) {
 
   return (
     <div>
-      <div className="py-7 md:py-6 md:max-w-[65vw] md:mx-auto">
+      <div className="pt-7 pb-4 md:py-6 md:max-w-[65vw] md:mx-auto">
         {/* Header */}
         <Header title={title} description={undefined} />
 
@@ -22,7 +22,7 @@ export function Page({ data }: PageProps) {
         {body && (
           <div className="md:pt-6 min-[1800px]:pt-8 min-[1800px]:mx-40">
             <CustomPortableText
-              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-lg"
+              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-base md:text-xl"
               value={body}
             />
           </div>
@@ -30,8 +30,8 @@ export function Page({ data }: PageProps) {
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Infos' && (
-          <div className="w-full flex flex-col justify-center">
-            <h1>Apoios</h1>
+          <div className="max-w-full flex flex-col justify-center md:mb-12 font-barlow -mt-6">
+           <h1 className='font-bold text-base md:text-xl '>Apoios</h1>
             {/* Logos */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 mb-6 md:m-4">
               <Image
@@ -41,59 +41,61 @@ export function Page({ data }: PageProps) {
                 height={100}
                 className="h-auto"
               />
-              <div className="flex flex-col text-xl uppercase mt-4 leading-none font-semibold">
+              <div className="flex flex-col text-base md:text-xl uppercase mt-4 leading-none font-semibold">
                 Garantir Cultura
                 <Image
                   src="/RepPortuguesa.jpg"
                   alt=" Garantir Cultura da República Portuguesa"
-                  width={120}
-                  height={70}
-                  className="h-auto md:-ml-1"
+                  width={150}
+                  height={100}
+                  className="h-auto -ml-1"
                 />
               </div>
-              <Image
-                src="/dgartes_vertical cmyk.png"
-                alt="dgartes_vertical"
-                width={450}
-                height={100}
-                className="h-auto col-span-2"
-              />
               <Image
                 src="/Balleteatro_Logo_Positivo.png"
                 alt="Balleteatro_Logo_Positivo"
                 width={250}
                 height={100}
-                className="h-auto md:mt-4"
+                className="h-auto md:mt-[45px] ml-[18vw] md:ml-0"
               />
-            </div>
-
-            <h1>Parcerias</h1>
-            {/* Logos */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 my-4 md:m-6">
               <Image
-                src="/INL-Logo.jpg"
-                alt="INL Logo"
-                width={300}
+                src="/dgartes_vertical cmyk.png"
+                alt="dgartes_vertical"
+                width={450}
                 height={100}
-                className="h-auto my-4"
-              />
-              <Image
-                src="/UM.jpg"
-                alt="UNiversidade do Minho"
-                width={200}
-                height={200}
-                className="h-auto"
-              />
-              <Image
-                src="/IF_LOGO.PNG"
-                alt="IF Logo"
-                width={250}
-                height={200}
-                className="h-auto md:-ml-6"
+                className="h-auto col-span-2 md:mt-2"
               />
             </div>
 
-            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pb-2">
+            <div className='md:mt-6'>
+              <h1 className='font-bold text-xl'>Parcerias</h1>
+              {/* Logos */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 m-4 md:mx-6">
+                <Image
+                  src="/INL-Logo.jpg"
+                  alt="INL Logo"
+                  width={300}
+                  height={100}
+                  className="h-auto my-4"
+                />
+                <Image
+                  src="/UM.jpg"
+                  alt="UNiversidade do Minho"
+                  width={200}
+                  height={150}
+                  className="h-auto ml-[10vw] md:ml-0"
+                />
+                <Image
+                  src="/IF_LOGO.PNG"
+                  alt="IF Logo"
+                  width={250}
+                  height={200}
+                  className="h-auto md:-ml-6"
+                />
+              </div>
+            </div>
+
+            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-6 md:pb-2">
               <p className="text-red-700 md:text-sm">
                 Website by Vivien Ingrams
               </p>
