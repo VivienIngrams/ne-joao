@@ -1,11 +1,12 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
 import MobileNavMenu from './MobileNavMenu'
-import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect } from 'react'
 
 interface NavbarProps {
   data: SettingsPayload
@@ -15,9 +16,10 @@ export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
 
-  // Track the current language (default to 'en')
-  const [language, setLanguage] = useState<'en' | 'pt'>('en')
-  
+  // Track the current language (default to 'pt')
+  const [language, setLanguage] = useState<'en' | 'pt'>('pt')
+
+  // Get the current path to check for homepage
   const path = usePathname()
   const isHomePage = path === '/'
 
@@ -25,6 +27,19 @@ export default function Navbar(props: NavbarProps) {
   const toggleLanguage = () => {
     setLanguage(prev => (prev === 'en' ? 'pt' : 'en'))
   }
+
+  // Update language on page load, if it's already in localStorage
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem('language')
+    if (savedLanguage) {
+      setLanguage(savedLanguage as 'en' | 'pt')
+    }
+  }, [])
+
+  // Save language to localStorage on change
+  useEffect(() => {
+    localStorage.setItem('language', language)
+  }, [language])
 
   return (
     <nav
@@ -55,7 +70,8 @@ export default function Navbar(props: NavbarProps) {
         </Link>
       </div>
 
-      <MobileNavMenu menuItems={menuItems} />
+      <MobileNavMenu menuItems={menuItems}  />
+      {/* <MobileNavMenu menuItems={menuItems} language={language} /> */}
 
       <div className="lg:h-[70vh] flex flex-col items-start justify-center gap-y-2">
         {menuItems &&

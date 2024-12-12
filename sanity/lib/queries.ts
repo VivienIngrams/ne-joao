@@ -4,12 +4,12 @@ export const homePageQuery = groq`
   *[_type == "home"][0]{
     _id,
     overview,
-    "overview_pt": overview_pt,
+    overview_pt,
     coverImage,
-    title,
-    "title_pt": title_pt,
+       title,
   }
 `
+
 
 export const projectsPageQuery = groq`
   *[_type == "projects"][0]{
@@ -31,6 +31,7 @@ export const projectsPageQuery = groq`
     "title_pt": title_pt,
   }
 `
+
 
 export const pagesBySlugQuery = groq`
   *[_type == "page" && slug.current == $slug][0] {
@@ -63,6 +64,7 @@ export const projectBySlugQuery = groq`
   }
 `
 
+
 export const settingsQuery = groq`
   *[_type == "settings"][0]{
     footer,
@@ -77,6 +79,5 @@ export const settingsQuery = groq`
     ogImage,
   }
 `
-
 
 

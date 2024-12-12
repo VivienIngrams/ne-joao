@@ -11,9 +11,10 @@ import type { HomePagePayload } from '@/types'
 export interface HomePageProps {
   data: HomePagePayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
+  language: 'en' | 'pt' // Added language prop
 }
 
-export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
+export function HomePage({ data, language, encodeDataAttribute }: HomePageProps) {
   const imageUrl =
     data?.coverImage &&
     urlForImage(data.coverImage)
@@ -21,6 +22,9 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       .width(2000) // Adjust width as needed
       .fit('crop') // Adjust fit as needed
       .url()
+
+  // Conditionally set the overview based on language
+  const overviewText = language === 'en' ? data?.overview : data?.overview_pt
 
   return (
     <section className="max-h-screen max-w-screen bg-black">
@@ -41,9 +45,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
         <div className=" flex flex-col py-8 pl-6 w-1/3">
           <h1 className="font-barlowC font-thin text-6xl text-red-700 align-left ">
             LabIO
-          </h1>{' '}
-          {data?.overview && (
-            <h3 className="  text-xl py-4  text-white "> {data?.overview}</h3>
+          </h1>
+          {overviewText && (
+            <h3 className="text-xl py-4 text-white">
+              {overviewText}
+            </h3>
           )}
         </div>
       </Link>
