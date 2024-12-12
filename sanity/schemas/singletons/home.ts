@@ -31,7 +31,15 @@ export default defineType({
       name: 'overview',
       description:
         'Used both for the <meta> description tag for SEO, and the personal website subheader.',
-      title: 'Description',
+      title: 'Description in english',
+      type: 'text',
+           validation: (rule) => rule.max(400).required(),
+    }),
+    defineField({
+      name: 'overview_pt',
+      description:
+        'Used both for the <meta> description tag for SEO, and the personal website subheader.',
+      title: 'Descrição em português',
       type: 'text',
            validation: (rule) => rule.max(400).required(),
     }),
