@@ -1,9 +1,14 @@
 import Image from 'next/image'
+import { urlForImage, getObjectPositionFromHotspot } from '@/sanity/lib/utils'
 
-import { urlForImage } from '@/sanity/lib/utils'
+// Extend the Sanity Image type to ensure compatibility with the expected Image_2
+interface SanityImage extends Image {
+  asset?: any
+  hotspot?: ImageHotspot
+}
 
 interface ImageBoxProps {
-  image?: { asset?: any }
+  image?: SanityImage
   alt?: string
   width?: number
   height?: number
@@ -11,6 +16,14 @@ interface ImageBoxProps {
   classesWrapper?: string
   'data-sanity'?: string
 }
+
+// Default handling for ImageHotspot, if width or height are undefined
+const imageHotspotWithDefaults = (hotspot?: ImageHotspot) => ({
+  x: hotspot?.x || 0.5,  // Default to 0.5 if undefined
+  y: hotspot?.y || 0.5,  // Default to 0.5 if undefined
+  width: hotspot?.width ?? 100,  // Default to 100 if undefined
+  height: hotspot?.height ?? 100, // Default to 100 if undefined
+});
 
 export default function ImageBox({
   image,
@@ -21,8 +34,11 @@ export default function ImageBox({
   classesWrapper,
   ...props
 }: ImageBoxProps) {
-  const imageUrl =
-    image && urlForImage(image)?.height(height).width(width).fit('crop').url()
+  const imageUrl = image && urlForImage(image)?.height(height).width(width).fit('crop').url()
+
+  // Ensure hotspot compatibility with defaults
+  const hotspot = image?.hotspot ? imageHotspotWithDefaults(image.hotspot) : { x: 0.5, y: 0.5, width: 100, height: 100 };
+  const objectPosition = getObjectPositionFromHotspot(hotspot)
 
   return (
     <div
@@ -38,6 +54,9 @@ export default function ImageBox({
           sizes={size}
           src={imageUrl}
           priority
+          style={{
+            objectPosition, // Apply hotspot-based position
+          }}
         />
       )}
     </div>

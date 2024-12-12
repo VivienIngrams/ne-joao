@@ -22,7 +22,7 @@ export function Page({ data }: PageProps) {
         {body && (
           <div className="md:pt-6 min-[1800px]:pt-8 min-[1800px]:mx-40">
             <CustomPortableText
-              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-base md:text-xl"
+              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-base md:text-lg"
               value={body}
             />
           </div>
@@ -30,7 +30,7 @@ export function Page({ data }: PageProps) {
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Infos' && (
-          <div className="max-w-full flex flex-col justify-center md:mb-12 font-barlow -mt-6">
+          <div className="max-w-full flex flex-col justify-center md:mb-12 font-barlow -mt-6 md:mt-6">
            <h1 className='font-bold text-base md:text-xl '>Apoios</h1>
             {/* Logos */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 mb-6 md:m-4">
@@ -41,7 +41,7 @@ export function Page({ data }: PageProps) {
                 height={100}
                 className="h-auto"
               />
-              <div className="flex flex-col text-base md:text-xl uppercase mt-4 leading-none font-semibold">
+              <div className="flex flex-col text-base uppercase mt-4 leading-none font-semibold">
                 Garantir Cultura
                 <Image
                   src="/RepPortuguesa.jpg"

@@ -1,7 +1,19 @@
 import createImageUrlBuilder from '@sanity/image-url'
 import type { Image } from 'sanity'
-
 import { dataset, projectId } from '@/sanity/lib/api'
+
+// Ensuring ImageHotspot interface defines width and height as required
+interface ImageHotspot {
+  x: number
+  y: number
+  width: number  // Make width required
+  height: number // Make height required
+}
+
+export function getObjectPositionFromHotspot(hotspot: ImageHotspot) {
+  const { x = 0.5, y = 0.5 } = hotspot || {}
+  return `${x * 100}% ${y * 100}%`
+}
 
 const imageBuilder = createImageUrlBuilder({
   projectId: projectId || '',
@@ -28,8 +40,8 @@ export function resolveHref(
   switch (documentType) {
     case 'home':
       return '/'
-      case 'projects':
-        return '/projects'
+    case 'projects':
+      return '/projects'
     case 'page':
       return slug ? `/${slug}` : undefined
     case 'project':
@@ -39,3 +51,10 @@ export function resolveHref(
       return undefined
   }
 }
+
+const imageHotspotWithDefaults = (hotspot?: ImageHotspot) => ({
+  x: hotspot?.x || 0.5,  // Default to 0.5 if undefined
+  y: hotspot?.y || 0.5,  // Default to 0.5 if undefined
+  width: hotspot?.width ?? 100,  // Default to 100 if undefined
+  height: hotspot?.height ?? 100, // Default to 100 if undefined
+});

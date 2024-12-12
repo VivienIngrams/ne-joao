@@ -5,6 +5,7 @@ import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
 import MobileNavMenu from './MobileNavMenu'
 import { usePathname } from 'next/navigation'
+import { useState } from 'react'
 
 interface NavbarProps {
   data: SettingsPayload
@@ -13,22 +14,38 @@ interface NavbarProps {
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
+
+  // Track the current language (default to 'en')
+  const [language, setLanguage] = useState<'en' | 'pt'>('en')
+  
   const path = usePathname()
   const isHomePage = path === '/'
 
+  // Function to toggle between English and Portuguese
+  const toggleLanguage = () => {
+    setLanguage(prev => (prev === 'en' ? 'pt' : 'en'))
+  }
+
   return (
     <nav
-      className={`fixed  top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
+      className={`fixed top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
-          ? ' md:px-[10vw] bg-gradient-to-r from-white  via-white  to-black'
-          : 'md:px-6 ' // Add a margin-left of 100px on the homepage
+          ? ' md:px-[10vw] bg-gradient-to-r from-white via-white to-black'
+          : 'md:px-6 '
       }`}
     >
-      {' '}
+      {/* Language Switcher Button */}
+      <button
+        onClick={toggleLanguage}
+        className="fixed top-4 right-4 p-1 bg-white text-red-700  rounded-tl-md rounded-br-md border-[1px] border-red-700 "
+      >
+        {language === 'en' ? 'PT' : 'EN'}
+      </button>
+
       <div className="hidden md:flex w-full mt-4 py-5 justify-start">
         <Link
           href="/"
-          className={` ${
+          className={`${
             isHomePage
               ? 'hidden'
               : 'font-barlowC font-thin sm:text-4xl text-6xl text-red-700 p-2 rounded-tl-md rounded-br-md border-2 border-red-700'
@@ -37,9 +54,10 @@ export default function Navbar(props: NavbarProps) {
           LabIO
         </Link>
       </div>
+
       <MobileNavMenu menuItems={menuItems} />
-      <div className="lg:h-[70vh] flex flex-col items-start justify-center gap-y-2 ">
-        {/* Make the Home and Info items bolder than project items - conditional css */}
+
+      <div className="lg:h-[70vh] flex flex-col items-start justify-center gap-y-2">
         {menuItems &&
           menuItems.map((menuItem, key) => {
             const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -61,6 +79,9 @@ export default function Navbar(props: NavbarProps) {
               ? new Date(startDate).getFullYear()
               : null
 
+            // Conditionally render title based on the selected language
+            const title = language === 'en' ? menuItem.title : menuItem.title_pt
+
             return (
               <Link
                 key={key}
@@ -69,8 +90,7 @@ export default function Navbar(props: NavbarProps) {
                 } text-lg hover:text-red-700 lg:text-xl`}
                 href={href}
               >
-                {menuItem.title}
-                {/* Display the year if available */}
+                {title}
                 {startYear && (
                   <span className="text-xs text-gray-400"> {startYear}</span>
                 )}
