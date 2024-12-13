@@ -26,7 +26,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
 
       const { language } = useLanguage();
       const overviewText = language === 'en' ? data?.overview : data?.overview_pt;
-      console.log('language:' + language)
+  
   return (
     <section className="relative h-screen w-screen bg-black overflow-hidden -ml-4">
   {/* Background Image using Next.js Image */}

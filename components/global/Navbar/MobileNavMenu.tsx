@@ -25,7 +25,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-20  md:hidden">
-      <div className= {`fixed top-0 left-0 z-10 flex w-full px-16 mx-auto  py-4 justify-center  ${!isHomepage ? 'h-[80px] backdrop-blur  bg-gradient-to-b from-white  to-transparent ' : 'bg-gradient-to-r from-white to-transparent h-[71px] '} `}>
+      <div className= {`fixed top-0 left-0 z-10 flex w-full px-16 mx-auto  py-4 justify-center  ${!isHomepage ? 'h-[80px] bg-white' : 'bg-gradient-to-r from-white to-transparent h-[71px] '} `}>
         {!isHomepage && (
           <Link
             href="/"

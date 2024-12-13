@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 
 import { useLanguage} from '@/app/contexts/LanguageContext'
@@ -35,8 +37,8 @@ export function Page({ data }: PageProps) {
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Info' && (
-          <div className="max-w-full flex flex-col justify-center md:mb-12 font-barlow -mt-6 md:mt-6">
-           <h1 className='font-bold text-base md:text-xl '>Apoios</h1>
+          <div className="max-w-full flex flex-col justify-center md:mb-12 font-barlow -mt-6 md:mt-6 font-bold text-base md:text-xl ">
+           <h1 className=''>{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
             {/* Logos */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 mb-6 md:m-4">
               <Image
@@ -72,8 +74,8 @@ export function Page({ data }: PageProps) {
               />
             </div>
 
-            <div className='md:mt-6'>
-              <h1 className='font-bold text-xl'>Parcerias</h1>
+            <div className='md:mt-6 '>
+              <h1 className=''>{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 m-4 md:mx-6">
                 <Image
@@ -100,9 +102,9 @@ export function Page({ data }: PageProps) {
               </div>
             </div>
 
-            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-6 md:pb-2">
+            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-6 font-normal md:pb-2">
               <p className="text-red-700 md:text-sm">
-                Website by Vivien Ingrams
+                Website: Vivien Ingrams
               </p>
             </footer>
           </div>
