@@ -51,6 +51,7 @@ export interface ProjectsPagePayload {
 
 export interface PagePayload {
   body?: PortableTextBlock[]
+  body_pt?: PortableTextBlock[]
   name?: string
   overview?: PortableTextBlock[]
   overview_pt?: PortableTextBlock[]

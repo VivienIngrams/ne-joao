@@ -6,7 +6,8 @@ import { useState } from 'react'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem, SettingsPayload } from '@/types'
 import MobileNavMenu from './MobileNavMenu'
-import { useEffect } from 'react'
+
+import { useLanguage } from '@/app/contexts/LanguageContext'
 
 interface NavbarProps {
   data: SettingsPayload
@@ -15,31 +16,14 @@ interface NavbarProps {
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
-
-  // Track the current language (default to 'pt')
-  const [language, setLanguage] = useState<'en' | 'pt'>('pt')
+  const { language, toggleLanguage } = useLanguage();
 
   // Get the current path to check for homepage
   const path = usePathname()
   const isHomePage = path === '/'
 
-  // Function to toggle between English and Portuguese
-  const toggleLanguage = () => {
-    setLanguage(prev => (prev === 'en' ? 'pt' : 'en'))
-  }
+ 
 
-  // Update language on page load, if it's already in localStorage
-  useEffect(() => {
-    const savedLanguage = localStorage.getItem('language')
-    if (savedLanguage) {
-      setLanguage(savedLanguage as 'en' | 'pt')
-    }
-  }, [])
-
-  // Save language to localStorage on change
-  useEffect(() => {
-    localStorage.setItem('language', language)
-  }, [language])
 
   return (
     <nav
@@ -52,7 +36,7 @@ export default function Navbar(props: NavbarProps) {
       {/* Language Switcher Button */}
       <button
         onClick={toggleLanguage}
-        className="fixed top-4 right-4 p-1  text-red-700  rounded-tl-md rounded-br-md border-[1px] border-red-700 "
+        className="hidden md:fixed top-3 right-3 p-1 text-small text-red-700  rounded-tl-md rounded-br-md border-[1px] border-red-700 "
       >
         {language === 'en' ? 'PT' : 'EN'}
       </button>
@@ -71,7 +55,6 @@ export default function Navbar(props: NavbarProps) {
       </div>
 
       <MobileNavMenu menuItems={menuItems}  />
-      {/* <MobileNavMenu menuItems={menuItems} language={language} /> */}
 
       <div className="lg:h-[70vh] flex flex-col items-start justify-center gap-y-2">
         {menuItems &&
@@ -83,9 +66,10 @@ export default function Navbar(props: NavbarProps) {
 
             const isBold =
               menuItem.title === 'All Projects' ||
-              menuItem.title === 'Infos' ||
+              menuItem.title === 'Info' ||
               menuItem.title === 'About' ||
-              menuItem.title === 'CVs'
+              menuItem.title === 'Biographies' ||
+              menuItem.title === 'Publications'
 
             // Access the start date from the duration field
             const startDate = menuItem?.duration?.start
@@ -102,7 +86,7 @@ export default function Navbar(props: NavbarProps) {
               <Link
                 key={key}
                 className={`hidden md:block ${
-                  isBold ? 'font-bold' : 'font-light'
+                  isBold ? 'font-semibold' : 'font-light'
                 } text-lg hover:text-red-700 lg:text-xl`}
                 href={href}
               >

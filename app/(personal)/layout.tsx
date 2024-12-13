@@ -11,6 +11,8 @@ import { Navbar } from '@/components/global/Navbar'
 import { urlForOpenGraphImage } from '@/sanity/lib/utils'
 import { loadHomePage, loadSettings } from '@/sanity/loader/loadQuery'
 
+import { LanguageProvider } from '../contexts/LanguageContext'
+
 const LiveVisualEditing = dynamic(
   () => import('@/sanity/loader/LiveVisualEditing'),
 )
@@ -29,9 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
           default: homePage.title || 'Personal website',
         }
       : undefined,
-    description: homePage?.overview
-      ? homePage.overview
-      : undefined,
+    description: homePage?.overview ? homePage.overview : undefined,
     openGraph: {
       images: ogImage ? [ogImage] : [],
     },
@@ -49,19 +49,18 @@ export default async function IndexRoute({
 }) {
   return (
     <>
-      <div
-        lang="en"
-        className={` flex min-h-screen flex-col`}
-      >
-        <Suspense>
-          <Navbar />
-        </Suspense>
-        <div className="md:ml-[200px] flex-grow px-4">
-          <Suspense>{children}</Suspense>
-        </div>
-        {/* <Suspense>
+      <div lang="en" className={` flex min-h-screen flex-col`}>
+        <LanguageProvider>
+          <Suspense>
+            <Navbar />
+          </Suspense>
+          <div className="md:ml-[200px] flex-grow px-4">
+            <Suspense>{children}</Suspense>
+          </div>
+          {/* <Suspense>
           <Footer />
         </Suspense> */}
+        </LanguageProvider>
       </div>
       {draftMode().isEnabled && <LiveVisualEditing />}
     </>

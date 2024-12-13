@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import { useLanguage} from '@/app/contexts/LanguageContext'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
 import type { PagePayload } from '@/types'
@@ -10,26 +11,30 @@ export interface PageProps {
 
 export function Page({ data }: PageProps) {
   // Default to an empty object to allow previews on non-existent documents
-  const { body, title } = data ?? {}
+  const { body, body_pt, title_pt, title } = data ?? {}
+
+     const { language } = useLanguage();
+        const bodyText = language === 'en' ? data?.body : data?.body_pt;
+        const titleText = language === 'en' ? data?.title : data?.title_pt;
 
   return (
     <div>
       <div className="pt-7 pb-4 md:py-6 md:max-w-[65vw] md:mx-auto">
         {/* Header */}
-        <Header title={title} description={undefined} />
+        <Header title={titleText} description={undefined} />
 
         {/* Body */}
-        {body && (
+        {bodyText && (
           <div className="md:pt-6 min-[1800px]:pt-8 min-[1800px]:mx-40">
             <CustomPortableText
               paragraphClasses="font-barlow max-w-3xl text-gray-800 text-base md:text-lg"
-              value={body}
+              value={bodyText}
             />
           </div>
         )}
 
         {/* Footer - only display if the title is "Infos" */}
-        {title === 'Infos' && (
+        {title === 'Info' && (
           <div className="max-w-full flex flex-col justify-center md:mb-12 font-barlow -mt-6 md:mt-6">
            <h1 className='font-bold text-base md:text-xl '>Apoios</h1>
             {/* Logos */}

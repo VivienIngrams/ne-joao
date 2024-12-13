@@ -5,16 +5,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+import { useLanguage} from '@/app/contexts/LanguageContext'
 import { urlForImage } from '@/sanity/lib/utils'
 import type { HomePagePayload } from '@/types'
 
 export interface HomePageProps {
   data: HomePagePayload | null
   encodeDataAttribute?: EncodeDataAttributeCallback
-  language: 'en' | 'pt' // Added language prop
+  
 }
 
-export function HomePage({ data, language, encodeDataAttribute }: HomePageProps) {
+export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   const imageUrl =
     data?.coverImage &&
     urlForImage(data.coverImage)
@@ -23,37 +24,43 @@ export function HomePage({ data, language, encodeDataAttribute }: HomePageProps)
       .fit('crop') // Adjust fit as needed
       .url()
 
-  // Conditionally set the overview based on language
-  const overviewText = language === 'en' ? data?.overview : data?.overview_pt
-
+      const { language } = useLanguage();
+      const overviewText = language === 'en' ? data?.overview : data?.overview_pt;
+      console.log('language:' + language)
   return (
-    <section className="max-h-screen max-w-screen bg-black">
-      {/* Background Image using Next.js Image */}
-      {imageUrl && (
-        <Image
-          src={imageUrl}
-          alt="Background Image"
-          fill
-          sizes="100vw"
-          objectFit="cover" // Ensures the image covers the area proportionally
-          className="md:ml-[25vw] z-1"
-          priority // Prioritize loading this image
-        />
+    <section className="relative h-screen w-screen bg-black overflow-hidden -ml-4">
+  {/* Background Image using Next.js Image */}
+  {imageUrl && (
+    <Image
+      src={imageUrl}
+      alt="Background Image"
+      fill
+      sizes="100vw"
+      className="object-cover object-center z-1"
+      priority // Prioritize loading this image
+    />
+  )}
+
+  {/* Content Over Background */}
+  <Link
+    href="/projects"
+    className="absolute inset-0 flex flex-col justify-end items-center md:justify-start md:items-start z-5"
+  >
+    <div className="bg-black/50 p-4 w-full text-left sm:absolute sm:bottom-0 sm:p-4 sm:w-full sm:text-center">
+      {/* Title */}
+      <h1 className="font-barlowC font-thin text-5xl text-red-700 md:text-6xl">
+        LabIO
+      </h1>
+      {/* Description */}
+      {overviewText && (
+        <h3 className="text-md py-2 text-white leading-relaxed md:text-xl md:py-4">
+          {overviewText}
+        </h3>
       )}
-      {/* Content over the background */}
-      <Link href="/projects" className="absolute top-0 left-0 max-h-screen w-full h-full flex justify-center items-end  z-5">
-        <div className=" flex flex-col py-8 pl-6 w-1/3">
-          <h1 className="font-barlowC font-thin text-6xl text-red-700 align-left ">
-            LabIO
-          </h1>
-          {overviewText && (
-            <h3 className="text-xl py-4 text-white">
-              {overviewText}
-            </h3>
-          )}
-        </div>
-      </Link>
-    </section>
+    </div>
+  </Link>
+</section>
+
   )
 }
 
