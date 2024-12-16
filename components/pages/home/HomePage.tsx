@@ -44,11 +44,11 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   {/* Content Over Background */}
   <Link
     href="/projects"
-    className="absolute inset-0 flex flex-col justify-end items-center md:justify-start md:items-start z-5"
+    className="absolute inset-0 flex flex-col justify-end items-center md:justify-start md:ml-[18%] md:max-w-[27%] md:items-start z-5"
   >
-    <div className="bg-black/50 p-4 w-full text-left sm:absolute sm:bottom-0 sm:p-4 sm:w-full sm:text-center">
+    <div className="bg-black/50 p-4 md:pb-12 w-full sm:absolute sm:bottom-0 sm:p-4 sm:w-full text-center md:text-left">
       {/* Title */}
-      <h1 className="font-barlowC font-thin text-5xl text-red-700 md:text-6xl">
+      <h1 className="font-barlowC font-thin text-5xl text-red-700 md:text-6xl ">
         LabIO
       </h1>
       {/* Description */}
