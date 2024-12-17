@@ -21,13 +21,13 @@ export function Page({ data }: PageProps) {
 
   return (
     <div>
-      <div className="pt-7 pb-4 md:py-6 md:max-w-[65vw] md:mx-auto">
+      <div className="pt-7 pb-4 md:py-4 md:max-w-[65vw] md:mx-auto">
         {/* Header */}
         <Header title={titleText} description={undefined} />
 
         {/* Body */}
         {bodyText && (
-          <div className="md:pt-6 min-[1800px]:pt-8 min-[1800px]:mx-40">
+          <div className="md:pt-6  min-[1800px]:mx-40">
             <CustomPortableText
               paragraphClasses="font-barlow max-w-3xl text-gray-800 text-base md:text-lg"
               value={bodyText}
@@ -37,8 +37,8 @@ export function Page({ data }: PageProps) {
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Info' && (
-          <div className="max-w-full flex flex-col justify-center md:mb-12 font-barlow -mt-6 md:mt-6 font-bold text-base md:text-lg ">
-           <h1 className=''>{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
+          <div className="max-w-full flex flex-col justify-center md:mb-8 font-barlow -mt-6 md:-mt-4 font-bold text-base md:text-lg ">
+           <h1 className='md:-mb-4'>{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
             {/* Logos */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 mb-6 md:m-4">
               <Image
@@ -74,8 +74,8 @@ export function Page({ data }: PageProps) {
               />
             </div>
 
-            <div className='md:mt-6 '>
-              <h1 className=''>{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
+            <div className='md:mt-2 '>
+              <h1 className='md:-mb-4              '>{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 m-4 md:mx-6">
                 <Image
