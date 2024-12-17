@@ -86,7 +86,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-12 md:mt-0 py-4 md:mx-24 space-y-5">
+      <div className="mt-12 md:mt-0 py-4 md:mx-24 space-y-4">
         {/* Header with duration */}
         <Header
           title={titleText}
@@ -106,7 +106,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
       {/* Videos Section */}
       {videos.length > 0 && (
-        <div className="py-12 md:mx-24 space-y-5">
+        <div className="py-8 md:py-12 md:mx-24 space-y-5">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {videos.map((video, index) => (
               <div key={index} className="video-item">
