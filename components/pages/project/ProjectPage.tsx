@@ -72,12 +72,12 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {
           src: '/LabIO.mp4',
           poster: '/LabIO.png',
-          title: language === 'en' ? 'LabIO Performance Video 1' : 'LabIO Desempenho Vídeo 1',
+          title: language === 'en' ? 'LabIO Performance Video 1' : 'LabIO Performance Vídeo 1',
         },
         {
           src: '/LabIO2.mp4',
           poster: '/LabIO2.png',
-          title: language === 'en' ? 'LabIO Performance Video 2' : 'LabIO Desempenho Vídeo 2',
+          title: language === 'en' ? 'LabIO Performance Video 2' : 'LabIO Performance Vídeo 2',
         },
       ]
     }

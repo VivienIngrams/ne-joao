@@ -36,7 +36,7 @@ export default function Navbar(props: NavbarProps) {
       {/* Language Switcher Button */}
       <button
         onClick={toggleLanguage}
-        className="hidden md:block md:fixed top-3 right-3 p-1 text-small text-red-700  rounded-tl-md rounded-br-md border-[1px] border-red-700 "
+        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/50 text-small text-red-700  rounded-tl-md rounded-br-md border-[1px] border-red-700 "
       >
         {language === 'en' ? 'PT' : 'EN'}
       </button>

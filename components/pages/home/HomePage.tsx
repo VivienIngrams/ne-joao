@@ -48,7 +48,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   >
     <div className="bg-black/50 p-4 md:pb-12 w-full sm:absolute sm:bottom-0 sm:p-4 sm:w-full text-center md:text-left">
       {/* Title */}
-      <h1 className="font-barlowC font-thin text-5xl text-red-700 md:text-6xl ">
+      <h1 className="font-barlowC font-thin text-5xl text-red-700 md:text-9xl ">
         LabIO
       </h1>
       {/* Description */}
