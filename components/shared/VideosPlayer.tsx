@@ -16,7 +16,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const videoRef = useRef<HTMLVideoElement | null>(null)
 
   return (
-    <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-br-md border-2 border-red-600">
+    <div className="relative aspect-[16/9] overflow-hidden rounded-tl-md rounded-br-md border-2 border-[#6a6a6a]">
       <video
         ref={videoRef}
         src={videoSrc}

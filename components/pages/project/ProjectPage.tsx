@@ -98,7 +98,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {descriptionText && (
           <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2] md:leading-[1.1] text-justify text-base md:text-lg  text-gray-700"
+            paragraphClasses="font-barlow leading-[1.2] md:leading-[1.1] text-justify text-base md:text-lg "
             value={descriptionText}
           />
         )}
@@ -110,7 +110,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {videos.map((video, index) => (
               <div key={index} className="video-item">
-                <h2 className="text-center text-2xl font-arsenal text-gray-500 mb-4">
+                <h2 className="text-center text-2xl font-arsenal text-[#6a6a6a] mb-4">
                   {video.title}
                 </h2>
                 <VideoPlayer

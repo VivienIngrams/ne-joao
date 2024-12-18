@@ -25,11 +25,13 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-20  md:hidden">
-      <div className= {`fixed top-0 left-0 z-10 flex w-full px-16 mx-auto  py-4 justify-center  ${!isHomepage ? 'h-[80px] bg-white' : 'bg-gradient-to-r from-white to-transparent h-[71px] '} `}>
+      <div
+        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[rgba(201,226,215)] via-[rgba(201,226,215)]  to-[rgba(201,226,215,0.1)] ' : ''} `}
+      >
         {!isHomepage && (
           <Link
             href="/"
-            className="font-barlowC font-thin text-4xl text-red-700 -mt-2 px-2 rounded-tl-md rounded-br-md border-[1px] border-red-700"
+            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md rounded-br-md border-[1px] border-[#6a6a6a]"
           >
             LabIO
           </Link>
@@ -45,22 +47,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
             aria-expanded={isOpen}
           >
             <span className="sr-only">Open main menu</span>
-            {isOpen ? (
-              <svg
-                className="block h-4 w-4 ml-[25px] my-[25px]"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M19 5L5 19M5 5L19 19"
-                  stroke="#000000"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            ) : (
+            {!isOpen && (
               <svg
                 viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +56,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               >
                 <path
                   d="M12 8h15M5 16h22M5 24h22M5 11l3-3-3-3"
-                  stroke="#000000"
+                  stroke={isHomepage ? '#c9e2d7' : '#000000'} // Conditionally set the stroke color
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -81,58 +68,84 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       </div>
 
       <div
-        className={`${isOpen ? 'block' : 'hidden'} font-arsenal z-50 bg-gradient-to-r from-white to-transparent backdrop-blur`}
-        id="mobile-menu"
-      >
-          <button
-            onClick={toggleLanguage}
-            className="fixed top-4 right-4 p-1 text-xs text-red-700 z-55 bg-white/70 rounded-tl-md rounded-br-md border-[1px] border-red-700 "
+  className={`${
+    isOpen ? 'block' : 'hidden'
+  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgba(201,226,215)] to-[rgba(201,226,215,0.2)] backdrop-blur`}
+  id="mobile-menu"
+>
+  {/* Close Button */}
+  <button
+    onClick={toggleMenu}
+    type="button"
+    className="absolute top-4 left-4 z-60 flex items-center justify-center"
+    aria-controls="mobile-menu"
+    aria-expanded={isOpen}
+  >
+    <span className="sr-only">Close main menu</span>
+    <svg
+      className="block h-4 w-4"
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M19 5L5 19M5 5L19 19"
+        stroke="#000000" // You can also conditionally set this to white (#ffffff) if needed
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </button>
+
+  {/* Language Toggle Button */}
+  <button
+    onClick={toggleLanguage}
+    className="fixed top-4 right-4 p-1 text-xs  z-55 bg-[rgba(201,226,215,0.5)] rounded-tl-md rounded-br-md border-[1px] border-[#4c4c4c]"
+  >
+    {language === 'en' ? 'PT' : 'EN'}
+  </button>
+
+  {/* Menu Items */}
+  <div className="pt-20 pl-4 text-lg md:text-xl text-black">
+    {menuItems &&
+      menuItems.map((menuItem, key) => {
+        const href = resolveHref(menuItem?._type, menuItem?.slug)
+        if (!href) {
+          return null
+        }
+
+        const isBold =
+          menuItem.title === 'All Projects' ||
+          menuItem.title === 'Info' ||
+          menuItem.title === 'About' ||
+          menuItem.title === 'Biographies' ||
+          menuItem.title === 'Publications'
+
+        const startDate = menuItem?.duration?.start
+        const startYear = startDate ? new Date(startDate).getFullYear() : null
+
+        const title = language === 'en' ? menuItem.title : menuItem.title_pt
+
+        return (
+          <Link
+            key={key}
+            href={href}
+            className={`hover:bg-[#6a6a6a]/20 block p-1 ${
+              isBold ? 'font-bold' : 'font-light'
+            }`}
+            onClick={toggleMenu}
           >
-            {language === 'en' ? 'PT' : 'EN'}
-          </button>{' '}
-        <div className="min-h-screen w-screen pt-4 pl-4 font-arsenal text-lg active:text-red-700 md:text-xl text-black">
-          {/* Language Switcher Button */}
-          {menuItems &&
-            menuItems.map((menuItem, key) => {
-              const href = resolveHref(menuItem?._type, menuItem?.slug)
-              if (!href) {
-                return null
-              }
+            {title}
+            {startYear && (
+              <span className="text-xs text-gray-600"> {startYear}</span>
+            )}
+          </Link>
+        )
+      })}
+  </div>
+</div>
 
-              const isBold =
-                menuItem.title === 'All Projects' ||
-                menuItem.title === 'Info' ||
-                menuItem.title === 'About' ||
-                menuItem.title === 'Biographies' ||
-                menuItem.title === 'Publications' 
-
-              const startDate = menuItem?.duration?.start
-              const startYear = startDate
-                ? new Date(startDate).getFullYear()
-                : null
-
-              // Conditionally render title based on the selected language
-              const title =
-                language === 'en' ? menuItem.title : menuItem.title_pt
-
-              return (
-                <Link
-                  key={key}
-                  href={href}
-                  className={`hover:bg-red-700/20 block p-1 ${
-                    isBold ? 'font-bold' : 'font-light'
-                  }`}
-                  onClick={toggleMenu}
-                >
-                  {title}
-                  {startYear && (
-                    <span className="text-xs text-gray-400"> {startYear}</span>
-                  )}
-                </Link>
-              )
-            })}
-        </div>
-      </div>
     </nav>
   )
 }

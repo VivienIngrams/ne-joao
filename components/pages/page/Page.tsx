@@ -103,7 +103,7 @@ export function Page({ data }: PageProps) {
             </div>
 
             <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-6 font-normal md:pb-2">
-              <p className="text-red-700 md:text-sm">
+              <p className="text-[#6a6a6a] md:text-sm">
                 Website: Vivien Ingrams
               </p>
             </footer>

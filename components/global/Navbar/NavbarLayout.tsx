@@ -26,28 +26,28 @@ export default function Navbar(props: NavbarProps) {
 
 
   return (
+    
     <nav
       className={`fixed top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
-          ? ' md:px-[10vw] bg-gradient-to-r from-white via-white to-black'
+          ? ' md:px-[10vw] bg-gradient-to-r from-[rgba(169,190,181)] via-[rgba(169,190,181)] to-black'
           : 'md:px-6 '
       }`}
     >
       {/* Language Switcher Button */}
       <button
         onClick={toggleLanguage}
-        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/50 text-small text-red-700  rounded-tl-md rounded-br-md border-[1px] border-red-700 "
+        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/30 text-small text-black  rounded-tl-md rounded-br-md border-[1px] border-[#6a6a6a] "
       >
         {language === 'en' ? 'PT' : 'EN'}
       </button>
-
       <div className="hidden md:flex w-full mt-4 py-5 justify-start">
         <Link
           href="/"
           className={`${
             isHomePage
               ? 'hidden'
-              : 'font-barlowC font-thin sm:text-4xl text-6xl text-red-700 p-2 rounded-tl-md rounded-br-md border-2 border-red-700'
+              : 'font-barlowC font-light sm:text-4xl text-6xl text-black p-2 rounded-tl-md rounded-br-md border-2 border-[#6a6a6a]'
           }`}
         >
           LabIO
@@ -87,12 +87,12 @@ export default function Navbar(props: NavbarProps) {
                 key={key}
                 className={`hidden md:block ${
                   isBold ? 'font-semibold' : 'font-light'
-                } text-lg hover:text-red-700 lg:text-xl`}
+                } text-lg hover:text-[#6a6a6a] lg:text-xl`}
                 href={href}
               >
                 {title}
                 {startYear && (
-                  <span className="text-xs text-gray-400"> {startYear}</span>
+                  <span className="text-xs text-[#494949]"> {startYear}</span>
                 )}
               </Link>
             )
