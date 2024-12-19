@@ -3,8 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { useLanguage } from '@/app/contexts/LanguageContext'
 
+import { useLanguage } from '@/app/contexts/LanguageContext'
 import { resolveHref } from '@/sanity/lib/utils'
 import type { MenuItem } from '@/types'
 
@@ -31,7 +31,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
         {!isHomepage && (
           <Link
             href="/"
-            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md rounded-br-md border-[1px] border-[#6a6a6a]"
+            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md rounded-br-md border-[1px] border-[#919191]"
           >
             LabIO
           </Link>

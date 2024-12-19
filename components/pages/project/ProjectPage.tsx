@@ -1,13 +1,22 @@
 'use client'
 
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
-import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
 import { useLanguage } from '@/app/contexts/LanguageContext'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
 import VideoPlayer from '@/components/shared/VideosPlayer'
 import type { ProjectPayload } from '@/types'
+
+const fetchVideosFromBlobStore = async () => {
+  const response = await fetch('/api/get-blob');
+  if (!response.ok) {
+    throw new Error('Failed to fetch videos');
+  }
+  return await response.json();
+};
+
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -28,6 +37,20 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     tags,
   } = data ?? {}
 
+  const [longVideos, setLongVideos] = useState([]);
+  
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const blobs = await fetchVideosFromBlobStore();
+        setLongVideos(blobs);
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+      }
+    }
+    fetchData();
+  }, []);
+ 
   const startYear = duration?.start
     ? new Date(duration.start).getFullYear()
     : undefined
@@ -47,42 +70,46 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     title_pt: string
   }
 
-  // Define videos array
+
   const videos = (() => {
+    // Define hardcoded videos for different titles
+    const hardcodedVideos = title === 'Laboratório' ? [
+      {
+        src: '/1.mov',
+        poster: '/1.jpg',
+        title: language === 'en' ? 'Laboratory Video 1' : 'Laboratório Vídeo 1',
+      },
+      {
+        src: '/2.mp4',
+        poster: '/2.png',
+        title: language === 'en' ? 'Laboratory Video 2' : 'Laboratório Vídeo 2',
+      },
+    ] : title === 'LabIO Performance' ? [
+      {
+        src: '/LabIO.mp4',
+        poster: '/LabIO.png',
+        title: language === 'en' ? 'LabIO Performance Video 1' : 'LabIO Performance Vídeo 1',
+      },
+      {
+        src: '/LabIO2.mp4',
+        poster: '/LabIO2.png',
+        title: language === 'en' ? 'LabIO Performance Video 2' : 'LabIO Performance Vídeo 2',
+      },
+    ] : [];
+  
+    // Only add fetched longVideos if the title is "Laboratório"
     if (title === 'Laboratório') {
-      return [
-        {
-          src: '/1.mov',
-          poster: '/1.jpg',
-          title: language === 'en' ? 'Laboratory Video 1' : 'Laboratório Vídeo 1',
-        },
-        {
-          src: '/2.mp4',
-          poster: '/2.png',
-          title: language === 'en' ? 'Laboratory Video 2' : 'Laboratório Vídeo 2',
-        },
-        {
-          src: '/3.mp4',
-          poster: '/3.png',
-          title: language === 'en' ? 'Laboratory Interview' : 'Entrevista Laboratório',
-        },
-      ]
-    } else if (title === 'LabIO Performance') {
-      return [
-        {
-          src: '/LabIO.mp4',
-          poster: '/LabIO.png',
-          title: language === 'en' ? 'LabIO Performance Video 1' : 'LabIO Performance Vídeo 1',
-        },
-        {
-          src: '/LabIO2.mp4',
-          poster: '/LabIO2.png',
-          title: language === 'en' ? 'LabIO Performance Video 2' : 'LabIO Performance Vídeo 2',
-        },
-      ]
+      const fetchedVideos = longVideos.map((video: any) => ({
+        src: video.src,
+        poster: video.poster,
+        title: language === 'en' ? 'Laboratório Interview' : `Entrevista Laboratório`,
+      }));
+      return [...hardcodedVideos, ...fetchedVideos];
     }
-    return []
-  })()
+  
+    return hardcodedVideos;
+  })();
+  
 
   return (
     <div>
@@ -119,7 +146,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
                   poster={video.poster}
                 />
               </div>
-            ))}
+            ))} 
           </div>
         </div>
       )}

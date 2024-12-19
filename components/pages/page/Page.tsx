@@ -37,6 +37,7 @@ export function Page({ data }: PageProps) {
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Info' && (
+          <>
           <div className="max-w-full bg-white p-2 md:p-4 border-2 md:border-[3px] border-[#888888] flex flex-col justify-center md:mb-8 font-barlow -mt-6 md:-mt-4 font-bold text-base md:text-lg ">
            <h1 className='md:-mb-4'>{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
             {/* Logos */}
@@ -101,13 +102,13 @@ export function Page({ data }: PageProps) {
                 />
               </div>
             </div>
-
-            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-6 font-normal md:pb-2">
+            </div>
+            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-4 font-normal pb-2">
               <p className="text-[#6a6a6a] md:text-sm">
                 Website: Vivien Ingrams
               </p>
             </footer>
-          </div>
+          </>
         )}
       </div>
     </div>
