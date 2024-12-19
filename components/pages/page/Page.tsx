@@ -37,7 +37,7 @@ export function Page({ data }: PageProps) {
 
         {/* Footer - only display if the title is "Infos" */}
         {title === 'Info' && (
-          <div className="max-w-full flex flex-col justify-center md:mb-8 font-barlow -mt-6 md:-mt-4 font-bold text-base md:text-lg ">
+          <div className="max-w-full bg-white p-2 md:p-4 border-2 md:border-[3px] border-[#888888] flex flex-col justify-center md:mb-8 font-barlow -mt-6 md:-mt-4 font-bold text-base md:text-lg ">
            <h1 className='md:-mb-4'>{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
             {/* Logos */}
             <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 mb-6 md:m-4">

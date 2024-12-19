@@ -26,7 +26,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   return (
     <nav className="fixed top-0 left-0 w-full z-20  md:hidden">
       <div
-        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[rgba(201,226,215)] via-[rgba(201,226,215)]  to-[rgba(201,226,215,0.1)] ' : ''} `}
+        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[#dce3e0] via-[rgb(220,227,224)]  to-[rgba(220,227,224,0.1)]   ' : ''} `}
       >
         {!isHomepage && (
           <Link
@@ -56,7 +56,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               >
                 <path
                   d="M12 8h15M5 16h22M5 24h22M5 11l3-3-3-3"
-                  stroke={isHomepage ? '#c9e2d7' : '#000000'} // Conditionally set the stroke color
+                  stroke={isHomepage ? '#bfc8c4' : '#000000'} // Conditionally set the stroke color
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -70,7 +70,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       <div
   className={`${
     isOpen ? 'block' : 'hidden'
-  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgba(201,226,215)] to-[rgba(201,226,215,0.2)] backdrop-blur`}
+  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(220,227,224)]   to-[rgb(220,227,224,0.2)]   backdrop-blur`}
   id="mobile-menu"
 >
   {/* Close Button */}

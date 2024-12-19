@@ -30,14 +30,14 @@ export default function Navbar(props: NavbarProps) {
     <nav
       className={`fixed top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
-          ? ' md:px-[10vw] bg-gradient-to-r from-[rgba(169,190,181)] via-[rgba(169,190,181)] to-black'
+          ? ' md:px-[10vw] bg-gradient-to-r from-[rgb(220,227,224)]   via-[rgb(220,227,224)]   to-black'
           : 'md:px-6 '
       }`}
     >
       {/* Language Switcher Button */}
       <button
         onClick={toggleLanguage}
-        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/30 text-small text-black  rounded-tl-md rounded-br-md border-[1px] border-[#6a6a6a] "
+        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/30 text-small text-black  rounded-tl-md rounded-br-md border-[1px] border-[#888888] "
       >
         {language === 'en' ? 'PT' : 'EN'}
       </button>
@@ -47,7 +47,7 @@ export default function Navbar(props: NavbarProps) {
           className={`${
             isHomePage
               ? 'hidden'
-              : 'font-barlowC font-light sm:text-4xl text-6xl text-black p-2 rounded-tl-md rounded-br-md border-2 border-[#6a6a6a]'
+              : 'font-barlowC font-light sm:text-4xl text-6xl text-black p-2 rounded-tl-md rounded-br-md border-2 border-[#878787]'
           }`}
         >
           LabIO
