@@ -36,80 +36,80 @@ export function Page({ data }: PageProps) {
         )}
 
         {/* Footer - only display if the title is "Infos" */}
-        {title === 'Info' && (
+               {/* Footer - only display if the title is "Infos" */}
+               {title === 'Info' && (
           <>
-          <div className="max-w-full bg-white p-2 md:p-4 border-2 md:border-[3px] border-[#888888] flex flex-col justify-center md:mb-8 font-barlow -mt-6 md:-mt-4 font-bold text-base md:text-lg ">
-           <h1 className='md:-mb-4'>{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
-            {/* Logos */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 md:gap-6 mb-6 md:m-4">
-              <Image
-                src="/porto.jpg"
-                alt="Câmara Municipal do Porto Logo"
-                width={200}
-                height={100}
-                className="h-auto"
-              />
-              <div className="flex flex-col text-base uppercase mt-4 leading-none font-semibold">
-                Garantir Cultura
-                <Image
-                  src="/RepPortuguesa.jpg"
-                  alt=" Garantir Cultura da República Portuguesa"
-                  width={150}
-                  height={100}
-                  className="h-auto -ml-1"
-                />
-              </div>
-              <Image
-                src="/Balleteatro_Logo_Positivo.png"
-                alt="Balleteatro_Logo_Positivo"
-                width={250}
-                height={100}
-                className="h-auto md:mt-[45px] ml-[18vw] md:ml-0"
-              />
-              <Image
-                src="/dgartes_vertical cmyk.png"
-                alt="dgartes_vertical"
-                width={450}
-                height={100}
-                className="h-auto col-span-2 md:mt-2"
-              />
-            </div>
-
-            <div className='md:mt-2 '>
-              <h1 className='md:-mb-4              '>{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
+            <div className="max-w-full bg-white p-1 md:p-2 border-[2px] md:border-[2px] border-[#888888] flex flex-col justify-center md:mb-4 font-barlow -mt-6 md:-mt-4 font-bold text-sm md:text-base">
+              <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
               {/* Logos */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 m-4 md:mx-6">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
                 <Image
-                  src="/INL-Logo.jpg"
-                  alt="INL Logo"
-                  width={300}
-                  height={100}
-                  className="h-auto my-4"
+                  src="/porto.jpg"
+                  alt="Câmara Municipal do Porto Logo"
+                  width={100}
+                  height={50}
+                  className="h-auto mx-auto"
+                />
+                <div className="flex flex-col text-sm uppercase leading-none font-semibold items-center">
+                  <span>Garantir Cultura</span>
+                  <Image
+                    src="/RepPortuguesa.jpg"
+                    alt="Garantir Cultura da República Portuguesa"
+                    width={100}
+                    height={50}
+                    className="h-auto"
+                  />
+                </div>
+                <Image
+                  src="/Balleteatro_Logo_Positivo.png"
+                  alt="Balleteatro Logo"
+                  width={150}
+                  height={50}
+                  className="h-auto mx-auto"
                 />
                 <Image
-                  src="/UM.jpg"
-                  alt="UNiversidade do Minho"
+                  src="/dgartes_vertical cmyk.png"
+                  alt="dgartes_vertical"
                   width={200}
-                  height={150}
-                  className="h-auto ml-[10vw] md:ml-0"
-                />
-                <Image
-                  src="/IF_LOGO.PNG"
-                  alt="IF Logo"
-                  width={250}
-                  height={200}
-                  className="h-auto md:-ml-6"
+                  height={50}
+                  className="h-auto mx-auto col-span-2"
                 />
               </div>
+
+              <div className="mt-2">
+                <h1 className="mb-2">{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
+                {/* Logos */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
+                  <Image
+                    src="/INL-Logo.jpg"
+                    alt="INL Logo"
+                    width={150}
+                    height={50}
+                    className="h-auto mx-auto"
+                  />
+                  <Image
+                    src="/UM.jpg"
+                    alt="Universidade do Minho"
+                    width={120}
+                    height={50}
+                    className="h-auto mx-auto"
+                  />
+                  <Image
+                    src="/IF_LOGO.PNG"
+                    alt="IF Logo"
+                    width={150}
+                    height={50}
+                    className="h-auto mx-auto"
+                  />
+                </div>
+              </div>
             </div>
-            </div>
-            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-4 font-normal pb-2">
-              <p className="text-[#6a6a6a] md:text-sm">
-                Website: Vivien Ingrams
-              </p>
+            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-2 font-normal pb-1">
+              <p className="text-[#6a6a6a] md:text-xs">Website: Vivien Ingrams</p>
             </footer>
           </>
         )}
+
       </div>
     </div>
   )
