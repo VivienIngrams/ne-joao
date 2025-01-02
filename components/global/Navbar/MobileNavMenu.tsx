@@ -26,7 +26,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   return (
     <nav className="fixed top-0 left-0 w-full z-20  md:hidden">
       <div
-        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[#dce3e0] via-[rgb(220,227,224)]  to-[rgba(220,227,224,0.1)]   ' : ''} `}
+        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[rgb(184,200,194)] via-[rgb(184,200,194)]  to-[rgb(184,200,194,0.1)]   ' : ''} `}
       >
         {!isHomepage && (
           <Link
@@ -70,7 +70,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       <div
   className={`${
     isOpen ? 'block' : 'hidden'
-  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(220,227,224)]   to-[rgb(220,227,224,0.2)]   backdrop-blur`}
+  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(184,200,194)]   to-[rgba(184,200,194,0.2)]   backdrop-blur`}
   id="mobile-menu"
 >
   {/* Close Button */}
@@ -101,7 +101,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   {/* Language Toggle Button */}
   <button
     onClick={toggleLanguage}
-    className="fixed top-4 right-4 p-1 text-xs  z-55 bg-[rgba(201,226,215,0.5)] rounded-tl-md rounded-br-md border-[1px] border-[#4c4c4c]"
+    className="fixed top-4 right-4 p-1 text-xs  z-55 bg-[rgba(184,200,194),0.5)] rounded-tl-md rounded-br-md border-[1px] border-[#4c4c4c]"
   >
     {language === 'en' ? 'PT' : 'EN'}
   </button>

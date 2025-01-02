@@ -4,7 +4,7 @@
 
 html {
     font-family: var(--font-family-barlowC);
-   background-color: #dce3e0;
+   background-color: rgb(184, 200, 194);
   }
   @media (max-width: 400px) {
     p {

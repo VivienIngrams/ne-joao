@@ -39,7 +39,7 @@ export function Page({ data }: PageProps) {
                {/* Footer - only display if the title is "Infos" */}
                {title === 'Info' && (
           <>
-            <div className="max-w-full bg-white p-1 md:p-2 border-[2px] md:border-[2px] border-[#888888] flex flex-col justify-center md:mb-4 font-barlow -mt-6 md:-mt-4 font-bold text-sm md:text-base">
+            <div className="max-w-full bg-white p-2 border-[2px] md:border-[2px] border-[#888888] flex flex-col justify-center md:mb-4 font-barlow -mt-6 md:-mt-4 font-bold text-sm md:text-base">
               <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
@@ -50,7 +50,7 @@ export function Page({ data }: PageProps) {
                   height={50}
                   className="h-auto mx-auto"
                 />
-                <div className="flex flex-col text-sm uppercase leading-none font-semibold items-center">
+                <div className="flex flex-col text-sm pt-2 pr-2 uppercase leading-none font-semibold items-start">
                   <span>Garantir Cultura</span>
                   <Image
                     src="/RepPortuguesa.jpg"
@@ -60,32 +60,34 @@ export function Page({ data }: PageProps) {
                     className="h-auto"
                   />
                 </div>
+                <div className='col-span-2 md:col-span-1'>
                 <Image
                   src="/Balleteatro_Logo_Positivo.png"
                   alt="Balleteatro Logo"
                   width={150}
                   height={50}
-                  className="h-auto mx-auto"
+                  className="h-auto mx-auto py-3"
                 />
+                </div>
                 <Image
                   src="/dgartes_vertical cmyk.png"
                   alt="dgartes_vertical"
-                  width={200}
+                  width={250}
                   height={50}
-                  className="h-auto mx-auto col-span-2"
+                  className="h-auto mx-auto pt-2 col-span-2"
                 />
               </div>
 
               <div className="mt-2">
                 <h1 className="mb-2">{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
                 {/* Logos */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-3">
                   <Image
                     src="/INL-Logo.jpg"
                     alt="INL Logo"
-                    width={150}
-                    height={50}
-                    className="h-auto mx-auto"
+                    width={200}
+                    height={70}
+                    className="h-auto mx-auto pt-2"
                   />
                   <Image
                     src="/UM.jpg"
@@ -104,8 +106,8 @@ export function Page({ data }: PageProps) {
                 </div>
               </div>
             </div>
-            <footer className="md:fixed md:bottom-0 md:left-6 z-50 pt-2 font-normal pb-1">
-              <p className="text-[#6a6a6a] md:text-xs">Website: Vivien Ingrams</p>
+            <footer className="md:fixed md:bottom-0 md:left-6 z-50 py-3 font-normal ">
+              <p className="text-[#6a6a6a] font-barlow md:text-xs">Website: Vivien Ingrams</p>
             </footer>
           </>
         )}
