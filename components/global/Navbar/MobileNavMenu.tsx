@@ -26,12 +26,12 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   return (
     <nav className="fixed top-0 left-0 w-full z-20  md:hidden">
       <div
-        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[rgb(184,200,194)] via-[rgb(184,200,194)]  to-[rgb(184,200,194,0.1)]   ' : ''} `}
+        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[#d8e2dc] via-[rgb(216,226,220)]  to-[rgba(216,226,220,0.1)]   ' : ''} `}
       >
         {!isHomepage && (
           <Link
             href="/"
-            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md rounded-br-md border-[1px] border-[#919191]"
+            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md  text-[#006c75] rounded-br-md border-[1px] border-[#006c75] "
           >
             LabIO
           </Link>
@@ -70,7 +70,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       <div
   className={`${
     isOpen ? 'block' : 'hidden'
-  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(184,200,194)]   to-[rgba(184,200,194,0.2)]   backdrop-blur`}
+  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(0,108,117)]    to-[rgba(0,108,117,0.2)]   backdrop-blur`}
   id="mobile-menu"
 >
   {/* Close Button */}
@@ -101,13 +101,13 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   {/* Language Toggle Button */}
   <button
     onClick={toggleLanguage}
-    className="fixed top-4 right-4 p-1 text-xs  z-55 bg-[rgba(184,200,194),0.5)] rounded-tl-md rounded-br-md border-[1px] border-[#4c4c4c]"
+    className="fixed top-4 right-4 p-1 text-xs  z-55 bg-[rgba(184,200,194),0.5)] rounded-tl-md rounded-br-md border-[1px] border-[rgb(0,108,117)]"
   >
     {language === 'en' ? 'PT' : 'EN'}
   </button>
 
   {/* Menu Items */}
-  <div className="pt-20 pl-4 text-lg md:text-xl text-black">
+  <div className="pt-20 pl-4 text-lg md:text-xl text-[rgb(216,226,220)]">
     {menuItems &&
       menuItems.map((menuItem, key) => {
         const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -138,7 +138,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
           >
             {title}
             {startYear && (
-              <span className="text-xs text-gray-600"> {startYear}</span>
+              <span className="text-xs text-white"> {startYear}</span>
             )}
           </Link>
         )
