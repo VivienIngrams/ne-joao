@@ -39,7 +39,7 @@ export function Page({ data }: PageProps) {
                {/* Footer - only display if the title is "Infos" */}
                {title === 'Info' && (
           <>
-            <div className="max-w-full bg-white p-2 border-[2px] md:border-[2px] border-[#888888] flex flex-col justify-center md:mb-4 font-barlow -mt-6 md:-mt-4 font-bold text-sm md:text-base">
+            <div className="max-w-full bg-white p-2 border-[2px] md:border-[2px] text-[#006c75]  border-[#006c75]  flex flex-col justify-center md:mb-4 font-barlow -mt-6 md:-mt-4 font-bold text-sm md:text-base">
               <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
@@ -50,7 +50,7 @@ export function Page({ data }: PageProps) {
                   height={50}
                   className="h-auto mx-auto"
                 />
-                <div className="flex flex-col text-sm pt-2 pr-2 uppercase leading-none font-semibold items-start">
+                <div className="flex flex-col text-sm pt-2 pr-2 uppercase leading-none text-black font-semibold items-start">
                   <span>Garantir Cultura</span>
                   <Image
                     src="/RepPortuguesa.jpg"

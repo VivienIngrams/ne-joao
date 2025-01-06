@@ -30,14 +30,14 @@ export default function Navbar(props: NavbarProps) {
     <nav
       className={`fixed top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
-          ? ' md:px-[10vw] bg-gradient-to-r from-[rgb(220,227,224)]   via-[rgb(220,227,224)]   to-black'
-          : 'md:px-6 '
+          ? ' md:pr-[14vw] md:pl-[9vw] bg-gradient-to-r from-[rgb(0,108,117)]    to-black'
+          : 'md:px-6 bg-[#006d77]'
       }`}
     >
       {/* Language Switcher Button */}
       <button
         onClick={toggleLanguage}
-        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/30 text-small text-black  rounded-tl-md rounded-br-md border-[1px] border-[#888888] "
+        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/10 text-small text-[#006c75]  rounded-tl-md rounded-br-md border-[1px] border-[#006d77] "
       >
         {language === 'en' ? 'PT' : 'EN'}
       </button>
@@ -47,7 +47,7 @@ export default function Navbar(props: NavbarProps) {
           className={`${
             isHomePage
               ? 'hidden'
-              : 'font-barlowC font-light sm:text-4xl text-6xl text-black p-2 rounded-tl-md rounded-br-md border-2 border-[#878787]'
+              : 'font-barlowC font-light sm:text-4xl text-6xl text-[rgb(216,226,220)] p-2 rounded-tl-md rounded-br-md border-2 border-[rgb(216,226,220)]'
           }`}
         >
           LabIO
@@ -56,7 +56,7 @@ export default function Navbar(props: NavbarProps) {
 
       <MobileNavMenu menuItems={menuItems}  />
 
-      <div className="lg:h-[70vh] flex flex-col items-start justify-center gap-y-2">
+      <div className="lg:h-[70vh] flex flex-col items-start justify-center text-[rgb(216,226,220)] gap-y-2">
         {menuItems &&
           menuItems.map((menuItem, key) => {
             const href = resolveHref(menuItem?._type, menuItem?.slug)
@@ -86,13 +86,13 @@ export default function Navbar(props: NavbarProps) {
               <Link
                 key={key}
                 className={`hidden md:block ${
-                  isBold ? 'font-semibold' : 'font-light'
-                } text-lg hover:text-[#6a6a6a] lg:text-xl`}
+                  isBold ? 'font-medium lg:text-xl' : 'font-thin'
+                } text-lg hover:text-white `}
                 href={href}
               >
                 {title}
                 {startYear && (
-                  <span className="text-xs text-[#494949]"> {startYear}</span>
+                  <span className="text-xs text-white"> {startYear}</span>
                 )}
               </Link>
             )
