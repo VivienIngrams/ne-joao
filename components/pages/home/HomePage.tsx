@@ -49,14 +49,14 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
   <div
     className="absolute inset-0 flex flex-col justify-end items-center  md:ml-[19%] md:max-w-[32%] md:justify-center z-5"
   >
-    <div className=" p-4 md:p-12 w-full   sm:w-full text-center md:text-left">
+    <div className=" p-4 pb-16 pr-16 md:p-12 w-full   sm:w-full text-left">
       {/* Title */}
-      <h1 className="font-barlowC font-light text-6xl text-[#006c75]  md:text-9xl ">
+      <h1 className="font-barlowC font-light text-7xl text-[rgb(216,226,220)]   md:text-9xl ">
         LabIO
       </h1>
       {/* Description */}
       {overviewText && (
-        <h3 className="text-md py-2 text-[#006c75] leading-relaxed md:text-xl md:py-4">
+        <h3 className="text-md py-2 text-[rgb(216,226,220)]  leading-relaxed md:text-xl md:py-4">
           {overviewText}
         </h3>
       )}

@@ -51,12 +51,12 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               <svg
                 viewBox="0 0 32 32"
                 xmlns="http://www.w3.org/2000/svg"
-                className="block h-5 w-5 ml-4 mt-[23px] z-100"
+                className="block h-5 w-5 ml-4 mt-[16px] z-100"
                 fill="none"
               >
                 <path
                   d="M12 8h15M5 16h22M5 24h22M5 11l3-3-3-3"
-                  stroke={isHomepage ? '#bfc8c4' : '#000000'} // Conditionally set the stroke color
+                  stroke={isHomepage ? '#bfc8c4' : '#006c75'} // Conditionally set the stroke color
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -70,7 +70,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       <div
   className={`${
     isOpen ? 'block' : 'hidden'
-  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(0,108,117)]    to-[rgba(0,108,117,0.2)]   backdrop-blur`}
+  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(12,103,111)]    to-[rgba(0,108,117,0.5)]   backdrop-blur`}
   id="mobile-menu"
 >
   {/* Close Button */}
@@ -90,7 +90,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
     >
       <path
         d="M19 5L5 19M5 5L19 19"
-        stroke="#000000" // You can also conditionally set this to white (#ffffff) if needed
+        stroke="#ffffff" 
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -101,7 +101,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   {/* Language Toggle Button */}
   <button
     onClick={toggleLanguage}
-    className="fixed top-4 right-4 p-1 text-xs  z-55 bg-[rgba(184,200,194),0.5)] rounded-tl-md rounded-br-md border-[1px] border-[rgb(0,108,117)]"
+    className="fixed top-4 right-4 p-1 text-xs text-[#006c75]  z-55 bg-[rgba(184,200,194),0.5)] rounded-tl-md rounded-br-md border-[1px] border-[rgb(0,108,117)]"
   >
     {language === 'en' ? 'PT' : 'EN'}
   </button>
