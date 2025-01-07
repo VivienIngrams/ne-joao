@@ -107,7 +107,7 @@ export function Page({ data }: PageProps) {
               </div>
             </div>
             <footer className="md:fixed md:bottom-0 md:left-6 z-50 py-3 font-normal ">
-              <p className="text-[#6a6a6a] font-barlow md:text-xs">Website: Vivien Ingrams</p>
+              <p className="text-black font-barlow md:text-xs">Website: Vivien Ingrams</p>
             </footer>
           </>
         )}
