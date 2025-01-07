@@ -18,9 +18,9 @@ export function Header(props: HeaderProps) {
   // Define custom PortableTextComponents for rendering within the Header
   const headerPortableTextComponents: PortableTextComponents = {
     block: {
-      normal: ({ children }) => <p className="text-xl md:text-2xl leading-[1.3rem] md:leading-[1.5rem] text-[#006d77]">{children}</p>,
-      h1: ({ children }) => <h1 className="text-3xl font-bold text-[#006c75] ">{children}</h1>,
-      h2: ({ children }) => <h2 className="text-2xl font-semibold text-[#006c75] ">{children}</h2>,
+      normal: ({ children }) => <p className="text-xl md:text-2xl leading-[1.3rem] md:leading-[1.5rem] text-[#264653]">{children}</p>,
+      h1: ({ children }) => <h1 className="text-3xl font-bold text-[#264653] ">{children}</h1>,
+      h2: ({ children }) => <h2 className="text-2xl font-semibold text-[#264653] ">{children}</h2>,
     },
     marks: {
       link: ({ children, value }) => (
@@ -39,10 +39,10 @@ export function Header(props: HeaderProps) {
     <div className={`font-arsenal ${centered ? 'md:text-center' : ''} mt-4 md:-ml-6`}>
       {/* Title with Duration */}
       {title && (
-        <div className="mb-4 flex items-baseline md:justify-center text-[#006c75]  text-4xl md:text-6xl font-medium tracking-tight">
+        <div className="mb-4 flex items-baseline md:justify-center text-[#264653]  text-4xl md:text-6xl font-medium tracking-tight">
           <span>{title}</span>
           {startYear && (
-            <span className="ml-2 text-lg text-[#006c75] ">
+            <span className="ml-2 text-lg text-[#264653] ">
               {startYear}
             </span>
           )}

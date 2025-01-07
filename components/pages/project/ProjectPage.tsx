@@ -137,7 +137,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
             {videos.map((video, index) => (
               <div key={index} className="video-item">
-                <h2 className="text-center text-2xl font-arsenal text-[#006d77] mb-4">
+                <h2 className="text-center text-2xl font-arsenal text-[#264653] mb-4">
                   {video.title}
                 </h2>
                 <VideoPlayer

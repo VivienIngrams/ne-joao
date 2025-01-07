@@ -30,14 +30,14 @@ export default function Navbar(props: NavbarProps) {
     <nav
       className={`fixed top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
-          ? ' md:pr-[14vw] md:pl-[9vw] bg-gradient-to-r from-[rgb(0,108,117)]    to-black'
-          : 'md:px-6 bg-[#006d77]'
+          ? ' md:pr-[14vw] md:pl-[9vw] bg-gradient-to-r from-[rgb(38,70,83)]    to-black'
+          : 'md:px-6 bg-[rgb(38,70,83)]'
       }`}
     >
       {/* Language Switcher Button */}
       <button
         onClick={toggleLanguage}
-        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/10 text-small text-[#006c75]  rounded-tl-md rounded-br-md border-[1px] border-[#006d77] "
+        className="hidden md:block md:fixed top-3 right-3 p-1 bg-white/10 text-small text-[#264653]  rounded-tl-md rounded-br-md border-[1px] border-[#264653] "
       >
         {language === 'en' ? 'PT' : 'EN'}
       </button>
