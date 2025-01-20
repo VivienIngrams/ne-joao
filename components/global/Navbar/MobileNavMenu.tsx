@@ -31,7 +31,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
         {!isHomepage && (
           <Link
             href="/"
-            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md  text-[#264653] rounded-br-md border-[1px] border-[#264653] "
+            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md  text-[#2a687d] rounded-br-md border-[1px] border-[#2a687d] "
           >
             LabIO
           </Link>
@@ -56,7 +56,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
               >
                 <path
                   d="M12 8h15M5 16h22M5 24h22M5 11l3-3-3-3"
-                  stroke={isHomepage ? '#bfc8c4' : '#264653'} // Conditionally set the stroke color
+                  stroke={isHomepage ? '#bfc8c4' : '#2a687d'} // Conditionally set the stroke color
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -70,7 +70,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       <div
   className={`${
     isOpen ? 'block' : 'hidden'
-  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(12,103,111)]    to-[rgba(38,70,83,0.5)]   backdrop-blur`}
+  } font-arsenal z-50 fixed top-0 left-0 min-h-screen w-screen bg-gradient-to-r from-[rgb(6,62,67)]    to-[rgba(38,70,83,0.5)]   backdrop-blur`}
   id="mobile-menu"
 >
   {/* Close Button */}
@@ -101,7 +101,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   {/* Language Toggle Button */}
   <button
     onClick={toggleLanguage}
-    className="fixed top-4 right-4 p-1 text-xs text-[#264653]  z-55 bg-[rgba(184,200,194),0.5)] rounded-tl-md rounded-br-md border-[1px] border-[rgb(38,70,83)]"
+    className="fixed top-4 right-4 p-1 text-xs text-[#2a687d]  z-55 bg-[rgba(184,200,194),0.5)] rounded-tl-md rounded-br-md border-[1px] border-[rgb(38,70,83)]"
   >
     {language === 'en' ? 'PT' : 'EN'}
   </button>
