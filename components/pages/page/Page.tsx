@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { useLanguage} from '@/app/contexts/LanguageContext'
 import { CustomPortableText } from '@/components/shared/CustomPortableText'
@@ -29,7 +30,7 @@ export function Page({ data }: PageProps) {
         {bodyText && (
           <div className="md:pt-6  min-[1800px]:mx-40">
             <CustomPortableText
-              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-base md:text-lg"
+              paragraphClasses="font-barlow max-w-3xl text-gray-800 text-justify text-base"
               value={bodyText}
             />
           </div>
@@ -107,7 +108,8 @@ export function Page({ data }: PageProps) {
               </div>
             </div>
             <footer className="md:fixed md:bottom-0 md:left-6 z-50 py-3 font-normal ">
-              <p className="text-black font-barlow md:text-xs">Website: Vivien Ingrams</p>
+              <Link href="https://vivieningrams.com" target="_blank"
+            rel="noopener noreferrer" className="text-white font-barlow md:text-xs">Website: Vivien Ingrams</Link>
             </footer>
           </>
         )}

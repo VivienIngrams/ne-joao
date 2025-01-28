@@ -125,7 +125,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {descriptionText && (
           <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2] md:leading-[1.1] text-justify text-base md:text-lg "
+            paragraphClasses="font-barlow leading-[1.2] md:leading-[1.1] text-justify text-base "
             value={descriptionText}
           />
         )}

@@ -90,7 +90,7 @@ export function CustomPortableText({
   }
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-7 text-base">
+    <div className="flex flex-col md:flex-row md:gap-7 text-base leading-tight">
       {/* First Column */}
       <div className="w-full md:w-1/2">
         <PortableText components={components || defaultComponents} value={firstColumn} />
