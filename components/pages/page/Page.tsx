@@ -109,7 +109,7 @@ export function Page({ data }: PageProps) {
             </div>
             <footer className="md:fixed md:bottom-0 md:left-6 z-50 py-3 font-normal ">
               <Link href="https://vivieningrams.com" target="_blank"
-            rel="noopener noreferrer" className="text-white font-barlow md:text-xs">Website: Vivien Ingrams</Link>
+            rel="noopener noreferrer" className="md:text-white font-barlow md:text-xs">Website: Vivien Ingrams</Link>
             </footer>
           </>
         )}
