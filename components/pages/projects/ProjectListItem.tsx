@@ -18,7 +18,7 @@ export function ProjectListItem({ project }: ProjectProps) {
           <ImageBox
             image={project.coverImage}
             alt={`Cover image from ${project.title}`}
-            classesWrapper="relative  w-100 h-40 overflow-hidden" // Wide aspect ratio and overflow hidden
+            classesWrapper="relative  w-100 h-32 md:h-40 overflow-hidden" // Wide aspect ratio and overflow hidden
           />
         </div>
 
