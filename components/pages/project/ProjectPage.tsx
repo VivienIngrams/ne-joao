@@ -133,7 +133,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
       {/* Videos Section */}
       {videos.length > 0 && (
-        <div className="py-2 md:py-0 md:pb-6 md:mx-24 ">
+        <div className="py-2  md:py-4 md:mx-24 ">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-7">
             {videos.map((video, index) => (
               <div key={index} className="video-item">
