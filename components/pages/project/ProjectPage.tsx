@@ -113,7 +113,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-12 md:mt-0 py-4 md:mx-24 space-y-4">
+      <div className="mt-12 md:mt-0 pt-4 md:mx-24 space-y-4">
         {/* Header with duration */}
         <Header
           title={titleText}
@@ -133,13 +133,13 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
       {/* Videos Section */}
       {videos.length > 0 && (
-        <div className="py-8 md:py-12 md:mx-24 space-y-5">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+        <div className="py-2 md:py-0 md:pb-6 md:mx-24 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-7">
             {videos.map((video, index) => (
               <div key={index} className="video-item">
-                <h2 className="text-center text-2xl font-arsenal text-[#2a687d] mb-4">
+                {/* <h2 className="text-center text-2xl font-arsenal text-[#2a687d] mb-4">
                   {video.title}
-                </h2>
+                </h2> */}
                 <VideoPlayer
                   videoSrc={video.src}
                   videoTitle={video.title}
