@@ -40,7 +40,7 @@ export function Page({ data }: PageProps) {
                {/* Footer - only display if the title is "Infos" */}
                {title === 'Info' && (
           <>
-            <div className="max-w-full bg-white p-2 border-[2px] md:border-[2px] text-[#2a687d]  border-[#2a687d]  flex flex-col justify-center md:mb-4 font-barlow -mt-6 md:-mt-4 font-bold text-sm md:text-base">
+            <div className="max-w-full bg-white p-2 border-[2px] md:border-[2px] text-[#2a687d]  border-[#2a687d]  flex flex-col justify-center md:mb-4 font-barlow mt-4 font-bold text-sm md:text-base">
               <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
@@ -107,9 +107,9 @@ export function Page({ data }: PageProps) {
                 </div>
               </div>
             </div>
-            <footer className="md:fixed md:bottom-0 md:left-6 z-50 py-3 font-normal ">
+            <footer className="md:fixed md:bottom-0 md:left-6 z-50 py-3 font-bold md:font-medium ">
               <Link href="https://vivieningrams.com" target="_blank"
-            rel="noopener noreferrer" className="md:text-white font-barlow md:text-xs">Website: Vivien Ingrams</Link>
+            rel="noopener noreferrer" className="text-[#2a687d] md:text-white font-barlow text-xs">Website: Vivien Ingrams</Link>
             </footer>
           </>
         )}
