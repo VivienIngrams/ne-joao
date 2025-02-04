@@ -128,6 +128,10 @@ export default defineType({
             { title: 'H4', value: 'h4' },
             { title: 'Quote', value: 'blockquote' },
           ],
+          lists: [
+            {title: 'Bullet', value: 'bullet'},
+            {title: 'Numbered', value: 'number'}
+          ],
         }),
         defineArrayMember({
           name: 'timeline',
@@ -198,6 +202,10 @@ export default defineType({
             { title: 'H3', value: 'h3' },
             { title: 'H4', value: 'h4' },
             { title: 'Quote', value: 'blockquote' },
+          ],
+          lists: [
+            {title: 'Bullet', value: 'bullet'},
+            {title: 'Numbered', value: 'number'}
           ],
         }),
         defineArrayMember({

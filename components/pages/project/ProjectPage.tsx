@@ -113,7 +113,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-12 md:mt-0 pt-4 md:mx-24 space-y-4">
+      <div className="mt-12 md:mt-0 pt-4 md:mx-24 space-y-4 ">
         {/* Header with duration */}
         <Header
           title={titleText}
@@ -125,7 +125,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         {/* Description */}
         {descriptionText && (
           <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2] md:leading-[1.1] text-justify text-base "
+            paragraphClasses="font-barlow leading-[1.2]  text-justify text-base "
             value={descriptionText}
           />
         )}
@@ -133,8 +133,8 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
       {/* Videos Section */}
       {videos.length > 0 && (
-        <div className="py-2  md:py-4 md:mx-24 ">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-7">
+        <div className=" my-4 max-w-2xl mx-auto">
+          <div className="space-y-4">
             {videos.map((video, index) => (
               <div key={index} className="video-item">
                 {/* <h2 className="text-center text-2xl font-arsenal text-[#2a687d] mb-4">

@@ -18,7 +18,7 @@ export function ProjectsPage({ data, encodeDataAttribute }: ProjectsPageProps) {
   const { showcaseProjects = [] } = data ?? {}
 
   return (
-    <section className=" md:pl-28">
+    <section className=" md:pl-12">
      
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (

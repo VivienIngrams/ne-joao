@@ -1,22 +1,6 @@
-import Image from 'next/image'
 import { PortableText, PortableTextBlock, PortableTextComponents } from 'next-sanity'
-
 import ImageBox from '@/components/shared/ImageBox'
 import { TimelineSection } from '@/components/shared/TimelineSection'
-
-// Helper function to calculate total character count in PortableText blocks
-const getCharacterCount = (blocks: PortableTextBlock[]) =>
-  blocks.reduce((total, block) => {
-    // Treat an image block as a paragraph with an estimated character count
-    if (block._type === 'image') {
-      return total + 175 // Adjust this value as needed for your layout
-    }
-
-    if (typeof block.children !== 'undefined') {
-      return total + block.children.reduce((sum, child) => sum + (child.text || '').length, 0)
-    }
-    return total
-  }, 0)
 
 export function CustomPortableText({
   paragraphClasses,
@@ -25,34 +9,27 @@ export function CustomPortableText({
 }: {
   paragraphClasses?: string
   value: PortableTextBlock[]
-  components?: PortableTextComponents // Accept custom components
+  components?: PortableTextComponents
 }) {
-  // Calculate the total character count for all blocks
-  const totalCharacterCount = getCharacterCount(value)
-
-  // Find the splitting point
-  let currentCharacterCount = 0
-  const splitIndex = value.findIndex((block) => {
-    currentCharacterCount += getCharacterCount([block])
-    return currentCharacterCount >= totalCharacterCount / 2
-  })
-
-  // Split content at the calculated index
-  const firstColumn = value.slice(0, splitIndex + 1)
-  const secondColumn = value.slice(splitIndex + 1)
-
-  // Default components if none are provided
   const defaultComponents: PortableTextComponents = {
     block: {
       normal: ({ children }) => {
-        return <p className={paragraphClasses}>{children}</p>
+        return <p className={`${paragraphClasses} pb-2`}>{children}</p>
+      },
+      bullet: ({ children }) => {
+        return <ul className="">{children}</ul>
+      },
+    },
+    list: {
+      bullet: ({ children }) => {
+        return <li className="font-barlow text-sm list-none pb-1">{children}</li>
       },
     },
     marks: {
       link: ({ children, value }) => {
         return (
           <a
-            className="underline transition hover:opacity-50 z-5"
+            className="underline transition hover:opacity-50"
             href={value?.href}
             rel="noreferrer noopener"
           >
@@ -68,7 +45,7 @@ export function CustomPortableText({
         value: { asset: { _ref: string; _type: string }; alt?: string; caption?: string }
       }) => {
         return (
-          <div className="my-4 space-y-2 z-5">
+          <div className="mb-4">
             <ImageBox
               image={value}
               alt={value.alt}
@@ -90,16 +67,8 @@ export function CustomPortableText({
   }
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-7 text-base leading-tight">
-      {/* First Column */}
-      <div className="w-full md:w-1/2">
-        <PortableText components={components || defaultComponents} value={firstColumn} />
-      </div>
-
-      {/* Second Column */}
-      <div className="w-full md:w-1/2">
-        <PortableText components={components || defaultComponents} value={secondColumn} />
-      </div>
+    <div className="max-w-2xl mx-auto text-base leading-relaxed">
+      <PortableText components={components || defaultComponents} value={value} />
     </div>
   )
 }
