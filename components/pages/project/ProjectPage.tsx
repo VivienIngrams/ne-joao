@@ -40,9 +40,6 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
   }, [])
   const { language } = useLanguage()
   if (!data) return <div>Loading...</div>
-  console.log('Full data:', data)
-  console.log('Project:', data?.project)
-  console.log('All Projects:', data?.allProjects)
 
   // Destructure the new data structure
   const { project, allProjects } = data ?? {}
@@ -139,7 +136,8 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-20 md:my-4 md:mx-24 space-y-4 ">
+      <div className="mt-20 md:my-6 md:mx-24 ">
+        
         <div className="-mb-3 md:hidden">
           <Link
             href="/projects"
@@ -149,30 +147,30 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
           </Link>
         </div>
 
-        {/* Header with duration */}
-        <Header
-          title={titleText}
-          description={overviewText || []}
-          startYear={startYear}
-          endYear={endYear}
-        />
-
-        {/* Description */}
-        {descriptionText && (
-          <CustomPortableText
-            paragraphClasses="font-barlow leading-[1.2]  text-justify text-base "
-            value={descriptionText}
+        <div className="md:space-y-6 ">
+          {/* Header with duration */}
+          <Header
+            title={titleText}
+            description={overviewText || []}
+            startYear={startYear}
+            endYear={endYear}
           />
-        )}
-      </div>
 
+          {/* Description */}
+          {descriptionText && (
+            <CustomPortableText
+              paragraphClasses="font-barlow leading-[1.2]  text-justify text-base "
+              value={descriptionText}
+            />
+          )}
+        </div>
+      </div>
       {/* Videos Section */}
       {videos.length > 0 && (
         <div className=" my-4 max-w-2xl mx-auto">
           <div className="space-y-4">
             {videos.map((video, index) => (
               <div key={index} className="video-item">
-                
                 <VideoPlayer
                   videoSrc={video.src}
                   videoTitle={video.title}

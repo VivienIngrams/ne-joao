@@ -23,19 +23,19 @@ const ProjectNavigation = ({ projects, currentProjectSlug }: ProjectNavigationPr
   const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null
   
   return (
-    <footer className="w-full pt-2 md:px-12">
+    <footer className="min-w-full py-4 mb-4 md:px-12">
       <div className="max-w-screen-xl mx-auto py-3 flex justify-between items-center">
         {previousProject ? (
           <Link 
             href={`/projects/${previousProject.slug}`}
-            className="flex items-center gap-2 group hover:text-gray-600 transition-colors"
+            className="flex items-center gap-2 text-[#2a687d] group hover:text-black transition-colors"
           >
             <ArrowLeft className="transition-transform group-hover:-translate-x-1" />
             <div>
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-black">
                 {language === 'en' ? 'Previous Project' : 'Projeto Anterior'}
               </div>
-              <div className="font-medium">
+              <div className="font-semibold  font-arsenal">
                 {language === 'en' ? previousProject.title : previousProject.title_pt || previousProject.title}
               </div>
             </div>
@@ -47,17 +47,17 @@ const ProjectNavigation = ({ projects, currentProjectSlug }: ProjectNavigationPr
         {nextProject ? (
           <Link 
             href={`/projects/${nextProject.slug}`}
-            className="flex items-center gap-2 text-right group hover:text-gray-600 transition-colors ml-auto"
+            className="flex items-center gap-2 text-right group hover:text-black transition-colors ml-auto"
           >
-            <div>
-              <div className="text-sm text-gray-500">
+            <div className=' text-[#2a687d]'>
+              <div className="text-sm text-black">
                 {language === 'en' ? 'Next Project' : 'Próximo Projeto'}
               </div>
-              <div className="font-medium">
+              <div className="font-semibold font-arsenal">
                 {language === 'en' ? nextProject.title : nextProject.title_pt || nextProject.title}
               </div>
             </div>
-            <ArrowRight className="transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="text-[#2a687d] transition-transform group-hover:translate-x-1" />
           </Link>
         ) : (
           <div className="w-1/3" />

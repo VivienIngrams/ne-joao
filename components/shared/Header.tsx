@@ -51,7 +51,7 @@ export function Header(props: HeaderProps) {
 
       {/* Description using PortableText directly */}
       {description !== undefined && (
-        <div className="mb-4  md:max-w-[55vw] md:mx-auto font-medium md:text-center">
+        <div className="-mt-2 mb-4  md:max-w-[55vw] md:mx-auto font-medium md:text-center">
           <PortableText 
             value={description}  // Use the description prop directly here
             components={headerPortableTextComponents}  // Pass the custom components

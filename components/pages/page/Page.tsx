@@ -28,7 +28,7 @@ export function Page({ data }: PageProps) {
 
         {/* Body */}
         {bodyText && (
-          <div className="md:pt-0  md:max-w-[65vw] ">
+          <div className="md:pt-4  md:max-w-[65vw] ">
             <CustomPortableText
               paragraphClasses="font-barlow max-w-3xl text-gray-800 text-justify text-base"
               value={bodyText}

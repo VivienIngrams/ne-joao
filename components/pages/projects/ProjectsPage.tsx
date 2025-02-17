@@ -30,7 +30,7 @@ console.log('showcaseProjects', showcaseProjects)
 
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="project-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-2 ">
+        <div className="project-grid pt-2 md:pt-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-2 ">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project?._type, project?.slug)
             if (!href) return null
