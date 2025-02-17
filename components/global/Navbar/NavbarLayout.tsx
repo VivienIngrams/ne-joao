@@ -65,7 +65,7 @@ export default function Navbar(props: NavbarProps) {
             }
 
             const isBold =
-              menuItem.title === 'All Projects' ||
+              menuItem.title === 'Projects' ||
               menuItem.title === 'Info' ||
               menuItem.title === 'About' ||
               menuItem.title === 'Biographies' ||

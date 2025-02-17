@@ -47,6 +47,7 @@ export interface ProjectsPagePayload {
   footer?: PortableTextBlock[]
   showcaseProjects?: ShowcaseProject[]
   title?: string
+  title_pt?: string
 }
 
 export interface PagePayload {

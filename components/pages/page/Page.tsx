@@ -82,14 +82,8 @@ export function Page({ data }: PageProps) {
               <div className="mt-2">
                 <h1 className="mb-2">{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
                 {/* Logos */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-3">
-                  <Image
-                    src="/INL-Logo.jpg"
-                    alt="INL Logo"
-                    width={200}
-                    height={70}
-                    className="h-auto mx-auto pt-2"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-3">
+                  
                   <Image
                     src="/UM.jpg"
                     alt="Universidade do Minho"

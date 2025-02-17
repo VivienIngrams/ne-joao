@@ -3,6 +3,9 @@
 import type { EncodeDataAttributeCallback } from '@sanity/react-loader'
 import Link from 'next/link'
 import React from 'react'
+import { Header } from '@/components/shared/Header'
+
+import { useLanguage} from '@/app/contexts/LanguageContext'
 
 import { ProjectListItem } from '@/components/pages/projects/ProjectListItem'
 import { resolveHref } from '@/sanity/lib/utils'
@@ -16,13 +19,18 @@ export interface ProjectsPageProps {
 export function ProjectsPage({ data, encodeDataAttribute }: ProjectsPageProps) {
   // Default to an empty object to allow previews on non-existent documents
   const { showcaseProjects = [] } = data ?? {}
+  const { language } = useLanguage();
+        const titleText = language === 'en' ? data?.title : data?.title_pt;
 
   return (
-    <section className=" md:pl-12">
-     
+    <section className="pt-7 pb-4 md:py-4 md:pl-5">
+      
+      {/* Header */}
+             <Header title={titleText} description={undefined} />
+
       {/* Showcase projects */}
       {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className=" my-7 md:my-6 project-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-4 min-[1800px]:gap-7">
+        <div className="project-grid grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-2 ">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project?._type, project?.slug)
             if (!href) return null

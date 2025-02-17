@@ -9,14 +9,14 @@ export default defineType({
     defineField({
       name: 'title',
       description: 'This field is the title of the all projects page',
-      title: 'Title',
+      title: 'Title in english',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'title_pt',
-      description: 'This field is the title of the all projects page',
-      title: 'Title',
+      description: 'Titulo da pagina dos projetos',
+      title: 'Titulo em português',
       type: 'string',
       validation: (rule) => rule.required(),
     }),

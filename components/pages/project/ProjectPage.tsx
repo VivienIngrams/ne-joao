@@ -8,6 +8,7 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
 import VideoPlayer from '@/components/shared/VideosPlayer'
 import type { ProjectPayload } from '@/types'
+import Link from 'next/link'
 
 const fetchVideosFromBlobStore = async () => {
   const response = await fetch('/api/get-blob');
@@ -113,7 +114,15 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
   return (
     <div>
-      <div className="mt-12 md:mt-0 pt-4 md:mx-24 space-y-4 ">
+      <div className="mt-20 md:mt-4 md:mx-24 space-y-4 ">
+        <div className='-mb-3 md:hidden'>
+       <Link 
+            href="/projects" 
+            className=" text-sm font-arsenal underline text-[#2a687d]  transition-colors hover:text-black hover:font-bold "
+          >
+          
+            {language === 'en' ? 'PROJECTS' : 'PROJETOS'}
+          </Link></div>
         {/* Header with duration */}
         <Header
           title={titleText}

@@ -14,9 +14,9 @@ export const homePageQuery = groq`
 export const projectsPageQuery = groq`
   *[_type == "projects"][0]{
     _id,
-    overview,
-    "overview_pt": overview_pt,
-    showcaseProjects[]->|order(duration.start desc){
+    title,
+    title_pt,
+       showcaseProjects[]->|order(duration.start desc){
       _type,
       coverImage,
       overview,
@@ -24,11 +24,11 @@ export const projectsPageQuery = groq`
       "slug": slug.current,
       tags,
       title,
-      "title_pt": title_pt,
+      title_pt,
       duration,
     },
-    title,
-    "title_pt": title_pt,
+    
+    
   }
 `
 

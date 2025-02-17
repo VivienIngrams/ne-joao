@@ -22,6 +22,6 @@ export default async function ProjectsPageRoute() {
   // if (draftMode().isEnabled) {
   //   return <ProjectsPagePreview initial={initial} />
   // }
-
+ 
   return <ProjectsPage data={initial.data} />
 }

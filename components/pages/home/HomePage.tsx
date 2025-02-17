@@ -28,6 +28,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       const overviewText = language === 'en' ? data?.overview : data?.overview_pt;
   
   return (
+    
     <section className="relative h-screen w-screen bg-black overflow-hidden -ml-4">
   {/* Background Image using Next.js Image */}
   {imageUrl && (
@@ -40,6 +41,7 @@ export function HomePage({ data, encodeDataAttribute }: HomePageProps) {
       priority // Prioritize loading this image
     />
   )}
+  
 
   {/* Content Over Background */}
   <Link
