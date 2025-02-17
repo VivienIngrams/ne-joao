@@ -141,7 +141,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         <div className="-mb-3 md:hidden">
           <Link
             href="/projects"
-            className=" text-sm font-arsenal underline text-[#2a687d]  transition-colors hover:text-black hover:font-bold "
+            className=" text-sm font-arsenal underline-offset-2 underline text-[#2a687d]  transition-colors hover:text-black hover:font-bold "
           >
             {language === 'en' ? 'PROJECTS' : 'PROJETOS'}
           </Link>

@@ -23,7 +23,7 @@ export function ProjectsPage({ data, encodeDataAttribute }: ProjectsPageProps) {
         const titleText = language === 'en' ? data?.title : data?.title_pt;
 console.log('showcaseProjects', showcaseProjects)
   return (
-    <section className="pt-7 pb-4 md:py-4 md:pl-5">
+    <section className="py-7 md:py-4 md:pl-5">
       
       {/* Header */}
              <Header title={titleText} description={undefined} />

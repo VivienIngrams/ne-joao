@@ -82,12 +82,16 @@ export default function Navbar(props: NavbarProps) {
             // Conditionally render title based on the selected language
             const title = language === 'en' ? menuItem.title : menuItem.title_pt
 
+            const isActive = path === href
+
             return (
               <Link
                 key={key}
                 className={`hidden md:block ${
                   isBold ? 'font-medium lg:text-xl' : 'font-thin'
-                } text-lg hover:text-white `}
+                } text-lg hover:text-white relative ${
+                  isActive ? 'underline underline-offset-4 decoration-[rgb(216,226,220)] ' : ''
+                }`}
                 href={href}
               >
                 {title}

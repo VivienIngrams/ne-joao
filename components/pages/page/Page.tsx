@@ -22,7 +22,7 @@ export function Page({ data }: PageProps) {
 
   return (
     <div>
-      <div className="pt-7 pb-4 md:py-4 md:max-w-[65vw] md:mx-auto">
+      <div className="py-7 md:py-4 md:max-w-[65vw] md:mx-auto">
         {/* Header */}
         <Header title={titleText} description={undefined} />
 
@@ -51,7 +51,7 @@ export function Page({ data }: PageProps) {
                   height={50}
                   className="h-auto mx-auto"
                 />
-                <div className="flex flex-col text-sm pt-2 pr-2 uppercase leading-none text-black font-semibold items-start">
+                <div className="flex flex-col text-sm pt-2 pr-2 uppercase leading-none text-gray-700 font-semibold items-start">
                   <span>Garantir Cultura</span>
                   <Image
                     src="/RepPortuguesa.jpg"
@@ -82,7 +82,7 @@ export function Page({ data }: PageProps) {
               <div className="mt-2">
                 <h1 className="mb-2">{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
                 {/* Logos */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-3">
+                <div className="grid grid-cols-1 md:mx-[15vw] md:grid-cols-2 gap-5 md:gap-3">
                   
                   <Image
                     src="/UM.jpg"
