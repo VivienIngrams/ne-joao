@@ -62,21 +62,30 @@ export interface PagePayload {
 }
 
 export interface ProjectPayload {
-  client?: string
-  coverImage?: Image
-  description?: PortableTextBlock[]
-  description_pt?: PortableTextBlock[]
-  duration?: {
-    start?: string
-    end?: string
+  project: {
+    _id: string
+    title?: string
+    title_pt?: string
+    description?: PortableTextBlock[]
+    description_pt?: PortableTextBlock[]
+    duration?: {
+      start?: string
+      end?: string
+    }
+    overview?: PortableTextBlock[]
+    overview_pt?: PortableTextBlock[]
+    coverImage?: Image
+    client?: string
+    site?: string
+    tags?: string[]
+    slug: string
   }
-  overview?: PortableTextBlock[]
-  overview_pt?: PortableTextBlock[]
-  site?: string
-  slug: string
-  tags?: string[]
-  title?: string
-  title_pt?: string
+  allProjects: Array<{
+    title: string
+    title_pt?: string
+    slug: string
+    _type: string
+  }>
 }
 
 export interface SettingsPayload {

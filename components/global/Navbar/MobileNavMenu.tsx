@@ -26,7 +26,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
   return (
     <nav className="fixed top-0 left-0 w-full z-20  md:hidden">
       <div
-        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-2 pb-5 justify-center  h-[90px]  ${!isHomepage ? 'bg-gradient-to-b from-[#d8e2dc] via-[rgb(216,226,220)]  to-[rgba(216,226,220,0.1)]   ' : ''} `}
+        className={`fixed top-0 left-0 z-10  flex w-full px-16 mx-auto  py-4 pb-3 justify-center  h-[84px]  ${!isHomepage ? ' bg-[#d8e2dc] ]   ' : ''} `}
       >
         {!isHomepage && (
           <Link
@@ -37,7 +37,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
           </Link>
         )}
       </div>
-      <div className="z-20 flex items-start justify-start text-lg md:text-xl">
+      <div className="z-20 flex items-start pt-2 justify-start text-lg md:text-xl">
         <div className="flex md:hidden">
           <button
             onClick={toggleMenu}

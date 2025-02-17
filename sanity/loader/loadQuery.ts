@@ -46,7 +46,7 @@ export const loadQuery = ((query, params = {}, options = {}) => {
   if (!usingCdn && Array.isArray(options.next?.tags)) {
     revalidate = false
   } else if (usingCdn) {
-    revalidate = 30
+    revalidate = 60
   }
   return queryStore.loadQuery(query, params, {
     ...options,

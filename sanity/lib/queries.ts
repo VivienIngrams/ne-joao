@@ -12,7 +12,7 @@ export const homePageQuery = groq`
 
 
 export const projectsPageQuery = groq`
-  *[_type == "projects"][0]{
+  *[_type == "projects"][1]{
     _id,
     title,
     title_pt,
@@ -27,8 +27,6 @@ export const projectsPageQuery = groq`
       title_pt,
       duration,
     },
-    
-    
   }
 `
 
@@ -46,23 +44,29 @@ export const pagesBySlugQuery = groq`
   }
 `
 
-export const projectBySlugQuery = groq`
-  *[_type == "project" && slug.current == $slug][0] {
+export const projectBySlugQuery = groq`{
+  "project": *[_type == "project" && slug.current == $slug][0]{
     _id,
-    client,
-    coverImage,
+    title,
+    title_pt,
     description,
-    "description_pt": description_pt,
+    description_pt,
     duration,
     overview,
-    "overview_pt": overview_pt,
+    overview_pt,
+    coverImage,
+    client,
     site,
-    "slug": slug.current,
     tags,
+    "slug": slug.current
+  },
+  "allProjects": *[_type == "project"] | order(duration.start desc) {
     title,
-    "title_pt": title_pt,
+    title_pt,
+    "slug": slug.current,
+    _type
   }
-`
+}`
 
 
 export const settingsQuery = groq`
