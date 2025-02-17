@@ -39,7 +39,7 @@ export function Header(props: HeaderProps) {
     <div className={`font-arsenal ${centered ? 'md:text-center' : ''} mt-4`}>
       {/* Title with Duration */}
       {title && (
-        <div className="mb-4 flex items-baseline md:justify-center text-[#2a687d]  text-4xl md:text-6xl font-medium tracking-tight">
+        <div className="mb-4 flex items-baseline md:justify-center text-[#2a687d]  text-4xl md:text-5xl xl:text-6xl font-medium tracking-tight">
           <span>{title}</span>
           {startYear && (
             <span className="ml-2 text-lg text-[#2a687d] ">

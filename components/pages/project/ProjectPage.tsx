@@ -167,7 +167,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
       </div>
       {/* Videos Section */}
       {videos.length > 0 && (
-        <div className=" my-4 max-w-2xl mx-auto">
+        <div className=" my-4 md:mx-24 mx-auto">
           <div className="space-y-4">
             {videos.map((video, index) => (
               <div key={index} className="video-item">

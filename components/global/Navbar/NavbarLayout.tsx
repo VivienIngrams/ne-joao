@@ -16,17 +16,13 @@ interface NavbarProps {
 export default function Navbar(props: NavbarProps) {
   const { data } = props
   const menuItems = data?.menuItems || ([] as MenuItem[])
-  const { language, toggleLanguage } = useLanguage();
+  const { language, toggleLanguage } = useLanguage()
 
   // Get the current path to check for homepage
   const path = usePathname()
   const isHomePage = path === '/'
 
- 
-
-
   return (
-    
     <nav
       className={`fixed top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
@@ -54,53 +50,57 @@ export default function Navbar(props: NavbarProps) {
         </Link>
       </div>
 
-      <MobileNavMenu menuItems={menuItems}  />
+      <MobileNavMenu menuItems={menuItems} />
+      <div className='md:h-[70vh]'>
+        <div className="h-full flex flex-col items-start justify-center text-[rgb(216,226,220)] gap-y-2">
+          {menuItems &&
+            menuItems.map((menuItem, key) => {
+              const href = resolveHref(menuItem?._type, menuItem?.slug)
+              if (!href) {
+                return null
+              }
 
-      <div className="lg:h-[70vh] flex flex-col items-start justify-center text-[rgb(216,226,220)] gap-y-2">
-        {menuItems &&
-          menuItems.map((menuItem, key) => {
-            const href = resolveHref(menuItem?._type, menuItem?.slug)
-            if (!href) {
-              return null
-            }
+              const isBold =
+                menuItem.title === 'Projects' ||
+                menuItem.title === 'Info' ||
+                menuItem.title === 'About' ||
+                menuItem.title === 'Biographies' ||
+                menuItem.title === 'Publications'
 
-            const isBold =
-              menuItem.title === 'Projects' ||
-              menuItem.title === 'Info' ||
-              menuItem.title === 'About' ||
-              menuItem.title === 'Biographies' ||
-              menuItem.title === 'Publications'
+              // Access the start date from the duration field
+              const startDate = menuItem?.duration?.start
 
-            // Access the start date from the duration field
-            const startDate = menuItem?.duration?.start
+              // Extract the year from the start date, if available
+              const startYear = startDate
+                ? new Date(startDate).getFullYear()
+                : null
 
-            // Extract the year from the start date, if available
-            const startYear = startDate
-              ? new Date(startDate).getFullYear()
-              : null
+              // Conditionally render title based on the selected language
+              const title =
+                language === 'en' ? menuItem.title : menuItem.title_pt
 
-            // Conditionally render title based on the selected language
-            const title = language === 'en' ? menuItem.title : menuItem.title_pt
+              const isActive = path === href
 
-            const isActive = path === href
-
-            return (
-              <Link
-                key={key}
-                className={`hidden md:block ${
-                  isBold ? 'font-medium lg:text-xl' : 'font-thin'
-                } text-lg hover:text-white relative ${
-                  isActive ? 'underline underline-offset-4 decoration-[rgb(216,226,220)] ' : ''
-                }`}
-                href={href}
-              >
-                {title}
-                {startYear && (
-                  <span className="text-xs text-white"> {startYear}</span>
-                )}
-              </Link>
-            )
-          })}
+              return (
+                <Link
+                  key={key}
+                  className={`hidden md:block ${
+                    isBold ? 'font-medium lg:text-xl' : 'font-thin'
+                  } text-lg hover:text-white relative ${
+                    isActive
+                      ? 'underline underline-offset-4 decoration-[rgb(216,226,220)] '
+                      : ''
+                  }`}
+                  href={href}
+                >
+                  {title}
+                  {startYear && (
+                    <span className="text-xs text-white"> {startYear}</span>
+                  )}
+                </Link>
+              )
+            })}
+        </div>
       </div>
     </nav>
   )
