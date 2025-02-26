@@ -40,8 +40,8 @@ export function Page({ data }: PageProps) {
                {/* Footer - only display if the title is "Infos" */}
                {title === 'Info' && (
           <>
-            <div className="max-w-full  flex flex-col justify-center md:mb-4 font-barlow mt-6 md:mt-4 font-semibold text-base">
-              <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
+            <div className="max-w-full  flex flex-col justify-center md:mb-4 font-barlow mt-4 md:mt-6 mr-4 font-semibold text-base">
+              {/* <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1> */}
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
                 <Image
@@ -80,7 +80,7 @@ export function Page({ data }: PageProps) {
               </div>
 
               <div className="mt-4 md:mt-2">
-                <h1 className="mb-2">{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
+                {/* <h1 className="mb-2">{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1> */}
                 {/* Logos */}
                 <div className="grid grid-cols-1 md:mx-[15vw] md:grid-cols-2 gap-5 md:gap-3">
                   
@@ -103,7 +103,7 @@ export function Page({ data }: PageProps) {
             </div>
             <footer className="md:fixed md:bottom-1 md:left-6 z-50 pt-6  font-semibold md:font-normal">
               <Link href="https://vivieningrams.com" target="_blank"
-            rel="noopener noreferrer" className="text-black md:text-[rgb(216,226,220)] font-barlow text-base">Website: Vivien Ingrams</Link>
+            rel="noopener noreferrer" className="text-black md:text-[rgb(216,226,220)] font-barlow text-sm md:text-base">Website: Vivien Ingrams</Link>
             </footer>
           </>
         )}
