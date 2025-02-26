@@ -22,7 +22,7 @@ export function CustomPortableText({
     },
     list: {
       bullet: ({ children }) => {
-        return <li className="font-barlow text-sm list-none pb-1">{children}</li>
+        return <p className="font-barlow text-sm list-none pb-1">{children}</p>
       },
     },
     marks: {

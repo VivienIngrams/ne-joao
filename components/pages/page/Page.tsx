@@ -40,28 +40,28 @@ export function Page({ data }: PageProps) {
                {/* Footer - only display if the title is "Infos" */}
                {title === 'Info' && (
           <>
-            <div className="max-w-full  p-2 border-[2px] md:border-[2px] text-[#2a687d]  border-[#2a687d]  flex flex-col justify-center md:mb-4 font-barlow mt-4 font-bold text-sm md:text-base">
+            <div className="max-w-full  flex flex-col justify-center md:mb-4 font-barlow mt-6 md:mt-4 font-semibold text-base">
               <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
                 <Image
-                  src="/porto.jpg"
+                  src="/porto.png"
                   alt="Câmara Municipal do Porto Logo"
-                  width={100}
-                  height={50}
+                  width={110}
+                  height={70}
                   className="h-auto mx-auto"
                 />
-                <div className="flex flex-col text-sm pt-2 pr-2 uppercase leading-none text-gray-700 font-semibold items-start">
-                  <span>Garantir Cultura</span>
+                <div className="flex flex-col text-sm pt-3 px-2 mr-4 uppercase leading-none text-[#505050] font-semibold items-start">
+                  <span> Garantir Cultura</span>
                   <Image
-                    src="/RepPortuguesa.jpg"
+                    src="/RepPort.png"
                     alt="Garantir Cultura da República Portuguesa"
                     width={100}
                     height={50}
-                    className="h-auto"
+                    className="h-auto -ml-1"
                   />
                 </div>
-                <div className='col-span-2 md:col-span-1'>
+                <div className='col-span-2 md:col-span-1 mt-4'>
                 <Image
                   src="/Balleteatro_Logo_Positivo.png"
                   alt="Balleteatro Logo"
@@ -73,13 +73,13 @@ export function Page({ data }: PageProps) {
                 <Image
                   src="/dgartes_vertical cmyk.png"
                   alt="dgartes_vertical"
-                  width={250}
-                  height={50}
+                  width={290}
+                  height={65}
                   className="h-auto mx-auto pt-2 col-span-2"
                 />
               </div>
 
-              <div className="mt-2">
+              <div className="mt-4 md:mt-2">
                 <h1 className="mb-2">{language === 'en' ? 'Collaborations' : 'Parcerias'}</h1>
                 {/* Logos */}
                 <div className="grid grid-cols-1 md:mx-[15vw] md:grid-cols-2 gap-5 md:gap-3">
@@ -92,18 +92,18 @@ export function Page({ data }: PageProps) {
                     className="h-auto mx-auto"
                   />
                   <Image
-                    src="/IF_LOGO.PNG"
-                    alt="IF Logo"
-                    width={150}
-                    height={50}
+                    src="/IF.PNG"
+                    alt="Instituto de Filosofia da Universidade do Porto - IF Logo"
+                    width={200}
+                    height={60}
                     className="h-auto mx-auto"
                   />
                 </div>
               </div>
             </div>
-            <footer className="md:fixed md:bottom-0 md:left-6 z-50 py-3 font-bold md:font-medium ">
+            <footer className="md:fixed md:bottom-1 md:left-6 z-50 pt-6  font-semibold md:font-normal">
               <Link href="https://vivieningrams.com" target="_blank"
-            rel="noopener noreferrer" className="text-[#2a687d] md:text-white font-barlow text-xs">Website: Vivien Ingrams</Link>
+            rel="noopener noreferrer" className="text-black md:text-[rgb(216,226,220)] font-barlow text-base">Website: Vivien Ingrams</Link>
             </footer>
           </>
         )}
