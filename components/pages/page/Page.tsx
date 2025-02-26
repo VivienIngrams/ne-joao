@@ -40,7 +40,7 @@ export function Page({ data }: PageProps) {
                {/* Footer - only display if the title is "Infos" */}
                {title === 'Info' && (
           <>
-            <div className="max-w-full bg-white p-2 border-[2px] md:border-[2px] text-[#2a687d]  border-[#2a687d]  flex flex-col justify-center md:mb-4 font-barlow mt-4 font-bold text-sm md:text-base">
+            <div className="max-w-full  p-2 border-[2px] md:border-[2px] text-[#2a687d]  border-[#2a687d]  flex flex-col justify-center md:mb-4 font-barlow mt-4 font-bold text-sm md:text-base">
               <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1>
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
@@ -85,7 +85,7 @@ export function Page({ data }: PageProps) {
                 <div className="grid grid-cols-1 md:mx-[15vw] md:grid-cols-2 gap-5 md:gap-3">
                   
                   <Image
-                    src="/UM.jpg"
+                    src="/UMinho-C.png"
                     alt="Universidade do Minho"
                     width={120}
                     height={50}

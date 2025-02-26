@@ -10,7 +10,6 @@ import { CustomPortableText } from '@/components/shared/CustomPortableText'
 import { Header } from '@/components/shared/Header'
 import VideoPlayer from '@/components/shared/VideosPlayer'
 import type { ProjectPayload } from '@/types'
-import { ProjectsPagePayload } from '@/types'
 
 export interface ProjectPageProps {
   data: ProjectPayload | null
@@ -21,7 +20,14 @@ const fetchVideosFromBlobStore = async () => {
   if (!response.ok) {
     throw new Error('Failed to fetch videos')
   }
-  return await response.json()
+  const videos = await response.json()
+
+   // Check if poster URL exists, otherwise provide a default
+   return videos.map((video: any) => ({
+    src: video.src,
+    poster: '/3.png', // Ensure a valid poster
+    title: video.title,
+  }))
 }
 
 export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
@@ -32,6 +38,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
       try {
         const blobs = await fetchVideosFromBlobStore()
         setLongVideos(blobs)
+        console.log('Fetched videos:', blobs)
       } catch (error) {
         console.error('Error fetching videos:', error)
       }
@@ -51,11 +58,6 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
     duration,
     overview,
     overview_pt,
-    coverImage,
-    client,
-    site,
-    tags,
-    slug,
   } = project ?? {}
   if (!project) return <div>Project not found</div>
   const overviewText = language === 'en' ? overview : overview_pt
@@ -82,7 +84,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
         ? [
             {
               src: '/1.mov',
-              poster: '/1.jpg',
+              poster: '/1.png',
               title:
                 language === 'en'
                   ? 'Laboratory Video 1'
@@ -133,11 +135,10 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
 
     return hardcodedVideos
   })()
-
   return (
-    <div>
-      <div className="mt-20 md:my-6 md:mx-24 ">
-        
+    
+    <div className="mt-20 md:my-6 md:mx-24 ">
+      <div>
         <div className="-mb-3 md:hidden">
           <Link
             href="/projects"
@@ -167,10 +168,12 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
       </div>
       {/* Videos Section */}
       {videos.length > 0 && (
-        <div className=" my-4 md:mx-24 mx-auto">
+        <div className="my-4 mx-auto w-full max-w-4xl">
+          {' '}
+          {/* Ensures consistent width */}
           <div className="space-y-4">
             {videos.map((video, index) => (
-              <div key={index} className="video-item">
+              <div key={index} className="w-full">
                 <VideoPlayer
                   videoSrc={video.src}
                   videoTitle={video.title}
@@ -181,6 +184,7 @@ export function ProjectPage({ data, encodeDataAttribute }: ProjectPageProps) {
           </div>
         </div>
       )}
+
       {/* Project Nav Footer */}
       {allProjects && project?.slug && (
         <ProjectNavigation

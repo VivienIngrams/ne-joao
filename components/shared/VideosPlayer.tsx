@@ -1,35 +1,28 @@
 'use client'
 
-import React, { useRef } from 'react'
-
 interface VideoPlayerProps {
   videoSrc: string
   videoTitle?: string
   poster?: string
 }
 
-const VideoPlayer: React.FC<VideoPlayerProps> = ({
-  videoSrc,
-  videoTitle,
-  poster,
-}) => {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-
+const VideoPlayer: React.FC<VideoPlayerProps> = ({ videoSrc, poster }) => {
   return (
-    <div className="relative aspect-[16/9] overflow-hidden border-2 md:border-[3px] border-[#2a687d]">
+    <div className="w-full max-w-2xl mx-auto"> {/* Enforcing width */}
+    <div className="relative w-full max-w-4xl mx-auto aspect-[16/9] overflow-hidden border-2 md:border-[3px] border-[#2a687d]">
       <video
-        ref={videoRef}
         src={videoSrc}
         poster={poster}
-        className="absolute object-cover w-full h-full"
+        className="w-full h-full object-cover"
         controls
       >
         Your browser does not support the video tag.
       </video>
-     
+    </div>
     </div>
   )
 }
+
 
 export default VideoPlayer
 

@@ -19,11 +19,11 @@ interface ImageBoxProps {
 
 // Default handling for ImageHotspot, if width or height are undefined
 const imageHotspotWithDefaults = (hotspot?: ImageHotspot) => ({
-  x: hotspot?.x || 0.5,  // Default to 0.5 if undefined
-  y: hotspot?.y || 0.5,  // Default to 0.5 if undefined
-  width: hotspot?.width ?? 100,  // Default to 100 if undefined
+  x: hotspot?.x || 0.5, // Default to 0.5 if undefined
+  y: hotspot?.y || 0.5, // Default to 0.5 if undefined
+  width: hotspot?.width ?? 100, // Default to 100 if undefined
   height: hotspot?.height ?? 100, // Default to 100 if undefined
-});
+})
 
 export default function ImageBox({
   image,
@@ -34,29 +34,28 @@ export default function ImageBox({
   classesWrapper,
   ...props
 }: ImageBoxProps) {
-  const imageUrl = image && urlForImage(image)?.height(height).width(width).fit('crop').url()
+  const imageUrl =
+    image && urlForImage(image)?.height(height).width(width).fit('crop').url()
 
   // Ensure hotspot compatibility with defaults
-  const hotspot = image?.hotspot ? imageHotspotWithDefaults(image.hotspot) : { x: 0.5, y: 0.5, width: 100, height: 100 };
+  const hotspot = image?.hotspot
+    ? imageHotspotWithDefaults(image.hotspot)
+    : { x: 0.5, y: 0.5, width: 100, height: 100 }
   const objectPosition = getObjectPositionFromHotspot(hotspot)
 
   return (
-    <div
-      className={`w-full overflow-hidden ${classesWrapper}`}
-      data-sanity={props['data-sanity']}
-    >
+    <div className="w-full max-w-4xl mx-auto overflow-hidden">
+      {' '}
+      {/* Ensures uniform width */}
       {imageUrl && (
         <Image
-          className="absolute object-cover h-full w-full  border-2 md:border-[3px] border-[#2a687d]"
+          className="w-full h-auto object-cover border-2 md:border-[3px] border-[#2a687d]"
           alt={alt}
           width={width}
           height={height}
           sizes={size}
           src={imageUrl}
           priority
-          style={{
-            objectPosition, // Apply hotspot-based position
-          }}
         />
       )}
     </div>
