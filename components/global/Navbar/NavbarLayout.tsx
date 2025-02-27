@@ -27,7 +27,7 @@ export default function Navbar(props: NavbarProps) {
       className={`fixed top-0 bottom-0 z-50 md:min-h-screen max-h-screen font-barlowC ${
         isHomePage
           ? ' md:pr-[14vw] md:pl-[9vw] bg-gradient-to-r from-[rgb(38,70,83)]    to-black'
-          : 'md:px-6 bg-[rgb(38,70,83)]'
+          : 'md:px-12 bg-[rgb(38,70,83)]'
       }`}
     >
       {/* Language Switcher Button */}
@@ -43,7 +43,7 @@ export default function Navbar(props: NavbarProps) {
           className={`${
             isHomePage
               ? 'hidden'
-              : 'font-barlowC font-light sm:text-4xl text-6xl text-[rgb(216,226,220)] p-2 rounded-tl-md rounded-br-md border-2 border-[rgb(216,226,220)]'
+              : 'font-barlowC font-light sm:text-4xl text-6xl text-[rgb(216,226,220)] p-2  border-2 border-[rgb(216,226,220)]'
           }`}
         >
           LabIO

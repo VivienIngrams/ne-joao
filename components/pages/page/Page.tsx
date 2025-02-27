@@ -22,7 +22,7 @@ export function Page({ data }: PageProps) {
 
   return (
     <div>
-      <div className="py-7 md:py-4 md:max-w-[65vw] md:mx-auto">
+      <div className="py-16 md:py-4 md:max-w-[65vw] md:mx-auto">
         {/* Header */}
         <Header title={titleText} description={undefined} />
 
@@ -40,7 +40,7 @@ export function Page({ data }: PageProps) {
                {/* Footer - only display if the title is "Infos" */}
                {title === 'Info' && (
           <>
-            <div className="max-w-full  flex flex-col justify-center md:mb-4 font-barlow mt-4 md:mt-6 mr-4 font-semibold text-base">
+            <div className="max-w-full  flex flex-col justify-center md:mb-4 font-barlow mt-8 md:mt-12 mr-4 font-semibold text-base">
               {/* <h1 className="mb-2">{language === 'en' ? 'Sponsors' : 'Apoios'}</h1> */}
               {/* Logos */}
               <div className="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 mb-4">
@@ -92,7 +92,7 @@ export function Page({ data }: PageProps) {
                     className="h-auto mx-auto"
                   />
                   <Image
-                    src="/IF.PNG"
+                    src="/IF.png"
                     alt="Instituto de Filosofia da Universidade do Porto - IF Logo"
                     width={200}
                     height={60}
@@ -101,9 +101,9 @@ export function Page({ data }: PageProps) {
                 </div>
               </div>
             </div>
-            <footer className="md:fixed md:bottom-1 md:left-6 z-50 pt-6  font-semibold md:font-normal">
+            <footer className="pl-1 md:fixed md:bottom-2 md:left-10 z-50 pt-8  font-semibold md:font-normal">
               <Link href="https://vivieningrams.com" target="_blank"
-            rel="noopener noreferrer" className="text-black md:text-[rgb(216,226,220)] font-barlow text-sm md:text-base">Website: Vivien Ingrams</Link>
+            rel="noopener noreferrer" className="text-[#2a687d] md:text-[rgb(216,226,220)] md:text-base">Website: Vivien Ingrams</Link>
             </footer>
           </>
         )}

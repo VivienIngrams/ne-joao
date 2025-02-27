@@ -39,7 +39,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
         {!isHomepage && (
           <Link
             href="/"
-            className="font-barlowC font-thin text-4xl mb-1 px-2 rounded-tl-md text-[#2a687d] rounded-br-md border-[1px] border-[#2a687d]"
+            className="font-barlowC font-thin text-4xl mb-3 px-2 rounded-tl-md text-[#2a687d] rounded-br-md border-[1px] border-[#2a687d]"
           >
             LabIO
           </Link>
@@ -59,9 +59,9 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
             <span className="sr-only">Open main menu</span>
             {!isOpen && (
               <svg
-                viewBox="0 0 32 32"
+                viewBox="0 0 36 36"
                 xmlns="http://www.w3.org/2000/svg"
-                className="block h-5 w-5 ml-4 mt-[16px] z-100"
+                className="block h-8 w-8 ml-4 mt-[8px] z-100"
                 fill="none"
               >
                 <path
