@@ -51,7 +51,7 @@ export default function Navbar(props: NavbarProps) {
       </div>
 
       <MobileNavMenu menuItems={menuItems} />
-      <div className='md:h-[70vh]'>
+      <div className='md:h-[75vh]'>
         <div className="h-full flex flex-col items-start justify-center text-[rgb(216,226,220)] gap-y-2">
           {menuItems &&
             menuItems.map((menuItem, key) => {
