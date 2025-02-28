@@ -152,6 +152,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
       </div>
 
       {/* Bottom Navigation (Filtered for Bold Items) */}
+      {!isHomepage && (
       <div className="fixed bottom-0 left-0 w-full bg-[#d8e2dc] py-2 flex justify-around ">
         {bottomNavItems.map((item, index) => {
           const href = resolveHref(item?._type, item?.slug)
@@ -164,6 +165,7 @@ const MobileNavMenu = ({ menuItems }: MobileNavMenuProps) => {
           )
         })}
       </div>
+      )}
     </nav>
   )
 }

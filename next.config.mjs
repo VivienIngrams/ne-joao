@@ -22,10 +22,11 @@ const config = {
   experimental: {
     taint: true,
   },
-  i18n: {
-    locales: ['en', 'fr'], // Supported locales
-    defaultLocale: 'fr',  // Default language of your site
-  },
+  // i18n: {
+  //   locales: ['en', 'pt'], // Supported locales
+  //   defaultLocale: 'pt',
+  //   localeDetection: false,  
+  // },
 }
 
 export default config;
