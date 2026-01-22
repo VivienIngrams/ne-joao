@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import { toPlainText } from 'next-sanity'
 
 import { ProjectPage } from '@/components/pages/project/ProjectPage'
-import { urlForOpenGraphImage } from '@/sanity/lib/utils'
+
 import { generateStaticSlugs } from '@/sanity/loader/generateStaticSlugs'
 import { loadProject } from '@/sanity/loader/loadQuery'
 const ProjectPreview = dynamic(
@@ -21,18 +21,18 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { data: project } = await loadProject(params.slug)
-  const ogImage = urlForOpenGraphImage(project?.coverImage)
+
 
   return {
-    title: project?.title,
-    description: project?.overview
-      ? toPlainText(project.overview)
-      : (await parent).description,
-    openGraph: ogImage
-      ? {
-          images: [ogImage, ...((await parent).openGraph?.images || [])],
-        }
-      : {},
+    // title: project?.title,
+    // description: project?.overview
+    //   ? toPlainText(project.overview)
+    //   : (await parent).description,
+    // openGraph: ogImage
+    //   ? {
+    //       images: [ogImage, ...((await parent).openGraph?.images || [])],
+    //     }
+    //   : {},
   }
 }
 
