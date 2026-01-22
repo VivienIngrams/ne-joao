@@ -31,7 +31,7 @@
     "date-fns": "3.6.0",
     "gsap": "^3.12.5",
     "lucide-react": "^0.475.0",
-    "next": "^14.2.21",
+    "next": "14.2.35",
     "next-sanity": "9.5.0",
     "next-translation": "^1.0.3",
     "react": "18.3.1",
